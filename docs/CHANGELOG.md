@@ -3,7 +3,7 @@
 ---
 ## v1.0.3
 Rate-limit ve ek özellikler
-| Fonksiyon | Yetki kontrolü | Açıklama |
+| Fonksiyon | Yetki kontrolü |
 |---|---|---|
 | `cmd/ban` | `Var` |
 | `cmd/op` | `Var` |
