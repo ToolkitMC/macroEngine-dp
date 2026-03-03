@@ -1,1 +1,0 @@
-$tellraw @s [{"text":"[NBT] ","color":"gray","italic":false},{"nbt":'$(nbt)',"storage":"$(storage)","color":"aqua","italic":false,"hover_event":{"action":"show_text","value":[{"text":"Raw NBT","color":"gray","italic":false},{"text":"\n"},{"nbt":"$(nbt)","storage":"$(storage)","color":"white","italic":false}]},"click_event":{"action":"copy_to_clipboard","value":'$(copy)'}}]
