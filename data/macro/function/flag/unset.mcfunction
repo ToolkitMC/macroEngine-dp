@@ -1,11 +1,11 @@
 # ============================================
 # macro:flag/unset
 # ============================================
-# Global bayrağı kaldırır.
+# Removes a global flag.
 #
-# INPUT: macro:input { key:"<bayrak_adı>" }
+# INPUT: macro:input { key:"<flag_name>" }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input key set value "game_started"
 # function macro:flag/unset with storage macro:input {}
 # ============================================

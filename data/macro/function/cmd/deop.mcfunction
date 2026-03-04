@@ -1,5 +1,5 @@
-# macro:cmd/deop — Oyuncunun OP'unu al
-# INPUT: macro:input { player:"<ad>" }
+# macro:cmd/deop — Revoke OP from a player
+# INPUT: macro:input { player:"<name>" }
 
 execute unless entity @s[tag=macro.admin] run return 0
 

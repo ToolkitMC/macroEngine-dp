@@ -1,7 +1,7 @@
-# macro:player/increment — Değişkeni 1 artır (kısayol)
-# INPUT: macro:input { player:"<ad>", key:"<değişken>" }
-# OUTPUT: macro:output { result:<yeni değer> }
-# BUG FIX v2.5: macro:input.amount artık kirletilmiyor; doğrudan scoreboard ile ekleme yapılır.
+# macro:player/increment — Increment variable by 1 (shortcut)
+# INPUT: macro:input { player:"<name>", key:"<variable>" }
+# OUTPUT: macro:output { result:<new_value> }
+# BUG FIX v2.5: macro:input.amount is no longer contaminated; addition done directly via scoreboard.
 
 $execute store result score $pvar macro.tmp run data get storage macro:engine players.$(player).$(key)
 scoreboard players add $pvar macro.tmp 1

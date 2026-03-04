@@ -1,19 +1,19 @@
 # ============================================
 # macro:cmd/damage_typed
 # ============================================
-# Özel damage type ile hasar verir.
-# macro:damage_type/ altındaki JSON'ları kullanır.
+# Deals damage using a custom damage type.
+# macro:damage_type/ altindaki JSON'lari kullanir.
 #
-# INPUT: macro:input { player:"<ad>", amount:<float>, damage_type:"<namespace:id>" }
+# INPUT: macro:input { player:"<name>", amount:<float>, damage_type:"<namespace:id>" }
 #
 # MEVCUT DAMAGE TYPES (macro namespace):
-# macro:magic — Büyü hasarı, armor bypass, scaling yok
+# macro:magic — Buyu hasari, armor bypass, scaling yok
 # macro:true_damage — Generic mesaj, scaling yok
-# macro:void_custom — Void benzeri, "outOfWorld" mesajı
-# macro:fire_custom — Ateş efekti ile hasar
-# macro:wither_custom — Wither efekti ile hasar
+# macro:void_custom — Void benzeri, "outOfWorld" mesaji
+# macro:fire_custom — damage with fire effect
+# macro:wither_custom — damage with wither effect
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input player set value "Steve"
 # data modify storage macro:input amount set value 10.0
 # data modify storage macro:input damage_type set value "macro:magic"

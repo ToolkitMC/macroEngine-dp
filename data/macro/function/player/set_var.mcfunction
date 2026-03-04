@@ -1,12 +1,12 @@
 # ============================================
 # macro:player/set_var
 # ============================================
-# KULLANIM:
+# USAGE:
 # function macro:player/set_var with storage macro:input {}
-# Gerekli input storage alanları:
-# macro:input { player:"<oyuncuAdı>", key:"<değişkenAdı>", value:<değer> }
+# Required input storage fields:
+# macro:input { player:"<playerName>", key:"<degiskenAdi>", value:<value> }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input player set value "Steve"
 # data modify storage macro:input key set value "coins"
 # data modify storage macro:input value set value 100

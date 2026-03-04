@@ -1,8 +1,8 @@
 # ============================================
 # macro:event/register
 # ============================================
-# Event'e handler fonksiyonu ekler.
-# INPUT: macro:input { event:"<event_adı>", func:"<namespace:path>" }
+# Adds a handler function to an event.
+# INPUT: macro:input { event:"<event_name>", func:"<namespace:path>" }
 # ============================================
 
 $data modify storage macro:engine events.$(event) append value {func:"$(func)"}

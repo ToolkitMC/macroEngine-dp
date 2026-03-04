@@ -1,9 +1,9 @@
 # ============================================
 # macro:cmd/advancement_revoke
 # ============================================
-# Oyuncudan advancement alır.
+# Playerdan advancement alir.
 #
-# INPUT: macro:input { player:"<ad>", advancement:"<namespace:id>" }
+# INPUT: macro:input { player:"<name>", advancement:"<namespace:id>" }
 # ============================================
 
 $advancement revoke @a[name=$(player),limit=1] only $(advancement)

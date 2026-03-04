@@ -1,15 +1,15 @@
 # ============================================
 # macro:event/count
 # ============================================
-# Bir event'e kayıtlı handler sayısını döndürür.
+# Bir event'e kayitli handler sayisini dondurur.
 #
-# INPUT: macro:input { event:"<event_adı>" }
-# OUTPUT: macro:output { result:<int> } (0 = event yok veya boş)
+# INPUT: macro:input { event:"<event_name>" }
+# OUTPUT: macro:output { result:<int> } (0 = event yok or bos)
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input event set value "on_join"
 # function macro:event/count with storage macro:input {}
-# # macro:output.result → handler sayısı
+# # macro:output.result → handler sayisi
 # ============================================
 
 data modify storage macro:output result set value 0

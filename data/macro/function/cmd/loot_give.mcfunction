@@ -1,14 +1,14 @@
 # ============================================
-# macro:cmd/loot_give (v3.3 — loot_table referanslı)
+# macro:cmd/loot_giand (v3.3 — loot_table referansli)
 # ============================================
-# Oyuncuya loot table içeriğini doğrudan envanterine verir.
+# Playerya loot table icerigini dogrudan envanterine gives.
 #
-# INPUT: macro:input { player:"<ad>", loot_table:"<namespace:id>" }
+# INPUT: macro:input { player:"<name>", loot_table:"<namespace:id>" }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input player set value "Steve"
 # data modify storage macro:input loot_table set value "macro:template/single_item"
-# function macro:cmd/loot_give with storage macro:input {}
+# function macro:cmd/loot_giand with storage macro:input {}
 # ============================================
 
 $loot give @a[name=$(player),limit=1] loot $(loot_table)

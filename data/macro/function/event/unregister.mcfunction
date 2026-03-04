@@ -1,8 +1,8 @@
 # ============================================
 # macro:event/unregister
 # ============================================
-# Event'e kayıtlı tüm handler'ları siler.
-# INPUT: macro:input { event:"<event_adı>" }
+# Removes all handlers registered to an event.
+# INPUT: macro:input { event:"<event_name>" }
 # ============================================
 
 $data remove storage macro:engine events.$(event)

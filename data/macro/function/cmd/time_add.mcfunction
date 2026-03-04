@@ -1,5 +1,5 @@
-# macro:cmd/time_add — Oyun saatine tick ekle
+# macro:cmd/time_add — Oyun saatine tick add
 # INPUT: macro:input { value:<int> }
-# ÖRNEK: value:6000 → yarım güneş döngüsü ekler
+# EXAMPLE: value:6000 → yarim gunes dongusu addr
 
 $time add $(value)

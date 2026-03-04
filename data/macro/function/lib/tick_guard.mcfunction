@@ -1,36 +1,36 @@
 # ============================================
 # macro:lib/tick_guard
 # ============================================
-# @s için bu tick'te zaten çalışıp çalışmadığını kontrol eder.
-# Aynı entity'nin aynı tick içinde bir fonksiyonu iki kez çalıştırmasını engeller.
+# @s for bu tick'te zaten calisip calismadigini check eder.
+# Ayni entity'nin ayni tick forde bir functionu iki kez runmasini engeller.
 #
-# Dönen değer:
-# return 0 → Bu tick'te zaten çalışmış (tekrar tetikleme). Dur.
-# return 1 → İlk kez çalışıyor. Guard set edildi, devam et.
+# Donen value:
+# return 0 → Bu tick'te zaten calismis (tekrar fireme). Dur.
+# return 1 → Ilk kez calisiyor. Guard set edildi, devam et.
 #
-# NASIL ÇALIŞIR:
-# @s'nin macro.tick_guard scoreboard değeri, $epoch macro.time ile karşılaştırılır.
-# Eşitse → bu tick zaten işlendi → return 0.
-# Farklıysa → ilk kez → epoch değerini yaz → return 1.
+# HOW IT WORKS:
+# @s'nin macro.tick_guard scoreboard valuei, $epoch macro.time via compareilir.
+# Esitse → bu tick zaten islendi → return 0.
+# If different → ilk kez → epoch valueini write → return 1.
 #
-# ÖRNEK — tick'te çift tetiklenmeyi önle:
+# EXAMPLE — tick'te cift firenmeyi onle:
 # execute as @a run function macro:my_func
-# # my_func.mcfunction içinde:
+# # my_func.mcfunction forde:
 # execute run function macro:lib/tick_guard
-# # return 0 gelirse çalışmaz; 1 gelirse devam eder
+# # return 0 gelirse calismaz; 1 gelirse devam eder
 #
-# ÖRNEK — execute as @a döngüsünde güvenli kullanım:
+# EXAMPLE — execute as @a dongusunde guvenli kullanim:
 # execute as @a run function macro:lib/tick_guard
-# # Guard geçilen entity'ler işlemi yalnızca bir kez alır
+# # Entities that pass the guard receive the action only once
 #
-# NOT: Guard tick sonunda otomatik geçersiz olur ($epoch her tick +1).
-# Manüel temizlemek için macro:lib/tick_guard_clear kullanın.
+# NOTE: Guard automatically expires at end of tick ($epoch increments each tick).
+# To clear manually use macro:lib/tick_guard_clear kullanin.
 # ============================================
 
-# Bu tick'te zaten guard set edilmişse dur
+# Stop if guard is already set this tick
 execute if score @s macro.tick_guard = $epoch macro.time run return 0
 
-# İlk kez: guard'ı bu tick'in epoch değerine eşitle
+# First time: guard'i bu tick'in epoch valueine esitle
 scoreboard players operation @s macro.tick_guard = $epoch macro.time
 
 return 1

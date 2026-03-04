@@ -1,7 +1,7 @@
 # ============================================
 # macro:player/get_online_count
 # ============================================
-# O anda sunucudaki oyuncu sayısını döndürür.
+# Returns the current number of players on the server.
 # INPUT: (yok)
 # OUTPUT: macro:output { result:<int> }
 # ============================================

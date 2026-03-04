@@ -1,24 +1,24 @@
 # ============================================
 # macro:math/mod
 # ============================================
-# Güvenli modulo — her zaman [0, divisor) aralığında sonuç döndürür.
-# Minecraft scoreboard'un % operatörü negatif değerler için negatif
-# sonuç döndürür; bu fonksiyon her zaman pozitif/sıfır verir.
+# Safe modulo — always returns a result in the range [0, divisor).
+# Minecraft scoreboard'un % operatoru negatif valueler for negatif
+# sonuc dondurur; bu function always returns non-negative.
 #
 # INPUT: macro:input { value:<int>, divisor:<int> }
 # OUTPUT: macro:output { result:<int> }
-# divisor <= 0 ise result = 0 (güvenli çıkış)
+# divisor <= 0 ise result = 0 (guvenli cikis)
 #
-# ÖRNEKLER:
+# EXAMPLES:
 # mod(7, 3) → 1
-# mod(-1, 3) → 2 (Minecraft'ta -1 % 3 = -1, bu fonksiyon 2 döndürür)
+# mod(-1, 3) → 2 (Minecraft'ta -1 % 3 = -1, bu function 2 dondurur)
 # mod(9, 3) → 0
 # ============================================
 
 $scoreboard players set $mod_v macro.tmp $(value)
 $scoreboard players set $mod_d macro.tmp $(divisor)
 
-# divisor <= 0 ise güvenli çıkış
+# divisor <= 0 ise guvenli cikis
 execute if score $mod_d macro.tmp matches ..0 run data modify storage macro:output result set value 0
 execute if score $mod_d macro.tmp matches ..0 run return 0
 

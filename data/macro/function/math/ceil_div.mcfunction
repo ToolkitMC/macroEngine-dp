@@ -1,12 +1,12 @@
 # ============================================
 # macro:math/ceil_div
 # ============================================
-# Tavan bölme: ⌈a / b⌉
+# Ceiling division: ⌈a / b⌉
 # INPUT: macro:input { a:<int>, b:<int> }
 # OUTPUT: macro:output { result:<int> }
 #
-# Formül: ⌈a/b⌉ = floor((a + b - 1) / b)
-# Örnek: ceil_div(10, 3) = 4 (10/3 = 3.33... → 4)
+# Formul: ⌈a/b⌉ = floor((a + b - 1) / b)
+# Example: ceil_div(10, 3) = 4 (10/3 = 3.33... → 4)
 # ceil_div(9, 3) = 3 (9/3 = 3.0 → 3)
 # ============================================
 

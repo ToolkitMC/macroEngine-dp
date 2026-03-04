@@ -1,22 +1,22 @@
 # ============================================
 # macro:lib/for_each_list
 # ============================================
-# Bir storage listesinin her elemanı için fonksiyon çalıştırır.
+# Runs a function for each element of a storage list.
 #
-# KULLANIM:
-# 1. Listeyi _felist_input'a kopyala:
-# data modify storage macro:engine _felist_input set from storage <kaynak> <yol>
-# 2. Fonksiyonu çağır:
+# USAGE:
+# 1. Copy the list into _felist_input:
+# data modify storage macro:engine _felist_input set from storage <source> <yol>
+# 2. Call the function:
 # data modify storage macro:input func set value "mypack:loop/item_step"
 # function macro:lib/for_each_list with storage macro:input {}
 #
-# Her iterasyonda erişilebilir:
+# On each iteration erisviabilir:
 # macro:engine _felist_current → mevcut eleman
-# macro:engine _felist_i → mevcut indeks (0'dan başlar, int)
+# macro:engine _felist_i → mevcut indeks (0'dan baslar, int)
 #
-# NOT: func içinde _felist_input'u değiştirme — iterator bozulur.
+# NOTE: do not modify _felist_input inside func — the iterator will break.
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:engine _felist_input set value ["elma","armut","kiraz"]
 # data modify storage macro:input func set value "mypack:give/fruit"
 # function macro:lib/for_each_list with storage macro:input {}
@@ -26,7 +26,7 @@ $data modify storage macro:engine _felist_state set value {func:"$(func)"}
 scoreboard players set $felist_i macro.tmp 0
 function macro:lib/internal/for_each_list_step
 
-# Temizle
+# Clear
 data remove storage macro:engine _felist_input
 data remove storage macro:engine _felist_state
 data remove storage macro:engine _felist_current

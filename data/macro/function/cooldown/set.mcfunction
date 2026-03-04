@@ -1,11 +1,11 @@
 # ============================================
 # macro:cooldown/set
 # ============================================
-# Cooldown başlatır. Bitiş epoch'unu storage'a yazar.
-# INPUT: macro:input { player:"<ad>", key:"<cooldown>", duration:<tick> }
+# Starts a cooldown. Writes expiry epoch to storage.
+# INPUT: macro:input { player:"<name>", key:"<cooldown>", duration:<tick> }
 # ============================================
 
-# Mevcut epoch + duration = expiry
+# current epoch + duration = expiry
 $scoreboard players set $cd_dur macro.tmp $(duration)
 execute store result score $cd_now macro.tmp run scoreboard players get $epoch macro.time
 scoreboard players operation $cd_now macro.tmp += $cd_dur macro.tmp

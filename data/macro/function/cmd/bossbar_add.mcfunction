@@ -1,5 +1,5 @@
-# macro:cmd/bossbar_add — Yeni bossbar oluştur
-# INPUT: macro:input { id:"<namespace:id>", text:"<başlık>", color:"<renk>" }
+# macro:cmd/bossbar_add — Yeni bossbar create
+# INPUT: macro:input { id:"<namespace:id>", text:"<baslik>", color:"<color>" }
 # color: pink, blue, red, green, yellow, purple, white
 
 $bossbar add $(id) {"text":"$(text)"}

@@ -1,11 +1,11 @@
 # ============================================
 # macro:log/warn
 # ============================================
-# WARN seviyesinde log ekler (sarı).
+# Adds a WARN-level log entry (sari).
 #
-# INPUT: macro:input { message:"<metin>" }
-# ÇAĞIRIM:
-# data modify storage macro:input message set value "Cooldown süresi dolmadı"
+# INPUT: macro:input { message:"<text>" }
+# USAGE:
+# data modify storage macro:input message set value "Cooldown suresi dolmadi"
 # function macro:log/warn with storage macro:input {}
 # ============================================
 

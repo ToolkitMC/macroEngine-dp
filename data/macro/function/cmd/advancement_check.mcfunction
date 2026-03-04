@@ -1,16 +1,16 @@
 # ============================================
 # macro:cmd/advancement_check
 # ============================================
-# Oyuncunun advancement'a sahip olup olmadığını kontrol eder.
+# Playernun advancement'a sahip olup olmadigini check eder.
 # OUTPUT: macro:output { result: 1b/0b }
 #
-# INPUT: macro:input { player:"<ad>", advancement:"<namespace:id>" }
+# INPUT: macro:input { player:"<name>", advancement:"<namespace:id>" }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input player set value "Steve"
 # data modify storage macro:input advancement set value "macro:template/goal"
 # function macro:cmd/advancement_check with storage macro:input {}
-# # → macro:output { result: 1b } (varsa)
+# # → macro:output { result: 1b } (if present)
 # ============================================
 
 data modify storage macro:output result set value 0b

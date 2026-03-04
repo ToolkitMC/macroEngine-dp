@@ -1,9 +1,9 @@
 # ============================================
 # macro:logic/if_eq
 # ============================================
-# a == b ise func'ı çalıştırır.
+# a == b runs func.
 # INPUT: macro:input { a:<int>, b:<int>, func:"<namespace:path>" }
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input a set value 10
 # data modify storage macro:input b set value 10
 # data modify storage macro:input func set value "mypack:on_equal"

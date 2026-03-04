@@ -1,27 +1,27 @@
 # ============================================
 # macro:lib/throttle
 # ============================================
-# Fonksiyonun belirli bir interval'dan daha sık çalışmasını engeller.
-# İlk çağrı anında çalışır, sonraki çağrılar interval
-# dolana kadar DROP edilir (debounce'dan farkı budur).
+# Prevents a function from running more frequently than a given interval.
+# Runs on first call, sonraki cagrilar interval
+# are dropped until the interval elapses (that is the difference from debounce).
 #
 # INPUT: macro:input { func:"<namespace:path>", delay:<tick>, interval:<tick>, key:"<id>" }
-# delay = kuyrukta bekletme (0 = hemen çalıştır)
-# interval = minimum tick aralığı
-# key = throttle tanımlayıcısı (her throttle noktası için benzersiz)
+# delay = kuyrukta baddtme (0 = hemen run)
+# interval = minimum tick araligi
+# key = throttle identifier (must be unique for each throttle point)
 #
-# OUTPUT: — (engellendiyse sessizce döner)
+# OUTPUT: — (engellendiyse sessizce doner)
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input func set value "mypack:ui/update_hud"
 # data modify storage macro:input delay set value 0
 # data modify storage macro:input interval set value 20
 # data modify storage macro:input key set value "hud_update"
 # function macro:lib/throttle with storage macro:input {}
-# # → HUD en fazla saniyede 1 kez güncellenir
+# # → HUD en fazla saniyede 1 kez guncellenir
 # ============================================
 
-# Mevcut throttle durumunu kontrol et
+# Mevcut throttle durumunu check et
 scoreboard players set $thr_go macro.tmp 1
 
 $execute if data storage macro:engine throttle.$(key) run execute store result score $thr_exp macro.tmp run data get storage macro:engine throttle.$(key)
@@ -36,5 +36,5 @@ $scoreboard players set $thr_int macro.tmp $(interval)
 scoreboard players operation $thr_now macro.tmp += $thr_int macro.tmp
 $execute store result storage macro:engine throttle.$(key) int 1 run scoreboard players get $thr_now macro.tmp
 
-# Fonksiyonu kuyruğa ekle
+# Functionu add to queue
 function macro:lib/queue_add with storage macro:input {}

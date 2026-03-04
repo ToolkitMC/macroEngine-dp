@@ -1,15 +1,15 @@
 # ============================================
 # macro:math/internal/sqrt_step
 # ============================================
-# macro:math/sqrt tarafından çağrılan binary search adimi.
-# Doğrudan çağırmayın.
+# macro:math/sqrt tarafindan cagrilan binary search adimi.
+# Do not call directly.
 #
 # Kullandigi scoreboard skorlari:
-# $sqrt_n - orijinal deger (sabit)
+# $sqrt_n - orijinal value (sabit)
 # $sqrt_lo - binary search alt siniri
 # $sqrt_hi - binary search ust siniri
 # $sqrt_itr - kalan iterasyon sayisi
-# $sqrt_mid, $sqrt_sq, $sqrt_2 - gecici
+# $sqrt_mid, $sqrt_sq, $sqrt_2 - temporary
 # ============================================
 
 # mid = (lo + hi) / 2

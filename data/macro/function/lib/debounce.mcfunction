@@ -1,24 +1,24 @@
 # ============================================
 # macro:lib/debounce
 # ============================================
-# Fonksiyonu yalnızca henüz schedule edilmemişse zamanlar.
-# Zaten aktif bir schedule varsa çağrıyı yok sayar
-# (ilk çağrı korunur — sonrakiler düşer).
+# Schedules the function only if not already scheduled.
+# Zaten actiand bir schedule if present, cagriyi yok sayar
+# (first call is preserved — subsequent ones are dropped).
 #
-# Tersi davranış için (son çağrıyı koru):
-# schedule_cancel → schedule şeklinde çağırın.
+# For the opposite behaviour (son cagriyi koru):
+# schedule_cancel → schedule seklinde cagirin.
 #
 # INPUT: macro:input { func:"<namespace:path>", interval:<tick>, key:"<id>" }
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input func set value "mypack:save/checkpoint"
 # data modify storage macro:input interval set value 60
 # data modify storage macro:input key set value "autosave"
 # function macro:lib/debounce with storage macro:input {}
-# # → Oyuncu her saniye tetiklese bile yalnızca 3sn'de 1 kaydeder
+# # → Player fires every second but only saves once every 3s
 # ============================================
 
-# Schedule zaten varsa → görmezden gel (debounce)
+# Schedule zaten if present, → gormezden gel (debounce)
 $execute if data storage macro:engine schedules.$(key) run return 0
 
-# Yoksa → normal schedule oluştur
+# If absent → create a normal schedule
 function macro:lib/schedule with storage macro:input {}

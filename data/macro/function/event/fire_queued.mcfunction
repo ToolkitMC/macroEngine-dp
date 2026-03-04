@@ -1,24 +1,24 @@
 # ============================================
 # macro:event/fire_queued
 # ============================================
-# Event'i anlik degil, belirtilen delay tick sonra fire eder.
-# Mevcut tick'in yukunu dagitmak veya gecikmeli tetikleme icin kullanilir.
+# Fires the event after the specified delay instead of immediately.
+# Use to spread current tick load or for delayed triggering.
 #
-# BUG FIX v3.2: _fdeferred yerine event adi doğrudan queue item'a
-# gömülür. Boylece ayni tick'te birden fazla fire_queued cagrisi
-# birbirinin event adini ezmez.
+# BUG FIX v3.2: _fdeferred yerine event adi dogrudan queue item'a
+# gomulur. Boylece multiple fire_queued calls within the same tick
+# will not overwrite each other's event name.
 #
-# INPUT: macro:input { event:"<event_adi>", delay:<tick> }
+# INPUT: macro:input { event:"<event_name>", delay:<tick> }
 #
-# ORNEK:
+# EXAMPLE:
 # data modify storage macro:input event set value "on_round_end"
 # data modify storage macro:input delay set value 60
 # function macro:event/fire_queued with storage macro:input {}
-# # 3 saniye sonra on_round_end tetiklenecek
+# # 3 saniye sonra on_round_end firenecek
 # ============================================
 
-# Event kayitli degilse kuyruga ekleme
+# Event kayitli degilse add to queueme
 $execute unless data storage macro:engine events.$(event) run return 0
 
-# event adini queue item'in icine göm — _fdeferred race condition yok
+# event adini queue item'in fore gom — _fdeferred race condition yok
 $data modify storage macro:engine queue append value {func:"macro:event/internal/fire_deferred", delay:$(delay), event:"$(event)"}

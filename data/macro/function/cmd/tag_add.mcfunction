@@ -1,4 +1,4 @@
-# macro:cmd/tag_add — Oyuncuya entity tag ekle
-# INPUT: macro:input { player:"<ad>", tag:"<tag>" }
+# macro:cmd/tag_add — Playerya entity tag add
+# INPUT: macro:input { player:"<name>", tag:"<tag>" }
 
 $execute as @a[name=$(player),limit=1] at @s run tag @s add $(tag)

@@ -1,11 +1,11 @@
 # ============================================
 # macro:log/show
 # ============================================
-# Log girişlerini @s'e gösterir.
-# Her giriş için $tellraw çağrılır — renkli, interpret:false, doğrudan storage'dan.
+# Shows log entries to @s.
+# Calls $tellraw for each entry — coloured, interpret:false, read directly from storage.
 # ============================================
 
-execute unless data storage macro:engine log_display[0] run tellraw @s {"text":"[Log] Kayıt yok.","color":"gray","italic":false}
+execute unless data storage macro:engine log_display[0] run tellraw @s {"text":"[Log] No entries.","color":"gray","italic":false}
 execute unless data storage macro:engine log_display[0] run return 0
 
 function macro:lib/input_push

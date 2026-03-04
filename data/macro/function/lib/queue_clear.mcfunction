@@ -1,18 +1,18 @@
 # ============================================
 # macro:lib/queue_clear
 # ============================================
-# Bekleyen tüm kuyruk öğelerini siler.
-# Mevcut tick'te çalışmakta olan iş etkilenmez.
+# Removes all queued items immediately.
+# The currently running job in this tick is unaffected.
 #
-# UYARI: Bu işlem geri alınamaz. Zamanlanmış tüm wait/queue_add
-# çağrıları iptal edilir. Schedule'lar (macro:engine schedules)
-# silinmez — onlar için schedule_cancel kullanın.
+# WARNING: This is irreversible. All scheduled wait/queue_add
+# cagrilari is cancelled. Schedule'lar (macro:engine schedules)
+# silinmez — onlar for schedule_cancel kullanin.
 #
 # INPUT: (yok)
 # OUTPUT: (yok)
 #
-# ÖRNEK:
-# # Oyun bitişinde bekleyen tüm işleri temizle
+# EXAMPLE:
+# # Clear all jobs at game end
 # function macro:lib/queue_clear
 # ============================================
 

@@ -1,4 +1,4 @@
-# macro:cmd/title_bold — Oyuncuya kalın title göster
-# INPUT: macro:input { player:"<ad>", text:"<metin>", color:"<renk>" }
+# macro:cmd/title_bold — Playerya kalin title show
+# INPUT: macro:input { player:"<name>", text:"<text>", color:"<color>" }
 
 $execute as @a[name=$(player),limit=1] at @s run title @s title {"text":"$(text)","color":"$(color)","bold":true}

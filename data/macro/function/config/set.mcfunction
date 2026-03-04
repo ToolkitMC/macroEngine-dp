@@ -1,9 +1,9 @@
 # ============================================
 # macro:config/set
 # ============================================
-# Config'e string değer yazar.
-# Tam sayılar için macro:config/set_int kullanın.
-# INPUT: macro:input { key:"<anahtar>", value:"<değer>" }
+# Config'e string value writear.
+# Tam sayilar for macro:config/set_int kullanin.
+# INPUT: macro:input { key:"<key>", value:"<value>" }
 # OUTPUT: —
 # ============================================
 

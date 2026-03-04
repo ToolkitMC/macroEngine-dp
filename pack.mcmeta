@@ -45,7 +45,7 @@
         "italic": false
       },
       {
-        "text": " | v1.0.5-pre1",
+        "text": " | v1.0.5-pre3",
         "color": "#ffaa00",
         "bold": false,
         "italic": false
@@ -84,9 +84,7 @@
         "formats": {
           "min_inclusive": 48,
           "max_inclusive": 61
-        },
-        "min_format": 48,
-        "max_format": 61
+        }
       },
       {
         "directory": "1_21_6",

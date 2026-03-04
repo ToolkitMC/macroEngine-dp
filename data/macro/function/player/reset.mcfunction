@@ -1,15 +1,15 @@
 # ============================================
 # macro:player/reset
 # ============================================
-# Oyuncunun tüm verilerini siler ve varsayılanlara döndürür.
-# ⚠️ GERİ ALINAMAZ — DİKKATLİ KULLAN!
-# INPUT: macro:input { player:"<ad>" }
+# Deletes all player data and restores defaults.
+# ⚠️ IRREVERSIBLE — USE WITH CARE!
+# INPUT: macro:input { player:"<name>" }
 # ============================================
 
-# Tüm veriyi sil
+# Delete all data
 $data remove storage macro:engine players.$(player)
-# Cooldown'ları da temizle
+# Also clear cooldowns
 $data remove storage macro:engine cooldowns.$(player)
 
-# Varsayılanları yeniden uygula
+# Re-apply defaults
 function macro:player/init with storage macro:input {}

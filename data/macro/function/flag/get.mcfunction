@@ -1,15 +1,15 @@
 # ============================================
 # macro:flag/get
 # ============================================
-# Global bayrağın durumunu kontrol eder.
+# Checks the state of a global flag.
 #
-# INPUT: macro:input { key:"<bayrak_adı>" }
+# INPUT: macro:input { key:"<flag_name>" }
 # OUTPUT: macro:output { result: 1b (set) / 0b (unset) }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input key set value "game_started"
 # function macro:flag/get with storage macro:input {}
-# # macro:output.result → 1b veya 0b
+# # macro:output.result → 1b or 0b
 # ============================================
 
 data modify storage macro:output result set value 0b

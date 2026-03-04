@@ -1,26 +1,26 @@
 # ============================================
 # macro:math/pow
 # ============================================
-# a^n hesaplar (tamsayı üs alma).
-# Tekrarlı çarpma yöntemi — n adım derinlik.
-# Uyarı: büyük a ve n değerlerinde 32-bit taşma olur
+# a^n hesaplar (integer exponentiation).
+# Repeated multiplication method — n adim depth.
+# Uyari: large a and n values cause 32-bit overflow
 # (Minecraft scoreboard 32-bit signed).
 #
 # INPUT: macro:input { a:<int>, n:<int> } (n >= 0)
 # OUTPUT: macro:output { result:<int> }
 #
-# ÖRNEKLER:
+# EXAMPLES:
 # a:2, n:10 → 1024
 # a:3, n:5 → 243
-# a:7, n:0 → 1 (her sayının 0. kuvveti 1)
-# a:0, n:0 → 1 (0^0 = 1 matematiksel tanım gereği)
+# a:7, n:0 → 1 (any number to the power of 0 is 1)
+# a:0, n:0 → 1 (0^0 = 1 matematiksel tanim geregi)
 # ============================================
 
 $scoreboard players set $pow_a macro.tmp $(a)
 $scoreboard players set $pow_n macro.tmp $(n)
 scoreboard players set $pow_r macro.tmp 1
 
-# n=0 → result=1 hızlı çıkış
+# n=0 → result=1 hizli cikis
 execute if score $pow_n macro.tmp matches 0 run execute store result storage macro:output result int 1 run scoreboard players get $pow_r macro.tmp
 execute if score $pow_n macro.tmp matches 0 run return 0
 

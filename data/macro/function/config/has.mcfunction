@@ -1,8 +1,8 @@
 # ============================================
 # macro:config/has
 # ============================================
-# Belirtilen config key'i var mı kontrol eder.
-# INPUT: macro:input { key:"<anahtar>" }
+# Belirtvian config key'i var mi check eder.
+# INPUT: macro:input { key:"<key>" }
 # OUTPUT: macro:output { result: 1b (var) | 0b (yok) }
 # ============================================
 

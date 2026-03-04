@@ -1,10 +1,10 @@
 # ============================================
 # macro:log/clear
 # ============================================
-# Tüm log girişlerini temizler.
-# log_display listesini sıfırlar, sayacı geri alır.
+# Clears all log entries.
+# Resets log_display list and rolls back counter.
 #
-# ÇAĞIRIM:
+# USAGE:
 # function macro:log/clear
 # ============================================
 

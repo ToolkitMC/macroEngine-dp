@@ -1,12 +1,12 @@
 # ============================================
 # macro:cmd/spectate
 # ============================================
-# Bir spectator oyuncunun bakış açısını hedef entity'ye bağlar.
-# Spectator moddaki oyuncu hedefin gözünden görecektir.
+# Bir spectator playernun bakis acisini hedef entity'ye baglar.
+# Spectator moddaki player hedefin gozunden gorecektir.
 #
-# INPUT: macro:input { player:"<spectator_oyuncu>", target:"<hedef_selector>" }
+# INPUT: macro:input { player:"<spectator_player>", target:"<hedef_selector>" }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input player set value "Watcher"
 # data modify storage macro:input target set value "@e[type=minecraft:creeper,limit=1,sort=nearest]"
 # function macro:cmd/spectate with storage macro:input {}

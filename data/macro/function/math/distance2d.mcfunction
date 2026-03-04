@@ -1,12 +1,12 @@
 # ============================================
 # macro:math/distance2d
 # ============================================
-# XZ düzleminde iki nokta arası mesafe: floor(√(dx² + dz²))
+# XZ duzleminde distance between two points: floor(√(dx² + dz²))
 # INPUT: macro:input { x1:<int>, z1:<int>, x2:<int>, z2:<int> }
 # OUTPUT: macro:output { result:<int> }
 #
-# Örnek: distance2d(0,0, 3,4) = 5
-# Not: macro:math/sqrt'ın binary search mantığı inline kullanılır;
+# Example: distance2d(0,0, 3,4) = 5
+# Note: binary search logic from macro:math/sqrt is inlined;
 # macro:input kirlenmez.
 # ============================================
 
@@ -29,12 +29,12 @@ scoreboard players operation $d2d_dz macro.tmp *= $d2d_dz macro.tmp
 scoreboard players operation $d2d_sq macro.tmp = $d2d_dx macro.tmp
 scoreboard players operation $d2d_sq macro.tmp += $d2d_dz macro.tmp
 
-# Mesafe sıfır özel durumu
+# Mesafe sifir ozel durumu
 execute if score $d2d_sq macro.tmp matches 0 run data modify storage macro:output result set value 0
 execute if score $d2d_sq macro.tmp matches 0 run return 0
 
-# sqrt(d²) — macro:math/sqrt inline binary search mantığı
-# ($sqrt_n ← $d2d_sq, macro:input değişmez)
+# sqrt(d²) — macro:math/sqrt inline binary search mantigi
+# ($sqrt_n ← $d2d_sq, macro:input degismez)
 scoreboard players operation $sqrt_n macro.tmp = $d2d_sq macro.tmp
 scoreboard players set $sqrt_lo macro.tmp 0
 scoreboard players operation $sqrt_hi macro.tmp = $sqrt_n macro.tmp

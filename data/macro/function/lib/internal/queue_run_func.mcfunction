@@ -1,2 +1,2 @@
-# Macro ile dinamik function çağrısı
+# Macro via dinamik function cagrisi
 $function $(func)

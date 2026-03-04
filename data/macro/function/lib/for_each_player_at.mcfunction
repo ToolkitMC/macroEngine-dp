@@ -1,7 +1,7 @@
 # ============================================
 # macro:lib/for_each_player_at
 # ============================================
-# Online olan her oyuncu OLARAK ve onun KONUMUNDA fonksiyon çalıştır.
+# Run function AS and AT each online player.
 # INPUT: macro:input { func:"<namespace:path>" }
 # ============================================
 

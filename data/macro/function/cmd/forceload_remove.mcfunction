@@ -1,7 +1,7 @@
 # ============================================
 # macro:cmd/forceload_remove
 # ============================================
-# Bir chunk'ın zorla yüklenmesini kaldırır.
+# Bir chunk'in zorla loadnmesini removes.
 #
 # INPUT: macro:input { x:<int>, z:<int> }
 # ============================================

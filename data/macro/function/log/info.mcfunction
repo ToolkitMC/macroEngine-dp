@@ -1,11 +1,11 @@
 # ============================================
 # macro:log/info
 # ============================================
-# INFO seviyesinde log ekler (yeşil).
+# Adds an INFO-level log entry (yesil).
 #
-# INPUT: macro:input { message:"<metin>" }
-# ÇAĞIRIM:
-# data modify storage macro:input message set value "Sunucu başlatıldı"
+# INPUT: macro:input { message:"<text>" }
+# USAGE:
+# data modify storage macro:input message set value "Sunucu startildi"
 # function macro:log/info with storage macro:input {}
 # ============================================
 

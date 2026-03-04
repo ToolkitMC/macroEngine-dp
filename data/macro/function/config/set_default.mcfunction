@@ -1,19 +1,19 @@
 # ============================================
 # macro:config/set_default
 # ============================================
-# Yalnızca key henüz yoksa string değer yazar.
-# Zaten varsa hiçbir şey yapmaz.
-# INPUT: macro:input { key:"<anahtar>", value:"<değer>" }
-# OUTPUT: macro:output { result: 1b (yeni yazıldı) | 0b (zaten vardı) }
+# Write string value only if key is absent.
+# If already present, hicbir sey yapmaz.
+# INPUT: macro:input { key:"<key>", value:"<value>" }
+# OUTPUT: macro:output { result: 1b (yeni rewritten) | 0b (zaten vardi) }
 # ============================================
 
-# Varsayılan: yeni yazılacak (1b)
+# Varsayilan: yeni writeilacak (1b)
 data modify storage macro:output result set value 1b
 
-# Zaten varsa result = 0b, işlem yapma
+# If already present, result = 0b, islem yapma
 $execute if data storage macro:engine config.$(key) run data modify storage macro:output result set value 0b
 $execute if data storage macro:engine config.$(key) run return 0
 
-# Yoksa yaz
+# If absent, write
 $data modify storage macro:engine config.$(key) set value "$(value)"
-$tellraw @a[tag=macro.debug] [{"text":"[Config] Varsayilan: ","color":"yellow"},{"text":"$(key)","color":"white"},{"text":" = "},{"text":"$(value)","color":"gray"}]
+$tellraw @a[tag=macro.debug] [{"text":"[Config] Default: ","color":"yellow"},{"text":"$(key)","color":"white"},{"text":" = "},{"text":"$(value)","color":"gray"}]

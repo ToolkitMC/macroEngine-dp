@@ -1,11 +1,11 @@
 # ============================================
 # macro:cmd/attribute_remove_modifier
 # ============================================
-# Oyuncudan attribute modifier kaldırır.
+# Playerdan attribute modifier removes.
 #
-# INPUT: macro:input { player:"<ad>", attribute:"<attribute_id>", id:"<modifier_id>" }
+# INPUT: macro:input { player:"<name>", attribute:"<attribute_id>", id:"<modifier_id>" }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input player set value "Steve"
 # data modify storage macro:input attribute set value "minecraft:generic.movement_speed"
 # data modify storage macro:input id set value "macro:speed_boost"

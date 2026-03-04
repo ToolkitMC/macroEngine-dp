@@ -1,12 +1,12 @@
 # ============================================
 # macro:lib/input_pop
 # ============================================
-# input_push ile yedeklenen macro:input durumunu geri yükler.
-# Her push için bir pop çağrılmalıdır (LIFO stack).
-# v3.1: input_push ile tam eşleşme sağlandı.
+# Restores the macro:input state backed up by input_push.
+# One pop must be called for each push (LIFO stack).
+# v3.1: Full parity with input_push achieved.
 # ============================================
 
-# ─── Önce tüm alanları temizle ───────────────────────────
+# ─── First clear all fields ───────────────────────────
 data remove storage macro:input player
 data remove storage macro:input key
 data remove storage macro:input value
@@ -77,7 +77,7 @@ data remove storage macro:input cz
 data remove storage macro:input spread
 data remove storage macro:input max_range
 
-# ─── Stack'in son elemanından geri yükle ─────────────────
+# ─── Restore from last stack element ─────────────────
 data modify storage macro:input player set from storage macro:engine _input_stack[-1].player
 data modify storage macro:input key set from storage macro:engine _input_stack[-1].key
 data modify storage macro:input value set from storage macro:engine _input_stack[-1].value
@@ -93,7 +93,7 @@ data modify storage macro:input color set from storage macro:engine _input_stack
 data modify storage macro:input label set from storage macro:engine _input_stack[-1].label
 data modify storage macro:input interval set from storage macro:engine _input_stack[-1].interval
 data modify storage macro:input amount set from storage macro:engine _input_stack[-1].amount
-data modify storage macro:input objective set from storage macro:engine _input_stack[-1].objective
+data modify storage macro:input objectiand set from storage macro:engine _input_stack[-1].objective
 data modify storage macro:input item set from storage macro:engine _input_stack[-1].item
 data modify storage macro:input tag set from storage macro:engine _input_stack[-1].tag
 data modify storage macro:input a set from storage macro:engine _input_stack[-1].a
@@ -148,5 +148,5 @@ data modify storage macro:input cz set from storage macro:engine _input_stack[-1
 data modify storage macro:input spread set from storage macro:engine _input_stack[-1].spread
 data modify storage macro:input max_range set from storage macro:engine _input_stack[-1].max_range
 
-# ─── Stack'ten son elemanı çıkar ─────────────────────────
+# ─── Pop last element from stack ─────────────────────────
 data remove storage macro:engine _input_stack[-1]

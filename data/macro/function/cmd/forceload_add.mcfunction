@@ -1,12 +1,12 @@
 # ============================================
 # macro:cmd/forceload_add
 # ============================================
-# Belirtilen blok koordinatlarındaki chunk'ı zorla yüklü tutar.
-# Uzak mesafede çalışan redstone, komutlar veya spawn için gereklidir.
+# Belirtvian blok koordinatlarindaki chunk'i zorla yuklu tutar.
+# Uzak mesafede calisan redstone, komutlar or spawn for requireddir.
 #
 # INPUT: macro:input { x:<int>, z:<int> }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input x set value 100
 # data modify storage macro:input z set value 200
 # function macro:cmd/forceload_add with storage macro:input {}

@@ -1,15 +1,15 @@
 # ============================================
 # macro:cmd/trigger_set
 # ============================================
-# Bir oyuncunun trigger objective değerini ayarlar.
-# Oyuncuların /trigger komutuyla etkileşimi için scoreboard trigger
-# objective'ine değer atar.
+# Bir playernun trigger objectiand valueini setr.
+# Playerlarin /trigger komutuyla etkviasimi for scoreboard trigger
+# objective'ine value atar.
 #
-# INPUT: macro:input { player:"<oyuncu>", objective:"<trigger_adı>", value:<int> }
+# INPUT: macro:input { player:"<player>", objective:"<trigger_adi>", value:<int> }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input player set value "Steve"
-# data modify storage macro:input objective set value "macro_menu"
+# data modify storage macro:input objectiand set value "macro_menu"
 # data modify storage macro:input value set value 0
 # function macro:cmd/trigger_set with storage macro:input {}
 # ============================================

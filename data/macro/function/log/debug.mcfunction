@@ -1,12 +1,12 @@
 # ============================================
 # macro:log/debug
 # ============================================
-# DEBUG seviyesinde log ekler (gri).
-# Yalnızca macro.debug tag'i olan oyuncuların görmesi için
-# tasarlanmıştır; log/show yine de hepsini gösterir.
+# Adds a DEBUG-level log entry (gri).
+# Intended to be seen only by players with the macro.debug tag
+# but log/show still shows all entries.
 #
-# INPUT: macro:input { message:"<metin>" }
-# ÇAĞIRIM:
+# INPUT: macro:input { message:"<text>" }
+# USAGE:
 # data modify storage macro:input message set value "tick: 12345"
 # function macro:log/debug with storage macro:input {}
 # ============================================

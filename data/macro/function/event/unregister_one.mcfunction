@@ -1,32 +1,32 @@
 # ============================================
 # macro:event/unregister_one
 # ============================================
-# Event listesinden YALNIZCA belirtilen handler fonksiyonunu siler.
-# Diğer handler'lar korunur. Tüm event'i silmek için event/unregister kullanın.
+# Removes ONLY the specified handler function from the event list.
+# Other handlers are preserved. Use event/unregister to remove the entire event.
 #
-# INPUT: macro:input { event:"<event_adı>", func:"<namespace:path>" }
+# INPUT: macro:input { event:"<event_name>", func:"<namespace:path>" }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input event set value "on_join"
 # data modify storage macro:input func set value "mypack:handlers/welcome"
 # function macro:event/unregister_one with storage macro:input {}
 #
-# NOT: Aynı fonksiyon birden fazla kez kayıtlıysa HEPSİ silinir.
+# NOT: If the same function is registered multiple times ALL are removed.
 # ============================================
 
-# Event hiç yoksa çık
+# Event hic if absent, cik
 $execute unless data storage macro:engine events.$(event) run return 0
 
-# Filtre verisini hazırla
+# Filtre verisini readyla
 $data modify storage macro:engine _uro.event set value "$(event)"
 $data modify storage macro:engine _uro.func set value "$(func)"
 $data modify storage macro:engine _uro.src set from storage macro:engine events.$(event)
 
-# Event listesini temizle — filtreli olarak yeniden dolduracağız
+# Clear event list — will be repopulated with filtered entries
 $data remove storage macro:engine events.$(event)
 
-# Döngü başlat
+# Start loop
 execute if data storage macro:engine _uro.src[0] run function macro:event/internal/uro_loop
 
-# Temizlik
+# Cleanup
 data remove storage macro:engine _uro

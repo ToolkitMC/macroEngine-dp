@@ -1,6 +1,6 @@
-# macro:player/has_var — Oyuncunun değişkeni var mı?
-# INPUT: macro:input { player:"<ad>", key:"<değişken>" }
-# OUTPUT: macro:output { result: 1b (var) veya 0b (yok) }
+# macro:player/has_var — Does the player haand this variable?
+# INPUT: macro:input { player:"<name>", key:"<variable>" }
+# OUTPUT: macro:output { result: 1b (exists) or 0b (absent) }
 
 data modify storage macro:output result set value 0b
 $execute if data storage macro:engine players.$(player).$(key) run data modify storage macro:output result set value 1b

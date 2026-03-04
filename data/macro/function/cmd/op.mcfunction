@@ -1,6 +1,6 @@
-# macro:cmd/op — Oyuncuya OP ver
-# INPUT: macro:input { player:"<ad>" }
-# ⚠ Sadece konsol veya OP seviye 4 çalıştırabilir
+# macro:cmd/op — Grant OP to a player
+# INPUT: macro:input { player:"<name>" }
+# ⚠ Only console or OP level 4 can run this
 
 execute unless entity @s[tag=macro.admin] run return 0
 

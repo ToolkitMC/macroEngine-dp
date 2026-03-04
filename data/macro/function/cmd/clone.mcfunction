@@ -1,16 +1,16 @@
 # ============================================
 # macro:cmd/clone
 # ============================================
-# Belirtilen bölgeden hedef konuma blok kopyalar.
+# Belirtvian bolgeden hedef konuma blok copies.
 #
 # INPUT: macro:input {
 # x1:<int>, y1:<int>, z1:<int>,
 # x2:<int>, y2:<int>, z2:<int>,
 # dx:<int>, dy:<int>, dz:<int>
 # }
-# (dx,dy,dz) = hedef konumun köşesi (to_x, to_y, to_z)
+# (dx,dy,dz) = hedef konumun kosesi (to_x, to_y, to_z)
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input x1 set value 0
 # data modify storage macro:input y1 set value 64
 # data modify storage macro:input z1 set value 0

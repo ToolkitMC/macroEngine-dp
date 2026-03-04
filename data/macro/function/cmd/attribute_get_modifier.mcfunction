@@ -1,9 +1,9 @@
 # ============================================
 # macro:cmd/attribute_get_modifier
 # ============================================
-# Belirli bir modifier'ın değerini döndürür.
+# Belirli bir modifier'in valueini dondurur.
 #
-# INPUT: macro:input { player:"<ad>", attribute:"<attribute_id>", id:"<modifier_id>" }
+# INPUT: macro:input { player:"<name>", attribute:"<attribute_id>", id:"<modifier_id>" }
 # OUTPUT: macro:output { result:<float> }
 # ============================================
 

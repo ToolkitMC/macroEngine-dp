@@ -1,11 +1,11 @@
 # ============================================
 # macro:log/error
 # ============================================
-# ERROR seviyesinde log ekler (kırmızı).
+# Adds an ERROR-level log entry (kirmizi).
 #
-# INPUT: macro:input { message:"<metin>" }
-# ÇAĞIRIM:
-# data modify storage macro:input message set value "Storage okunamadı"
+# INPUT: macro:input { message:"<text>" }
+# USAGE:
+# data modify storage macro:input message set value "Storage readnamadi"
 # function macro:log/error with storage macro:input {}
 # ============================================
 

@@ -1,11 +1,11 @@
 # ============================================
 # macro:lib/queue_add
 # ============================================
-# Makroyu belirli tick sonra çalıştırmak için kuyruğa ekle.
-# BUG FIX: context artık macro:input.context'ten okunuyor.
+# Makroyu belirli tick sonra runmak for add to queue.
+# BUG FIX: context is now read from macro:input.context.
 #
 # INPUT: macro:input { func:"<namespace:path>", delay:<int> }
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input func set value "mypack:event/end"
 # data modify storage macro:input delay set value 100
 # function macro:lib/queue_add with storage macro:input {}

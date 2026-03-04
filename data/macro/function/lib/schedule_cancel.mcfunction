@@ -1,8 +1,8 @@
 # ============================================
 # macro:lib/schedule_cancel
 # ============================================
-# Belirtilen schedule'ı iptal eder.
-# Kuyruktaki mevcut çalışma tamamlanır ama bir daha eklenmez.
+# Cancels the specified schedule.
+# Current run completes but will not be re-queued.
 # INPUT: macro:input { key:"<schedule_id>" }
 # ============================================
 

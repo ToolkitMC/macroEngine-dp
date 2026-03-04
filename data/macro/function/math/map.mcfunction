@@ -1,17 +1,17 @@
 # ============================================
 # macro:math/map
 # ============================================
-# Bir değeri [in_min, in_max] aralığından [out_min, out_max] aralığına eşler.
-# Lineer interpolasyon kullanır (lerp tabanlı).
-# Tamsayı aritmetiği nedeniyle küçük aralıklarda hassasiyet kaybı olabilir.
+# Maps a value from [in_min, in_max] araligindan [out_min, out_max] araligina esler.
+# Uses linear interpolation (lerp tabanli).
+# Integer arithmetic may lose precision on small ranges.
 #
-# Formül: out_min + (value - in_min) * (out_max - out_min) / (in_max - in_min)
+# Formul: out_min + (value - in_min) * (out_max - out_min) / (in_max - in_min)
 #
 # INPUT: macro:input { value:<int>, in_min:<int>, in_max:<int>, out_min:<int>, out_max:<int> }
 # OUTPUT: macro:output { result:<int> }
 #
-# ÖRNEK:
-# # Oyuncunun canını (0-20) 0-100 arası yüzdeye çevir
+# EXAMPLE:
+# # Playernun canini (0-20) 0-100 arasi yuzdeye cevir
 # data modify storage macro:input value set value 14
 # data modify storage macro:input in_min set value 0
 # data modify storage macro:input in_max set value 20
@@ -31,7 +31,7 @@ $scoreboard players set $map_omax macro.tmp $(out_max)
 scoreboard players operation $map_ir macro.tmp = $map_imax macro.tmp
 scoreboard players operation $map_ir macro.tmp -= $map_imin macro.tmp
 
-# in_range == 0 ise bölme sıfır hatası — out_min döndür
+# in_range == 0 ise bolme sifir hatasi — out_min dondur
 execute if score $map_ir macro.tmp matches 0 run execute store result storage macro:output result int 1 run scoreboard players get $map_omin macro.tmp
 execute if score $map_ir macro.tmp matches 0 run return 0
 

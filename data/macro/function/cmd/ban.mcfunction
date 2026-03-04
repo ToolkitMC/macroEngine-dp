@@ -1,6 +1,6 @@
-# macro:cmd/ban — Oyuncuyu yasakla
-# INPUT: macro:input { player:"<ad>", reason:"<sebep>" }
-# ⚠ Yalnızca dedicated server'da çalışır, single player'da etkisiz
+# macro:cmd/ban — Ban a player
+# INPUT: macro:input { player:"<name>", reason:"<reason>" }
+# ⚠ Only works on dedicated servers, no effect in singleplayer
 
 execute unless entity @s[tag=macro.admin] run return 0
 

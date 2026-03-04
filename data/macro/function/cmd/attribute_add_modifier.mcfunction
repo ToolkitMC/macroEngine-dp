@@ -1,18 +1,18 @@
 # ============================================
 # macro:cmd/attribute_add_modifier
 # ============================================
-# Oyuncuya attribute modifier ekler.
-# Modifier UUID çakışmasını önlemek için benzersiz id kullan.
+# Playerya attribute modifier addr.
+# Modifier UUID cakismasini onlemek for benzersiz id kullan.
 #
 # INPUT: macro:input {
-# player:"<ad>",
+# player:"<name>",
 # attribute:"<attribute_id>",
 # id:"<modifier_id>",
 # amount:<float>,
 # operation:"<add_value|add_multiplied_base|add_multiplied_total>"
 # }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input player set value "Steve"
 # data modify storage macro:input attribute set value "minecraft:generic.movement_speed"
 # data modify storage macro:input id set value "macro:speed_boost"

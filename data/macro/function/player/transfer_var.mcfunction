@@ -1,21 +1,21 @@
 # ============================================
 # macro:player/transfer_var
 # ============================================
-# Oyuncudan oyuncuya değişken miktarı transfer et (örn: coin gönderme).
-# from oyuncusundan amount düşülür, to oyuncusuna amount eklenir.
-# Negatif bakiye ÖNLENMEZ — gerekirse önceden has_enough kontrolü yapın.
+# Transfer a variable amount from one player to another (orn: coin gonderme).
+# from playersundan amount dusulur, to playersuna amount addnir.
+# Negatiand balance is NOT prevented — gerekirse check has_enough beforehand.
 #
-# INPUT: macro:input { from:"<kaynak>", to:"<hedef>", key:"<değişken>", amount:<int> }
-# OUTPUT: macro:output { result:<hedef_yeni_değer> }
+# INPUT: macro:input { from:"<source>", to:"<target>", key:"<variable>", amount:<int> }
+# OUTPUT: macro:output { result:<hedef_yeni_value> }
 # ============================================
 
-# from oyuncusundan çıkar
+# from playersundan cikar
 $execute store result score $tr_f macro.tmp run data get storage macro:engine players.$(from).$(key)
 $scoreboard players set $tr_a macro.tmp $(amount)
 scoreboard players operation $tr_f macro.tmp -= $tr_a macro.tmp
 $execute store result storage macro:engine players.$(from).$(key) int 1 run scoreboard players get $tr_f macro.tmp
 
-# to oyuncusuna ekle
+# to playersuna add
 $execute store result score $tr_t macro.tmp run data get storage macro:engine players.$(to).$(key)
 scoreboard players operation $tr_t macro.tmp += $tr_a macro.tmp
 $execute store result storage macro:engine players.$(to).$(key) int 1 run scoreboard players get $tr_t macro.tmp

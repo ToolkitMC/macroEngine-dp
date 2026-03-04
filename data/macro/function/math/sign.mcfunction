@@ -1,7 +1,7 @@
 # ============================================
 # macro:math/sign
 # ============================================
-# Sayinin isaretini dondurur.
+# Returns the sign of a number.
 # INPUT: macro:input { value:<int> }
 # OUTPUT: macro:output { result: -1 | 0 | 1 }
 # ============================================

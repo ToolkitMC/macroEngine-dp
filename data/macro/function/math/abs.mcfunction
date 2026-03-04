@@ -1,7 +1,7 @@
 # ============================================
 # macro:math/abs
 # ============================================
-# Mutlak değer: |value|
+# Absolute value: |value|
 # INPUT: macro:input { value:<int> }
 # OUTPUT: macro:output { result:<int> }
 # ============================================

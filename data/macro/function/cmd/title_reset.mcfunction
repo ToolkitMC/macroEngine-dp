@@ -1,4 +1,4 @@
-# macro:cmd/title_reset — Title sürelerini varsayılana döndür
-# INPUT: macro:input { player:"<ad>" }
+# macro:cmd/title_reset — Title surelerini if present,yilana dondur
+# INPUT: macro:input { player:"<name>" }
 
 $execute as @a[name=$(player),limit=1] at @s run title @s reset

@@ -1,5 +1,5 @@
-# macro:cmd/kick — Oyuncuyu sunucudan at
-# INPUT: macro:input { player:"<ad>", reason:"<sebep>" }
+# macro:cmd/kick — Kick a player from the server
+# INPUT: macro:input { player:"<name>", reason:"<reason>" }
 
 execute unless entity @s[tag=macro.admin] run return 0
 

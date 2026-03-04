@@ -1,4 +1,4 @@
-# macro:player/copy_var — Bir oyuncunun değişkenini başka oyuncuya kopyala
-# INPUT: macro:input { from:"<kaynak>", to:"<hedef>", key:"<değişken>" }
+# macro:player/copy_var — Copy a player variable to another player
+# INPUT: macro:input { from:"<source>", to:"<target>", key:"<variable>" }
 
 $data modify storage macro:engine players.$(to).$(key) set from storage macro:engine players.$(from).$(key)

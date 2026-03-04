@@ -1,12 +1,12 @@
 # ============================================
 # macro:flag/set
 # ============================================
-# Global boolean bayrak koyar. Bayrak mevcut key altında 1b olarak saklanır.
-# Oyuncu-bazlı bayraklar için player/set_var kullanın.
+# Sets a global boolean flag. Stored as 1b under the given key.
+# Use player/set_var for per-player flags.
 #
-# INPUT: macro:input { key:"<bayrak_adı>" }
+# INPUT: macro:input { key:"<flag_name>" }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input key set value "game_started"
 # function macro:flag/set with storage macro:input {}
 # ============================================

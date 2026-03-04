@@ -1,8 +1,8 @@
 # ============================================
 # macro:cooldown/clear
 # ============================================
-# Belirtilen cooldown'u siler.
-# INPUT: macro:input { player:"<ad>", key:"<cooldown>" }
+# Deletes the specified cooldown.
+# INPUT: macro:input { player:"<name>", key:"<cooldown>" }
 # ============================================
 
 $data remove storage macro:engine cooldowns.$(player).$(key)

@@ -1,4 +1,4 @@
-# Doğrudan çağırmayın — schedule_reset tarafından kullanılır.
+# Do not call directly — schedule_reset is used by.
 # Makro INPUT: { func:"<f>", interval:<n>, key:"<k>" }
 $data modify storage macro:engine schedules.$(key).func set value "$(func)"
 $data modify storage macro:engine schedules.$(key).interval set value $(interval)

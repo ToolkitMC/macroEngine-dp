@@ -1,9 +1,9 @@
 # ============================================
 # macro:lib/schedule_renew
 # ============================================
-# Aktif schedule'ı bir sonraki tura yeniden kuyruğa ekler.
-# Kendi schedule fonksiyonunuzun sonunda çağırın.
-# Schedule iptal edilmişse hiçbir şey yapmaz.
+# Aktif schedule'i bir sonraki tura yeniden add to queuer.
+# Call at the end of your scheduled function.
+# Does nothing if the schedule was cancelled.
 # INPUT: macro:input { key:"<schedule_id>" }
 # ============================================
 

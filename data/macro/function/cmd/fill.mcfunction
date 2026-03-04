@@ -1,4 +1,4 @@
-# macro:cmd/fill — Bir bölgeyi blokla doldur
+# macro:cmd/fill — Bir bolgeyi blokla doldur
 # INPUT: macro:input { x1:<int>, y1:<int>, z1:<int>, x2:<int>, y2:<int>, z2:<int>,
 # block:"<block_id>", mode:"replace"|"keep"|"destroy"|"hollow"|"outline" }
 
