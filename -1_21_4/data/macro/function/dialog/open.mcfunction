@@ -2,6 +2,8 @@
 # Overrides base for pack_format ≤ 61 (≤ 1.21.4).
 # Uses legacy clickEvent/hoverEvent syntax.
 
+return run tellraw @s {"text":"Bu özellik 1.21.4 ve altı için değildir!","color":"red","italic":false}
+
 execute unless data storage macro:engine dialog.DIALOG run return 0
 
 scoreboard players set @s macro.dialog_load -1
