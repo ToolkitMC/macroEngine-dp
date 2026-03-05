@@ -1,13 +1,13 @@
 # ============================================
 # macro:dialog/load  [base — 1.21.1 fallback]
 # ============================================
-# MACRO FUNCTION — INPUT: $(cooldown)
-# 1.21.6+ overlay shows a native loading dialog.
-# Below pack_format 80: set the score + tag so
-# tick.mcfunction's timer logic still works.
+# Starts a loading dialog with the given cooldown (ticks).
+# After the cooldown elapses, macro:dialog/open fires automatically.
+#
+# INPUT: macro:input { cooldown:<int> }   (default: 20 ticks)
+# EXAMPLE:
+#   data modify storage macro:input cooldown set value 40
+#   function macro:dialog/load
 # ============================================
 
-$scoreboard players set @s macro.dialog_load $(cooldown)
-tag @s remove macro.dialog_opened
-tag @s add macro.dialog_opened
-tag @s add macro.dialog_closed
+return run tellraw @s {"text":"This feature requires 1.21.5 or higher!","color":"red","italic":false}

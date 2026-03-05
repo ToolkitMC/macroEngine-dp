@@ -49,12 +49,6 @@ execute if data storage macro:engine pb_obj run execute if score $pb_mod macro.t
 # Score no longer drops below 0; trigger always fires.
 scoreboard players remove @a[scores={macro.dialog_load=1..}] macro.dialog_load 1
 
-# Time elapsed + loading dialog closed, so open (used with macro:dialog/load)
-execute as @a[scores={macro.dialog_load=0},tag=macro.dialog_closed] at @s run function macro:dialog/open
-# BUG FIX v1.0.1: Direct "/scoreboard players set @s macro.dialog_load N" usage:
-# Also open dialog if only score was set without the tag.
-execute as @a[scores={macro.dialog_load=0},tag=!macro.dialog_closed,tag=!macro.dialog_opened] at @s run function macro:dialog/open
-
 # Other
 tag @a[tag=macro.admin] add macro.debug
 scoreboard players enable @a[tag=macro.admin] macro_menu

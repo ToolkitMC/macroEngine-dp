@@ -21,7 +21,7 @@
 # # → HUD en fazla saniyede 1 kez guncellenir
 # ============================================
 
-# Mevcut throttle durumunu check et
+# Check the current throttle state
 scoreboard players set $thr_go macro.tmp 1
 
 $execute if data storage macro:engine throttle.$(key) run execute store result score $thr_exp macro.tmp run data get storage macro:engine throttle.$(key)

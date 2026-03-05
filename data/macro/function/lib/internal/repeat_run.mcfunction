@@ -2,7 +2,7 @@
 execute store result score $rep_r macro.tmp run data get storage macro:engine _repeat.remaining
 execute if score $rep_r macro.tmp matches ..0 run return 0
 
-# Functionu run (i mevcut iterasyon indeksi olarak erisviabilir)
+# Run the function (i is accessible as the current iteration index)
 function macro:lib/internal/repeat_call with storage macro:engine _repeat
 
 # remaining azalt, i artir

@@ -1,4 +1,4 @@
-# macro:cmd/storage_set — Storage'a veri write
+# macro:cmd/storage_set — Write data to storage
 # INPUT: macro:input { storage:"<storage_id>", nbt:"<path>", actionType:"value|from|...", value:<value> }
 # EXAMPLE (value write):
 #   data modify storage macro:input storage set value "macro:engine"

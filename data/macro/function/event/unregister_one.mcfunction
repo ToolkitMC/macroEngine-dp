@@ -17,7 +17,7 @@
 # Event hic if absent, cik
 $execute unless data storage macro:engine events.$(event) run return 0
 
-# Filtre verisini readyla
+# Read the filter data
 $data modify storage macro:engine _uro.event set value "$(event)"
 $data modify storage macro:engine _uro.func set value "$(func)"
 $data modify storage macro:engine _uro.src set from storage macro:engine events.$(event)

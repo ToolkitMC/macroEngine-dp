@@ -17,12 +17,12 @@
 # function macro:lib/schedule with storage macro:input {}
 # ============================================
 
-# Zaten var mi? → Only update data,, do not re-queue
+# Already exists? → Only update data, do not re-queue
 $execute if data storage macro:engine schedules.$(key) run data modify storage macro:engine schedules.$(key).func set value "$(func)"
 $execute if data storage macro:engine schedules.$(key) run data modify storage macro:engine schedules.$(key).interval set value $(interval)
 $execute if data storage macro:engine schedules.$(key) run return 0
 
-# New schedule: saand and add to queue
+# New schedule: save and add to queue
 $data modify storage macro:engine schedules.$(key).func set value "$(func)"
 $data modify storage macro:engine schedules.$(key).interval set value $(interval)
 $data modify storage macro:engine queue append value {func:"$(func)", delay:$(interval)}

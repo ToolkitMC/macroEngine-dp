@@ -16,7 +16,7 @@
 
 $scoreboard players set $sqrt_n macro.tmp $(value)
 
-# Negatif and sifir ozel durumu
+# Negative and zero edge case
 execute if score $sqrt_n macro.tmp matches ..0 run data modify storage macro:output result set value 0
 execute if score $sqrt_n macro.tmp matches ..0 run return 0
 

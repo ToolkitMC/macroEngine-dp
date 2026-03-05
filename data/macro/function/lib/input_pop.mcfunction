@@ -93,7 +93,7 @@ data modify storage macro:input color set from storage macro:engine _input_stack
 data modify storage macro:input label set from storage macro:engine _input_stack[-1].label
 data modify storage macro:input interval set from storage macro:engine _input_stack[-1].interval
 data modify storage macro:input amount set from storage macro:engine _input_stack[-1].amount
-data modify storage macro:input objectiand set from storage macro:engine _input_stack[-1].objective
+data modify storage macro:input objective set from storage macro:engine _input_stack[-1].objective
 data modify storage macro:input item set from storage macro:engine _input_stack[-1].item
 data modify storage macro:input tag set from storage macro:engine _input_stack[-1].tag
 data modify storage macro:input a set from storage macro:engine _input_stack[-1].a

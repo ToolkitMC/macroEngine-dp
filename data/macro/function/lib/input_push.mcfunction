@@ -1,7 +1,7 @@
 # ============================================
 # macro:lib/input_push
 # ============================================
-# macro:input'in mevcut durumunu bir stack'e saves.
+# Saves the current state of macro:input onto a stack.
 # Before calling another function from within a function
 # use this to protect input. Then call input_pop.
 #
@@ -27,7 +27,7 @@ data modify storage macro:engine _input_stack[-1].color set from storage macro:i
 data modify storage macro:engine _input_stack[-1].label set from storage macro:input label
 data modify storage macro:engine _input_stack[-1].interval set from storage macro:input interval
 data modify storage macro:engine _input_stack[-1].amount set from storage macro:input amount
-data modify storage macro:engine _input_stack[-1].objectiand set from storage macro:input objective
+data modify storage macro:engine _input_stack[-1].objective set from storage macro:input objective
 data modify storage macro:engine _input_stack[-1].item set from storage macro:input item
 data modify storage macro:engine _input_stack[-1].tag set from storage macro:input tag
 data modify storage macro:engine _input_stack[-1].a set from storage macro:input a

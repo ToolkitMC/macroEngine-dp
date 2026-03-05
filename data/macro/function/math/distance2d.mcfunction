@@ -29,7 +29,7 @@ scoreboard players operation $d2d_dz macro.tmp *= $d2d_dz macro.tmp
 scoreboard players operation $d2d_sq macro.tmp = $d2d_dx macro.tmp
 scoreboard players operation $d2d_sq macro.tmp += $d2d_dz macro.tmp
 
-# Mesafe sifir ozel durumu
+# Zero-distance edge case
 execute if score $d2d_sq macro.tmp matches 0 run data modify storage macro:output result set value 0
 execute if score $d2d_sq macro.tmp matches 0 run return 0
 

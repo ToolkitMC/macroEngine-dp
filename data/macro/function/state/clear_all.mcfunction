@@ -1,8 +1,8 @@
 # ============================================
 # macro:state/clear_all
 # ============================================
-# Tüm oyuncuların durumlarını siler.
-# Oyun sıfırlanırken veya round bitişinde kullanılır.
+# Clears the state of all players.
+# Use when resetting the game or at the end of a round.
 #
 # INPUT: (yok)
 # OUTPUT: (yok)

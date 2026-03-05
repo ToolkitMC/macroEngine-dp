@@ -2,7 +2,7 @@
 # macro:lib/debounce
 # ============================================
 # Schedules the function only if not already scheduled.
-# Zaten actiand bir schedule if present, cagriyi yok sayar
+# If a schedule is already active, ignores the call
 # (first call is preserved — subsequent ones are dropped).
 #
 # For the opposite behaviour (son cagriyi koru):

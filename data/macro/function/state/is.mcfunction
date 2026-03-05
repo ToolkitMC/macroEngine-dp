@@ -1,13 +1,13 @@
 # ============================================
 # macro:state/is
 # ============================================
-# Oyuncunun durumu beklenen değerle eşleşiyor mu kontrol eder.
-# NBT string eşleşmesi kullanır.
+# Checks whether the player's state matches the expected value.
+# Uses NBT string matching.
 #
-# INPUT: macro:input { player:"<oyuncu_adı>", state:"<beklenen_durum>" }
-# OUTPUT: macro:output { result: 1b (eşleşiyor) / 0b (eşleşmiyor) }
+# INPUT: macro:input { player:"<player_name>", state:"<expected_state>" }
+# OUTPUT: macro:output { result: 1b (match) / 0b (no match) }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input player set value "Steve"
 # data modify storage macro:input state set value "lobby"
 # function macro:state/is with storage macro:input {}

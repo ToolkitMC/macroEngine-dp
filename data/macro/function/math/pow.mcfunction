@@ -1,7 +1,7 @@
 # ============================================
 # macro:math/pow
 # ============================================
-# a^n hesaplar (integer exponentiation).
+# Computes a^n (integer exponentiation).
 # Repeated multiplication method — n adim depth.
 # Uyari: large a and n values cause 32-bit overflow
 # (Minecraft scoreboard 32-bit signed).

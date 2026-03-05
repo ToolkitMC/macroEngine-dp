@@ -2,7 +2,7 @@
 # Overrides base for pack_format ≤ 61 (≤ 1.21.4).
 # Uses legacy clickEvent/hoverEvent syntax.
 
-return run tellraw @s {"text":"Bu özellik 1.21.4 ve altı için değildir!","color":"red","italic":false}
+return run tellraw @s {"text":"This feature requires 1.21.5 or higher!","color":"red","italic":false}
 
 execute unless data storage macro:engine dialog.DIALOG run return 0
 

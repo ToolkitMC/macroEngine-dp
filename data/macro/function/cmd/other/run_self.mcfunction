@@ -1,12 +1,11 @@
 # ============================================
-# macro:cmd/as_player
+# macro:cmd/other/run_self
 # ============================================
-# Herhangi bir komutu runan player OLARAK and
-# playernun KONUMUNDA runir.
+# Runs the command AS the current executor (@s) and at their position.
 # INPUT: macro:input { cmd:"<command>" }
 # EXAMPLE:
 # data modify storage macro:input cmd set value "effect give @s speed 5 2 true"
-# function macro:cmd/as_player with storage macro:input {}
+# function macro:cmd/other/run_self with storage macro:input {}
 # ============================================
 
-$execute as @s[type=minecraft:player] at @s run $(cmd)
+$execute as @s at @s run $(cmd)

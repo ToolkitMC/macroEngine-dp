@@ -47,7 +47,7 @@ scoreboard players add $rnd macro.tmp 1013904223
 # State'i save
 execute store result storage macro:engine _rng_state int 1 run scoreboard players get $rnd macro.tmp
 
-# Integer.MIN_VALUE (-2147483648) ozel durum — div sifir hatasini onle
+# Integer.MIN_VALUE (-2147483648) edge case — prevent divide-by-zero
 execute if score $rnd macro.tmp matches -2147483648 run scoreboard players set $rnd macro.tmp 2147483647
 execute if score $rnd macro.tmp matches ..-1 run scoreboard players set $rnd_neg macro.tmp -1
 execute if score $rnd macro.tmp matches ..-1 run scoreboard players operation $rnd macro.tmp *= $rnd_neg macro.tmp

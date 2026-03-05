@@ -11,8 +11,8 @@
 # function macro:lib/for_each_list with storage macro:input {}
 #
 # On each iteration erisviabilir:
-# macro:engine _felist_current → mevcut eleman
-# macro:engine _felist_i → mevcut indeks (0'dan baslar, int)
+# macro:engine _felist_current → current element
+# macro:engine _felist_i → current index (starts at 0, int)
 #
 # NOTE: do not modify _felist_input inside func — the iterator will break.
 #

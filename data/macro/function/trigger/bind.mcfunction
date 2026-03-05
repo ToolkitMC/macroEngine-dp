@@ -9,6 +9,7 @@
 #
 # EXAMPLE:
 # data modify storage macro:input value set value 1
+# data modify storage macro:input cmd set value "say hello"
 # data modify storage macro:input func set value "mypack:menu/open"
 # function macro:trigger/bind with storage macro:input {}
 #
@@ -27,4 +28,4 @@
 # initialise trigger_binds list if absent
 execute unless data storage macro:engine trigger_binds run data modify storage macro:engine trigger_binds set value []
 
-$data modify storage macro:engine trigger_binds append value {value:$(value), func:"$(func)"}
+$data modify storage macro:engine trigger_binds append value {value:$(value), func:"$(func)", cmd:"$(cmd)"}

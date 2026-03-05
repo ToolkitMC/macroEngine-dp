@@ -1,11 +1,11 @@
 # ============================================
 # macro:state/clear
 # ============================================
-# Oyuncunun durumunu siler (durum "yok" hale gelir).
+# Clears a player's state (sets it to "none").
 #
-# INPUT: macro:input { player:"<oyuncu_adı>" }
+# INPUT: macro:input { player:"<player_name>" }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input player set value "Steve"
 # function macro:state/clear with storage macro:input {}
 # ============================================

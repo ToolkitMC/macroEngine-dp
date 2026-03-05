@@ -1,13 +1,13 @@
 # ============================================
 # macro:state/set
 # ============================================
-# Bir oyuncuya durum (state) atar.
-# Aynı oyuncu için bir önceki durum üzerine yazar.
-# Durum makinesi, oyun fazları, NPC davranışları için idealdir.
+# Assigns a state to a player.
+# Overwrites the previous state for the same player.
+# Ideal for state machines, game phases, and NPC behaviors.
 #
-# INPUT: macro:input { player:"<oyuncu_adı>", state:"<durum>" }
+# INPUT: macro:input { player:"<player_name>", state:"<state>" }
 #
-# ÖRNEK:
+# EXAMPLE:
 # data modify storage macro:input player set value "Steve"
 # data modify storage macro:input state set value "combat"
 # function macro:state/set with storage macro:input {}

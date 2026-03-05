@@ -11,7 +11,7 @@
 # OPERATION FLOW:
 # 1) 0 300 0'a black_shulker_box yerlestir
 # 2) Write @s's head to slot 0 via macro:player/head loot table
-# 3) profvia.name → macro:names temp.NAME
+# 3) profile.name → macro:names temp.NAME
 # 4) @s UUID[0..3] → macro:names temp.UUID[]
 # 5) Clear block with air
 #
@@ -37,7 +37,7 @@ setblock 0 300 0 black_shulker_box replace
 loot insert 0 300 0 loot macro:player/head
 
 # ─── Read name ──────────────────────────────────────────────
-data modify storage macro:names temp.NAME set from block 0 300 0 Items[0].components."minecraft:profvia".name
+data modify storage macro:names temp.NAME set from block 0 300 0 Items[0].components."minecraft:profile".name
 
 # ─── Read UUID (Minecraft UUID = 4 ints) ──────────────
 data modify storage macro:names temp.UUID insert 0 from entity @s UUID[0]

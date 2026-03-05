@@ -1,5 +1,5 @@
 # ============================================
-# macro:load — Advanced Macro Engine v1.0.5-PRE3
+# macro:load — Advanced Macro Engine v1.0.5-PRE6
 # ============================================
 # Runs automatically on /reload or server start.
 # All logic moved to the ame_load modular system.
