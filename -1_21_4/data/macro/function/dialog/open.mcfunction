@@ -1,7 +1,7 @@
-# macro:dialog/open  [-1_21_4 overlay — base fallback]
+# macro:dialog/open [-1_21_4 overlay — base fallback]
 # Overrides base for pack_format ≤ 61 (≤ 1.21.4).
 # Uses legacy clickEvent/hoverEvent syntax.
-# BUG FIX v1.0.6-pre1: Removed erroneous `return run tellraw` that made
+# BUG FIX v1.0.6-pre2: Removed erroneous `return run tellraw` that made
 # all fallback code unreachable. The fallback chat-based dialog now runs.
 
 execute unless data storage macro:engine dialog.DIALOG run return 0

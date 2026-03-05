@@ -5,7 +5,7 @@
 # Called by macro:load.
 #
 # Flow:
-#   validate → scoreboards → storages → other → finalize
+# validate → scoreboards → storages → other → finalize
 #
 # If validate returns 0, the entire load is cancelled.
 # ============================================
@@ -33,12 +33,12 @@ function ame_load:load/other
 data modify storage macro:engine global.loaded set value 1b
 
 # ─── 6.5 Version scores ──────────────────────────────────
-# Writes $v_major=1 $v_minor=0 $v_patch=5 $ame_ver_set=1
+# Writes #ame.major=1 #ame.minor=0 #ame.patch=6 #ame.pre=2 $ame_ver_set=1
 # to ame.pre_version. On next reload, validate compares these.
 function ame_load:load/internal/version_set
 
 # ─── 7. Loaded notification ───────────────────────────────
-tellraw @a[tag=macro.debug] {"text":"[Macro Engine v1.0.6-pre1] Loaded.","color":"green"}
+tellraw @a[tag=macro.debug] {"text":"[Macro Engine v1.0.6-pre2] Loaded.","color":"green"}
 # BUG FIX v3.5: pitch:0 → pitch:1 corrected
 data modify storage macro:input sound set value "minecraft:ui.toast.challenge_complete"
 data modify storage macro:input volume set value 1
@@ -50,7 +50,7 @@ data remove storage macro:input pitch
 
 # ─── 8. Final log ────────────────────────────────────────
 # BUG FIX v1.0.4: Duplicate init block and unconditional log_count reset removed.
-data modify storage macro:input level set value "Advanced Macro Engine v1.0.6-pre1"
+data modify storage macro:input level set value "Advanced Macro Engine v1.0.6-pre2"
 data modify storage macro:input message set value "Loaded."
 data modify storage macro:input color set value "green"
 function macro:log/add with storage macro:input {}

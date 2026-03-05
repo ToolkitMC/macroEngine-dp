@@ -5,21 +5,21 @@
 # item sayisini macro:output.count'a yazar.
 #
 # Kullanim senaryolari:
-#   - Kac adet quest item'i var?
-#   - Para sayimi (coin item miktari)
-#   - Envanter doluluk kontrolu
+# - Kac adet quest item'i var?
+# - Para sayimi (coin item miktari)
+# - Envanter doluluk kontrolu
 #
 # INPUT: macro:input
-#   player     : <string>  — Oyuncu adi
-#   customData : <snbt>    — Aranacak custom_data SNBT ({...})
+# player : <string> — Oyuncu adi
+# customData : <snbt> — Aranacak custom_data SNBT ({...})
 #
 # OUTPUT: macro:output { count:<int> }
 #
 # EXAMPLE:
-#   data modify storage macro:input player     set value "Steve"
-#   data modify storage macro:input customData set value "{id:\"mymap:gold_coin\"}"
-#   function macro:inv/count_item with storage macro:input {}
-#   data get storage macro:output count
+# data modify storage macro:input player set value "Steve"
+# data modify storage macro:input customData set value "{id:\"mymap:gold_coin\"}"
+# function macro:inv/count_item with storage macro:input {}
+# data get storage macro:output count
 # ============================================
 
 scoreboard players set $inv_cnt macro.tmp 0

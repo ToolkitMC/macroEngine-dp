@@ -5,20 +5,20 @@
 # konumuna isinlar.
 #
 # Kullanim senaryolari:
-#   - NPC'ye hizla don
-#   - Checkpoint entity'sine isinla
-#   - Boss spawn noktasina get
+# - NPC'ye hizla don
+# - Checkpoint entity'sine isinla
+# - Boss spawn noktasina get
 #
 # INPUT: macro:input
-#   player : <string>  — Oyuncu adi
-#   type   : <string>  — Entity type
-#   tag    : <string>  — Entity tag
+# player : <string> — Oyuncu adi
+# type : <string> — Entity type
+# tag : <string> — Entity tag
 #
 # EXAMPLE:
-#   data modify storage macro:input player set value "Steve"
-#   data modify storage macro:input type   set value "minecraft:armor_stand"
-#   data modify storage macro:input tag    set value "checkpoint_1"
-#   function macro:cmd/tp_to_entity with storage macro:input {}
+# data modify storage macro:input player set value "Steve"
+# data modify storage macro:input type set value "minecraft:armor_stand"
+# data modify storage macro:input tag set value "checkpoint_1"
+# function macro:cmd/tp_to_entity with storage macro:input {}
 # ============================================
 
 $execute as @a[name=$(player),limit=1] run tp @s @e[type=$(type),tag=$(tag),limit=1]

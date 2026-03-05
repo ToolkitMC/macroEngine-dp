@@ -13,7 +13,7 @@
 # data modify storage macro:input text set value "Envanter"
 # data modify storage macro:input color set value "gold"
 # function macro:string/header with storage macro:input {}
-# Output: ◆──── Inventory ────◆  (gold color, bold)
+# Output: ◆──── Inventory ────◆ (gold color, bold)
 # ============================================
 
 $tellraw $(target) [{"text":"◆── ","color":"$(color)"},{"text":"$(text)","color":"$(color)","bold":true},{"text":" ──◆","color":"$(color)"}]

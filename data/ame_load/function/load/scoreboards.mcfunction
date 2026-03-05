@@ -17,5 +17,5 @@ scoreboard objectives add macro.tick_guard dummy
 scoreboard objectives add health health {"text":"❤","color":"red"}
 # Version tracking: $v_major/$v_minor/$v_patch + sentinel $ame_ver_set
 # See: ame_load:load/internal/version_set (writer)
-#      ame_load:load/internal/validate     (reader / conflict check)
+# ame_load:load/internal/validate (reader / conflict check)
 scoreboard objectives add ame.pre_version dummy

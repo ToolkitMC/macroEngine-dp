@@ -11,7 +11,7 @@
 #
 # EXAMPLE:
 # data modify storage macro:input value set value 10
-# data modify storage macro:input cmd   set value "say Merhaba!"
+# data modify storage macro:input cmd set value "say Merhaba!"
 # function macro:trigger/bind_cmd with storage macro:input {}
 #
 # Player kullanimi:

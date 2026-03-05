@@ -5,16 +5,16 @@
 # Bireysel macro:cmd/title'dan farki: oyuncu adi gerekmez.
 #
 # Kullanim senaryolari:
-#   - Round duyurusu (ROUND 2 basliyor!)
-#   - Oyun bitti ekrani
-#   - Global countdown gosterimi
+# - Round duyurusu (ROUND 2 basliyor!)
+# - Oyun bitti ekrani
+# - Global countdown gosterimi
 #
 # INPUT: macro:input
-#   title : <string>  — Gosterilecek metin (renksiz veya JSON)
+# title : <string> — Gosterilecek metin (renksiz veya JSON)
 #
 # EXAMPLE:
-#   data modify storage macro:input title set value "Round 1"
-#   function macro:cmd/title_all with storage macro:input {}
+# data modify storage macro:input title set value "Round 1"
+# function macro:cmd/title_all with storage macro:input {}
 # ============================================
 
 $title @a title {"text":"$(title)"}

@@ -8,20 +8,20 @@
 # $d3d_* prefix'li gecici skorlar macro:tmp scoreboard'unda tutulur.
 #
 # INPUT: macro:input
-#   x1 / y1 / z1 : <int>  — Birinci nokta
-#   x2 / y2 / z2 : <int>  — Ikinci nokta
+# x1 / y1 / z1 : <int> — Birinci nokta
+# x2 / y2 / z2 : <int> — Ikinci nokta
 #
 # OUTPUT: macro:output { result:<int> }
 #
 # EXAMPLE:
-#   data modify storage macro:input x1 set value 0
-#   data modify storage macro:input y1 set value 64
-#   data modify storage macro:input z1 set value 0
-#   data modify storage macro:input x2 set value 3
-#   data modify storage macro:input y2 set value 68
-#   data modify storage macro:input z2 set value 0
-#   function macro:math/distance3d with storage macro:input {}
-#   # → distance3d(0,64,0, 3,68,0) = floor(√(9+16+0)) = 5
+# data modify storage macro:input x1 set value 0
+# data modify storage macro:input y1 set value 64
+# data modify storage macro:input z1 set value 0
+# data modify storage macro:input x2 set value 3
+# data modify storage macro:input y2 set value 68
+# data modify storage macro:input z2 set value 0
+# function macro:math/distance3d with storage macro:input {}
+# # → distance3d(0,64,0, 3,68,0) = floor(√(9+16+0)) = 5
 # ============================================
 
 $scoreboard players set $d3d_x1 macro.tmp $(x1)

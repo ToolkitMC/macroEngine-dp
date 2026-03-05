@@ -12,11 +12,11 @@
 #
 # EXAMPLE:
 # data modify storage macro:input value set value 1
-# data modify storage macro:input func  set value "mypack:menu/open"
+# data modify storage macro:input func set value "mypack:menu/open"
 # function macro:trigger/bind with storage macro:input {}
 #
 # data modify storage macro:input value set value 2
-# data modify storage macro:input func  set value "mypack:shop/open"
+# data modify storage macro:input func set value "mypack:shop/open"
 # function macro:trigger/bind with storage macro:input {}
 #
 # Player kullanimi:

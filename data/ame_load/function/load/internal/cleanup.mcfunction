@@ -42,13 +42,13 @@ data remove storage macro:engine _felist_state
 data remove storage macro:engine _felist_current
 data remove storage macro:engine _felist_i
 data remove storage macro:engine log_display
-scoreboard players reset $log_count macro.tmp
+scoreboard players reset #ame.log_count macro.tmp
 data remove storage macro:engine trigger_binds
 data remove storage macro:engine _tc_binds
 data remove storage macro:engine _tc_current
 data remove storage macro:engine _tc_unbind
 data remove storage macro:engine _tc_uval
-# BUG FIX v1.0.6-pre1: teams storage was never cleared on disable/reload.
+# BUG FIX v1.0.6-pre2: teams storage was never cleared on disable/reload.
 # team/create writes here; without this line data accumulates across reloads.
 data remove storage macro:engine teams
 # Config is preserved — so it survives reload

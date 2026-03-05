@@ -1,4 +1,4 @@
-# macro:disable  [-1_21_4 overlay]
+# macro:disable [-1_21_4 overlay]
 # Overrides base for pack_format ≤ 61 (≤ 1.21.4).
 # Uses legacy clickEvent syntax.
 
