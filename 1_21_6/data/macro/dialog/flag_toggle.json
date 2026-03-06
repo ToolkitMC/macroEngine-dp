@@ -1,6 +1,14 @@
 {
   "type": "minecraft:multi_action",
-  "title": "",
+  "title": "Sistem Kontrol Paneli",
+  "body": {
+    "type": "minecraft:plain_message",
+    "contents": {
+      "text": "Açıp kapatmak istediğin sistemi yaz ve 'Uygula' tuşuna bas.",
+      "color": "aqua",
+      "italic": false
+    }
+  },
   "inputs": [
     {
       "type": "minecraft:text",
