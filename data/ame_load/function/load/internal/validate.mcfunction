@@ -13,7 +13,7 @@
 # ============================================
 
 # ─── Global storage init ───────────────────────────────
-execute unless data storage macro:engine global run data modify storage macro:engine global set value {version:"V1.0.6-pre2"}
+execute unless data storage macro:engine global run data modify storage macro:engine global set value {version:"V1.0.6-pre3"}
 
 # ─── Log storage init (before log/add is called) ─────
 # BUG FIX v1.0.4: Both lines are protected with unless;
@@ -28,9 +28,9 @@ execute if data storage macro:engine global{loaded:1b} run function macro:log/wa
 execute if data storage macro:engine global{loaded:1b} run return 0
 
 # ─── Storage version check ───────────────────────────────
-execute unless data storage macro:engine global{version:"V1.0.6-pre2"} run data modify storage macro:names temp.vers set value "V1.0.6-pre2"
-execute unless data storage macro:engine global{version:"V1.0.6-pre2"} run tellraw @a [{"text":"[AME] ","color":"aqua","bold":true},{"text":"Version mismatch — expected ","color":"red"},{"storage":"macro:names","nbt":"temp.vers","color":"yellow"},{"text":".","color":"red"}]
-execute unless data storage macro:engine global{version:"V1.0.6-pre2"} run return 0
+execute unless data storage macro:engine global{version:"V1.0.6-pre3"} run data modify storage macro:names temp.vers set value "V1.0.6-pre3"
+execute unless data storage macro:engine global{version:"V1.0.6-pre3"} run tellraw @a [{"text":"[AME] ","color":"aqua","bold":true},{"text":"Version mismatch — expected ","color":"red"},{"storage":"macro:names","nbt":"temp.vers","color":"yellow"},{"text":".","color":"red"}]
+execute unless data storage macro:engine global{version:"V1.0.6-pre3"} run return 0
 
 # ─── Scoreboard version conflict check ───────────────────
 # ame.pre_version objective: created here early (safe if already exists).

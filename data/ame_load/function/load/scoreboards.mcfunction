@@ -19,3 +19,15 @@ scoreboard objectives add health health {"text":"❤","color":"red"}
 # See: ame_load:load/internal/version_set (writer)
 # ame_load:load/internal/validate (reader / conflict check)
 scoreboard objectives add ame.pre_version dummy
+
+# ============================================
+# Flag Sistemi - Tick Kategorilerini Kontrol Eder
+# ============================================
+scoreboard objectives add macro.Flags dummy {"text":"Macro Flags","color":"gold"}
+
+# Flag başlangıç değerleri (1 = aktif, 0 = devre dışı)
+scoreboard players set #m_time macro.Flags 1
+scoreboard players set #m_queue macro.Flags 1
+scoreboard players set #m_player macro.Flags 1
+scoreboard players set #m_hud macro.Flags 1
+scoreboard players set #m_admin macro.Flags 1
