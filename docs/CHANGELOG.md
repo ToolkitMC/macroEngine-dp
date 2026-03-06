@@ -2,6 +2,56 @@
 
 ---
 
+## v1.0.6-pre3 — 2026-03-06
+
+### 🐛 Bug Fixes
+
+#### `-1_21_4` / `1_21_6` overlay `tick.mcfunction` — flag sistemi devre dışı
+Her iki overlay'deki `tick.mcfunction` eski monolitik versiyonu içeriyordu; base `data/`'daki flag-kontrollü `tick.mcfunction`'ı tamamen override ediyordu. 1.21.1 kullanıcısı (pack_format 48, `-1_21_4` aktif) için `macro.Flags` hiç okunmuyordu — toggle çalışıyor görünse de sistemler etkilenmiyordu. Her iki overlay `tick.mcfunction` flag-kontrollü yapıya güncellendi. `1_21_6` overlay'ine özgü `dialog_load` mantığı `1_21_6/tick/player_systems` override'ına taşındı.
+
+#### `flag/toggle_system` — `$ftgl_sys` macro değişkeni çakışması
+`$ftgl_sys` fake player adı `$` ön ekiyle başladığından macro satırı içinde `$(ftgl_sys)` değişkeni olarak ayrıştırılmaya çalışılıyordu; `scoreboard players operation` her seferinde 0 yazıyor, toggle her zaman 1 set ediyordu. `#ftgl_sys` olarak düzeltildi.
+
+#### `flag/toggle_system` — `tellraw` set'ten önce çalışıyordu
+`tellraw` iki `set` satırının arasına sıkışmıştı; 0→1 geçişinde ilk `tellraw` henüz set edilmemiş (0) değeri okuyordu, ikinci `tellraw` ise 1 okuyordu — ekranda iki mesaj çıkıyordu. `tellraw` her iki `set` satırından sonraya taşındı.
+
+#### `flag/toggle_system` — çift execute race condition
+İki `execute if score` satırı sırayla çalıştığından 1→0 set edildikten hemen sonra `matches 0` koşulu da tetiklenip değeri tekrar 1 yapıyordu. Mevcut skor önce `#ftgl_sys macro.tmp`'ye kopyalanarak sabitlendi; sadece tek dal çalışıyor.
+
+---
+
+### ✨ Yeni: Flag-Kontrollü Tick Sistemi
+
+`macro:tick` beş bağımsız subsisteme bölündü; her subsistem `macro.Flags` scoreboard'undaki bir flag ile açılıp kapatılabiliyor.
+
+| Flag | Değer | Kapsadığı sistemler |
+|---|---|---|
+| `#m_time` | `1` | Epoch sayacı, `$tick` artışı |
+| `#m_queue` | `1` | `lib/process_queue`, `lib/schedule` |
+| `#m_player` | `1` | Oyuncu menü, run, action tetikleyicileri |
+| `#m_hud` | `1` | Otomatik progress bar (actionbar) |
+| `#m_admin` | `1` | Debug & admin sistemleri |
+
+Flag `0` iken ilgili subsistem `macro:tick/disabled` stub'ını çalıştırır (no-op). Load sırasında tüm flag'ler `1` (aktif) olarak set edilir.
+
+Yeni tick dosyaları: `tick/time_systems`, `tick/queue_systems`, `tick/player_systems`, `tick/hud_systems`, `tick/admin_systems`, `tick/disabled`.
+
+### ✨ Yeni: Flag Sistem Fonksiyonları
+
+| Fonksiyon | Input | Açıklama |
+|---|---|---|
+| `flag/toggle_system` | `{system:"<isim>"}` | `#m_<isim> macro.Flags` değerini toggle eder ve yeni durumu `@s`'e bildirir |
+| `flag/list_systems` | — | Tüm beş sistem flag'inin mevcut skorunu `@s`'e gösterir |
+
+**Kullanım örnekleri:**
+```
+/function macro:flag/toggle_system {system:"queue"}
+/function macro:flag/list_systems
+/scoreboard players set #m_hud macro.Flags 0
+```
+
+---
+
 ## v1.0.6-pre2 — 2026-03-05
 
 ### 🐛 Bug Fixes
