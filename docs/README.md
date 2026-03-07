@@ -463,4 +463,47 @@ function macro:lib/input_pop           # input'u geri yükle
 ```
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+## 💬 Topluluk & Destek
+
+[![Discussions](https://img.shields.io/github/discussions/tickwarden/macroEngine-dp?style=for-the-badge&logo=github&color=blue)](https://github.com/tickwarden/macroEngine-dp/discussions)
+
+**Sorularınız mı var? Özellik önerisi mi sunmak istiyorsunuz?**
+
+[GitHub Discussions](https://github.com/tickwarden/macroEngine-dp/discussions) bölümünden topluluğa katılın!
+
+- ❓ **Q&A** - Sorularınızı sorun
+- 💡 **Ideas** - Özellik önerileri
+- 🐛 **Bug Reports** - Hata bildirimleri
+- 💬 **General** - Genel tartışmalar
+
+---
+
+
+
+
+
+
+
+
+
 *Advanced Macro Engine v3.0 | MC Java 1.21.x | +3 yeni modül | +24 yeni fonksiyon | 3 kritik bug fix | Dil: mcfunction*
