@@ -448,13 +448,19 @@ jobs:
       - name: Read version from pack.mcmeta
         id: mcmeta_ver
         run: |
-          RAW=$(jq -c '.' pack.mcmeta)
+          # BUG FIX: Daha geniş versiyon deseni — v1.2.3, test1, her string eşleşir
+          RAW=$(jq -r '.pack.description // ""' pack.mcmeta)
+          # Önce semver dene (v1.2.3)
           VER=$(echo "$RAW" | grep -oP 'v\d+\.\d+\.\d+[\w.-]*' | head -1 || true)
+          # Semver bulunamazsa description'dan herhangi bir versiyon benzeri string al
+          if [ -z "$VER" ]; then
+            VER=$(echo "$RAW" | grep -oP '\bv?[\w][\w.-]*\d[\w.-]*' | head -1 || true)
+          fi
           if [ -n "$VER" ]; then
             echo "OK: pack.mcmeta versiyonu: $VER"
             echo "version=$VER" >> $GITHUB_OUTPUT
           else
-            echo "WARN: pack.mcmeta içinde versiyon deseni bulunamadı"
+            echo "WARN: pack.mcmeta içinde versiyon deseni bulunamadı (description: '$RAW')"
             echo "version=" >> $GITHUB_OUTPUT
           fi
 
@@ -466,11 +472,11 @@ jobs:
           STRICT="${{ inputs.strict_version_match }}"
 
           if [ -z "$META_VER" ]; then
-            MSG="pack.mcmeta içinde versiyon yok — $INPUT_TAG ile karşılaştırılamadı"
+            MSG="pack.mcmeta içinde versiyon bulunamadı — '$INPUT_TAG' ile karşılaştırılamadı"
           elif [[ "$META_VER" == "$INPUT_TAG" ]]; then
             echo "✅ PASSED: $INPUT_TAG — pack.mcmeta ile eşleşiyor"; exit 0
           else
-            MSG="Uyuşmazlık — input: $INPUT_TAG | pack.mcmeta: $META_VER"
+            MSG="Uyuşmazlık — input: '$INPUT_TAG' | pack.mcmeta: '$META_VER'"
           fi
 
           [ "$STRICT" == "true" ] && { echo "❌ FAILED: $MSG"; exit 1; } || echo "⚠️ WARN: $MSG"
@@ -519,12 +525,31 @@ jobs:
           echo "✅ Release version = ${{ inputs.version }}"
 
       - name: Create git tag
+        # BUG FIX: set +e ile git hatalarının adımı çökertmesi engellendi;
+        # tag zaten varsa veya push başarısız olursa sadece uyarı verilir.
         run: |
+          set +e
           TAG="${{ inputs.version }}"
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git tag "$TAG" || echo "⚠️ WARN: Tag $TAG zaten var, atlanıyor"
-          git push origin "$TAG" || echo "⚠️ WARN: Tag push edilemedi (zaten mevcut olabilir)"
+
+          git tag "$TAG" 2>/dev/null
+          TAG_EXIT=$?
+          if [ $TAG_EXIT -ne 0 ]; then
+            echo "⚠️ WARN: Tag '$TAG' zaten mevcut, atlanıyor"
+          else
+            echo "✅ Tag '$TAG' oluşturuldu"
+          fi
+
+          git push origin "$TAG" 2>/dev/null
+          PUSH_EXIT=$?
+          if [ $PUSH_EXIT -ne 0 ]; then
+            echo "⚠️ WARN: Tag '$TAG' push edilemedi (zaten remote'da mevcut olabilir)"
+          else
+            echo "✅ Tag '$TAG' remote'a push edildi"
+          fi
+
+          exit 0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -542,8 +567,9 @@ jobs:
 
           echo "── ZIP İçeriği ──────────────────────────────"
 
-          # scan_dirs
           PATHS=()
+
+          # scan_dirs
           for d in ${{ inputs.scan_dirs }}; do
             if [ -e "$d" ]; then
               PATHS+=("$d")
@@ -577,6 +603,13 @@ jobs:
           fi
 
           echo "────────────────────────────────────────────"
+
+          # BUG FIX: PATHS boşsa ZIP oluşturulamaz, hata ver
+          if [ ${#PATHS[@]} -eq 0 ]; then
+            echo "❌ FAILED: ZIP'e eklenecek dosya/dizin bulunamadı!"
+            exit 1
+          fi
+
           zip -r "$ZIP" "${PATHS[@]}"
 
           # zip_exclude_patterns — hariç tutulacaklar
