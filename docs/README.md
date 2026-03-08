@@ -82,11 +82,11 @@ Kodlar ve örnekler modüllere göre ayrı dokümanlarda:
 
 | Modül | Döküman |
 |-------|---------|
-| 🕐 Cooldown | [cooldown.md](docs/cooldown.md) |
-| 📡 Event | [event.md](docs/event.md) |
-| 🔢 Matematik | [math.md](docs/math.md) |
-| 👥 Takım & ⚙️ Config | [team-config.md](docs/team-config.md) |
-| 🔁 Lib · 👤 Oyuncu · ⚙️ Komutlar · 💬 Mesajlaşma | [lib-player-cmd-string.md](docs/lib-player-cmd-string.md) |
+| 🕐 Cooldown | [cooldown.md](cooldown.md) |
+| 📡 Event | [event.md](event.md) |
+| 🔢 Matematik | [math.md](math.md) |
+| 👥 Takım & ⚙️ Config | [team-config.md](team-config.md) |
+| 🔁 Lib · 👤 Oyuncu · ⚙️ Komutlar · 💬 Mesajlaşma | [lib-player-cmd-string.md](lib-player-cmd-string.md) |
 
 ---
 
