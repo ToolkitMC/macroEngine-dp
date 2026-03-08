@@ -1,4 +1,3 @@
-
 # 🔧 Advanced Macro Engine — v3.0
 **Minecraft Java Edition 1.21.x | Multiplayer-Safe | Pure Datapack**
 
@@ -27,7 +26,7 @@ sha256sum datapack.zip
 ```
 1. advanced_macro_engine_v30/ → sunucu/datapacks/ klasörüne koy
 2. /reload
-3. Admin olun: /tag @s add macro.admin
+3. Debug: /function macro:debug/toggle
 ```
 
 ---
@@ -83,11 +82,11 @@ Kodlar ve örnekler modüllere göre ayrı dokümanlarda:
 
 | Modül | Döküman |
 |-------|---------|
-| 🕐 Cooldown | [docs/cooldown.md](docs/cooldown.md) |
-| 📡 Event | [docs/event.md](docs/event.md) |
-| 🔢 Matematik | [docs/math.md](docs/math.md) |
-| 👥 Takım & ⚙️ Config | [docs/team-config.md](docs/team-config.md) |
-| 🔁 Lib · 👤 Oyuncu · ⚙️ Komutlar · 💬 Mesajlaşma | [docs/lib-player-cmd-string.md](docs/lib-player-cmd-string.md) |
+| 🕐 Cooldown | [cooldown.md](docs/cooldown.md) |
+| 📡 Event | [event.md](docs/event.md) |
+| 🔢 Matematik | [math.md](docs/math.md) |
+| 👥 Takım & ⚙️ Config | [team-config.md](docs/team-config.md) |
+| 🔁 Lib · 👤 Oyuncu · ⚙️ Komutlar · 💬 Mesajlaşma | [lib-player-cmd-string.md](docs/lib-player-cmd-string.md) |
 
 ---
 
