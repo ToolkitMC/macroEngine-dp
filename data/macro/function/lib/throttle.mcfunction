@@ -38,3 +38,4 @@ $execute store result storage macro:engine throttle.$(key) int 1 run scoreboard 
 
 # Functionu add to queue
 function macro:lib/queue_add with storage macro:input {}
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"lib/throttle ","color":"aqua"},{"text":" → ","color":"dark_gray"},{"text":"$(key)","color":"aqua"}]

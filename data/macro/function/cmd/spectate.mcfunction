@@ -14,3 +14,4 @@
 
 # BUG FIX v3.5: "execute as $(player)" → "@a[name=...]" selector
 $execute as @a[name=$(player),limit=1] run spectate $(target)
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/spectate ","color":"aqua"},{"text":"$(player)","color":"white"},{"text":" → ","color":"dark_gray"},{"text":"$(target)","color":"aqua"}]

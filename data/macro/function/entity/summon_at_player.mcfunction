@@ -23,3 +23,4 @@
 # ============================================
 
 $execute as @a[name=$(player),limit=1] at @s run summon $(entity) ~ ~ ~ $(nbt)
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"entity/summon_at_player ","color":"aqua"},{"text":"$(player)","color":"white"},{"text":" → ","color":"dark_gray"},{"text":"$(entity)","color":"aqua"}]

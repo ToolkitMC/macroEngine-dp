@@ -27,4 +27,6 @@ execute as @a[scores={macro_action=1..}] run function macro:trigger/internal/dis
 # Onceden "@a" decremented all player scores; score could go past 0 to -1, -2...
 # oldugunda "=0" condition would never match again (race condition).
 # Score no longer drops below 0; trigger always fires.
-scoreboard players remove @a[scores={macro.dialog_load=1..}] macro.dialog_load 1
+# perm/trigger dispatch (v2.0)
+# perm_trigger_names listesindeki her isimli trigger'ı izin kontrolüyle işler.
+function macro:perm/trigger/internal/tick_start

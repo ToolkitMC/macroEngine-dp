@@ -10,3 +10,4 @@ execute if score $cv macro.tmp < $cv_mn macro.tmp run scoreboard players operati
 execute if score $cv macro.tmp > $cv_mx macro.tmp run scoreboard players operation $cv macro.tmp = $cv_mx macro.tmp
 $execute store result storage macro:engine players.$(player).$(key) int 1 run scoreboard players get $cv macro.tmp
 execute store result storage macro:output result int 1 run scoreboard players get $cv macro.tmp
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"player/clamp_var ","color":"aqua"},{"text":"$(player)","color":"white"},{"text":" → ","color":"dark_gray"},{"text":"$(key)","color":"aqua"},{"text":" → ","color":"dark_gray"},{"storage":"macro:output","nbt":"result","color":"green"}]

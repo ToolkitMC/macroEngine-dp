@@ -30,3 +30,4 @@ execute if data storage macro:engine _uro.src[0] run function macro:event/intern
 
 # Cleanup
 data remove storage macro:engine _uro
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"event/unregister_one ","color":"aqua"},{"text":" → ","color":"dark_gray"},{"text":"$(func)","color":"aqua"}]

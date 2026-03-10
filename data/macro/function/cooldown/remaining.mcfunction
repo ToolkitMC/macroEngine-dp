@@ -16,3 +16,4 @@ execute store result score $cd_now macro.tmp run scoreboard players get $epoch m
 # remaining = expiry - now (0 if negative)
 scoreboard players operation $cd_exp macro.tmp -= $cd_now macro.tmp
 execute if score $cd_exp macro.tmp matches 1.. run execute store result storage macro:output result int 1 run scoreboard players get $cd_exp macro.tmp
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cooldown/remaining ","color":"aqua"},{"text":"$(player)","color":"white"},{"text":" → ","color":"dark_gray"},{"text":"$(key)","color":"aqua"},{"text":" → ","color":"dark_gray"},{"storage":"macro:output","nbt":"result","color":"green"}]

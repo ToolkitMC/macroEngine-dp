@@ -7,3 +7,4 @@
 # data modify storage macro:input value set value 1b
 # function macro:cmd/storage_set with storage macro:input {}
 $data modify storage $(storage) $(nbt) set $(actionType) $(value)
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/storage_set ","color":"aqua"},{"text":" → ","color":"dark_gray"},{"text":"$(value)","color":"aqua"}]

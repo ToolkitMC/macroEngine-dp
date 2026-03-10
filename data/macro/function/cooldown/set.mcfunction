@@ -2,11 +2,11 @@
 # macro:cooldown/set
 # ============================================
 # Starts a cooldown. Writes expiry epoch to storage.
-# INPUT: macro:input { player:"<name>", key:"<cooldown>", duration:<tick> }
+# INPUT: macro:input { player:"<n>", key:"<cooldown>", duration:<tick> }
 # ============================================
 
-# current epoch + duration = expiry
 $scoreboard players set $cd_dur macro.tmp $(duration)
 execute store result score $cd_now macro.tmp run scoreboard players get $epoch macro.time
 scoreboard players operation $cd_now macro.tmp += $cd_dur macro.tmp
 $execute store result storage macro:engine cooldowns.$(player).$(key) int 1 run scoreboard players get $cd_now macro.tmp
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cooldown/set ","color":"aqua"},{"text":"→ ","color":"dark_gray"},{"text":"$(player)","color":"white"},{"text":":","color":"dark_gray"},{"text":"$(key)","color":"aqua"},{"text":" for ","color":"dark_gray"},{"text":"$(duration)","color":"green"},{"text":"t","color":"dark_gray"}]

@@ -4,3 +4,4 @@
 # spread: min player arasi mesafe, max_range: merkeze max uzaklik
 
 $spreadplayers $(cx) $(cz) $(spread) $(max_range) false $(target)
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/spreadplayers ","color":"aqua"},{"text":" → ","color":"dark_gray"},{"text":"$(target)","color":"aqua"}]

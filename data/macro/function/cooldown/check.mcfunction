@@ -17,3 +17,4 @@ execute store result score $cd_now macro.tmp run scoreboard players get $epoch m
 
 # epoch >= expiry → ready (1b), epoch < expiry → actiand (0b)
 execute if score $cd_now macro.tmp < $cd_exp macro.tmp run data modify storage macro:output result set value 0b
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cooldown/check ","color":"aqua"},{"text":"$(player)","color":"white"},{"text":" → ","color":"dark_gray"},{"text":"$(key)","color":"aqua"},{"text":" → ","color":"dark_gray"},{"storage":"macro:output","nbt":"result","color":"green"}]

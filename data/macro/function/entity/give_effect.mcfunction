@@ -26,3 +26,4 @@
 # ============================================
 
 $effect give @e[type=$(type),tag=$(tag)] $(effect) $(duration) $(amplifier) true
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"entity/give_effect ","color":"aqua"},{"text":" → ","color":"dark_gray"},{"text":"$(effect)","color":"aqua"}]

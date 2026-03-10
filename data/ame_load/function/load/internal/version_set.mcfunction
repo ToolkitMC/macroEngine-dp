@@ -6,10 +6,10 @@
 # Called from all.mcfunction step 6.5.
 #
 # Scores written:
-# #ame.major ame.pre_version → 1
+# #ame.major ame.pre_version → 2
 # #ame.minor ame.pre_version → 0
-# #ame.patch ame.pre_version → 6
-# #ame.pre ame.pre_version → 2 (pre-release flag; 0 = stable)
+# #ame.patch ame.pre_version → 0
+# #ame.pre ame.pre_version → 0 (pre-release flag; 0 = stable)
 # #ame.ver_set ame.pre_version → 1 (sentinel)
 #
 # BUG FIX v1.0.6-pre2: Renamed $v_* fake players to #ame.* to avoid
@@ -21,8 +21,8 @@
 # validate will compare scores
 # ============================================
 
-scoreboard players set #ame.major ame.pre_version 1
+scoreboard players set #ame.major ame.pre_version 2
 scoreboard players set #ame.minor ame.pre_version 0
-scoreboard players set #ame.patch ame.pre_version 6
-scoreboard players set #ame.pre ame.pre_version 4
+scoreboard players set #ame.patch ame.pre_version 0
+scoreboard players set #ame.pre ame.pre_version 0
 scoreboard players set #ame.ver_set ame.pre_version 1

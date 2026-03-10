@@ -4,3 +4,4 @@
 
 $bossbar add $(id) {"text":"$(text)"}
 $bossbar set $(id) color $(color)
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/bossbar_add ","color":"aqua"},{"text":" → ","color":"dark_gray"},{"text":"$(id)","color":"aqua"}]

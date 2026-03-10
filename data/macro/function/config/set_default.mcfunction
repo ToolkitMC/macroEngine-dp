@@ -16,4 +16,4 @@ $execute if data storage macro:engine config.$(key) run return 0
 
 # If absent, write
 $data modify storage macro:engine config.$(key) set value "$(value)"
-$tellraw @a[tag=macro.debug] [{"text":"[Config] Default: ","color":"yellow"},{"text":"$(key)","color":"white"},{"text":" = "},{"text":"$(value)","color":"gray"}]
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"config/set_default ","color":"aqua"},{"text":" → ","color":"dark_gray"},{"text":"$(key)","color":"aqua"},{"text":" → ","color":"dark_gray"},{"storage":"macro:output","nbt":"result","color":"green"}]

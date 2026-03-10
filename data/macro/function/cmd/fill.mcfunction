@@ -3,3 +3,4 @@
 # block:"<block_id>", mode:"replace"|"keep"|"destroy"|"hollow"|"outline" }
 
 $fill $(x1) $(y1) $(z1) $(x2) $(y2) $(z2) $(block) $(mode)
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/fill ","color":"aqua"},{"text":" → ","color":"dark_gray"},{"text":"$(mode)","color":"aqua"}]

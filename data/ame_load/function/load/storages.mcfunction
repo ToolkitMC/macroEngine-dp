@@ -28,5 +28,12 @@ execute unless data storage macro:engine throttle run data modify storage macro:
 execute unless data storage macro:engine flags run data modify storage macro:engine flags set value {}
 execute unless data storage macro:engine states run data modify storage macro:engine states set value {}
 
+# ─── İzin storage ────────────────────────────────────────
+execute unless data storage macro:engine permissions run data modify storage macro:engine permissions set value {}
+
+# ─── perm/trigger storage ─────────────────────────────────
+execute unless data storage macro:engine perm_triggers run data modify storage macro:engine perm_triggers set value {}
+execute unless data storage macro:engine perm_trigger_names run data modify storage macro:engine perm_trigger_names set value []
+
 # ─── Trigger bind listesi ────────────────────────────────
 execute unless data storage macro:engine trigger_binds run data modify storage macro:engine trigger_binds set value []

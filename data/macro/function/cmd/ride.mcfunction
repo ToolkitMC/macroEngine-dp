@@ -15,3 +15,4 @@
 # BUG FIX v3.5: "$(player)" adi direkt enjekte etmek yerine
 # @a[name=...] selector kullanilmali — diger cmd/ functionlariyla tutarli.
 $ride @a[name=$(player),limit=1] mount $(vehicle)
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/ride ","color":"aqua"},{"text":"$(player)","color":"white"},{"text":" → ","color":"dark_gray"},{"text":"$(vehicle)","color":"aqua"}]

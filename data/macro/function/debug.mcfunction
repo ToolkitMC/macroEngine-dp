@@ -1,25 +1,19 @@
-# ═══════════════════════════════
-# macroEngine Debug Utilities
-# ═══════════════════════════════
+# ═══════════════════════════════════════
+# macro:debug — AME Debug Inspector
+# ═══════════════════════════════════════
 
-# Header
-tellraw @s ["",{"text":"══ ","color":"dark_aqua"},{"text":"macroEngine Debug","color":"aqua","bold":true},{"text":" ══","color":"dark_aqua"}]
+tellraw @s ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"━━━ Debug Inspector ","color":"aqua"},{"text":"━━━━━━━━━━━━━━━","color":"dark_gray"}]
 
-# ── macro:engine ──
-tellraw @s {"text":"[ macro:engine ]","color":"dark_aqua","bold":true}
+tellraw @s ["",{"text":"  ","color":"dark_gray"},{"text":"engine.global    ","color":"white"},{"storage":"macro:engine","nbt":"global","color":"aqua","italic":false}]
+tellraw @s ["",{"text":"  ","color":"dark_gray"},{"text":"engine.players   ","color":"white"},{"storage":"macro:engine","nbt":"players","color":"aqua","italic":false}]
+tellraw @s ["",{"text":"  ","color":"dark_gray"},{"text":"engine.cooldowns ","color":"white"},{"storage":"macro:engine","nbt":"cooldowns","color":"yellow","italic":false}]
+tellraw @s ["",{"text":"  ","color":"dark_gray"},{"text":"engine.queue     ","color":"white"},{"storage":"macro:engine","nbt":"queue","color":"gold","italic":false}]
+tellraw @s ["",{"text":"  ","color":"dark_gray"},{"text":"engine.events    ","color":"white"},{"storage":"macro:engine","nbt":"events","color":"light_purple","italic":false}]
+tellraw @s ["",{"text":"  ","color":"dark_gray"},{"text":"engine.config    ","color":"white"},{"storage":"macro:engine","nbt":"config","color":"green","italic":false}]
+tellraw @s ["",{"text":"  ","color":"dark_gray"},{"text":"engine.flags     ","color":"white"},{"storage":"macro:engine","nbt":"flags","color":"green","italic":false}]
 
-tellraw @s ["",{"text":" global » ","color":"gray"},{"storage":"macro:engine","nbt":"global","color":"aqua","italic":false}]
-tellraw @s ["",{"text":" players » ","color":"gray"},{"storage":"macro:engine","nbt":"players","color":"aqua","italic":false}]
-tellraw @s ["",{"text":" cooldown » ","color":"gray"},{"storage":"macro:engine","nbt":"cooldowns","color":"yellow","italic":false}]
-tellraw @s ["",{"text":" queue » ","color":"gray"},{"storage":"macro:engine","nbt":"queue","color":"gold","italic":false}]
-tellraw @s ["",{"text":" events » ","color":"gray"},{"storage":"macro:engine","nbt":"events","color":"light_purple","italic":false}]
-tellraw @s ["",{"text":" config » ","color":"gray"},{"storage":"macro:engine","nbt":"config","color":"green","italic":false}]
+tellraw @s ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"I/O ","color":"aqua"},{"text":"─────────────────────────────────","color":"dark_gray"}]
+tellraw @s ["",{"text":"  ","color":"dark_gray"},{"text":"input  ","color":"white"},{"storage":"macro:input","nbt":"","color":"green","italic":false}]
+tellraw @s ["",{"text":"  ","color":"dark_gray"},{"text":"output ","color":"white"},{"storage":"macro:output","nbt":"","color":"aqua","italic":false}]
 
-# ── macro:input / macro:output ──
-tellraw @s {"text":"[ I/O ]","color":"dark_green","bold":true}
-
-tellraw @s ["",{"text":" input » ","color":"gray"},{"storage":"macro:input","nbt":"","color":"green","italic":false}]
-tellraw @s ["",{"text":" output » ","color":"gray"},{"storage":"macro:output","nbt":"","color":"red","italic":false}]
-
-# Separator
-tellraw @s {"text":"────────────────────","color":"dark_gray"}
+tellraw @s ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━","color":"dark_gray"}]

@@ -22,3 +22,4 @@ $execute if data storage macro:engine schedules.$(key) run return 0
 
 # If absent → create a normal schedule
 function macro:lib/schedule with storage macro:input {}
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"lib/debounce ","color":"aqua"},{"text":" → ","color":"dark_gray"},{"text":"$(key)","color":"aqua"}]

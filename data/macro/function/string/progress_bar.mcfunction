@@ -40,3 +40,4 @@ $execute if score $pb1_seg macro.tmp matches 7 run title @a[name=$(player),limit
 $execute if score $pb1_seg macro.tmp matches 8 run title @a[name=$(player),limit=1] actionbar {"text":"$(label) ████████░░"}
 $execute if score $pb1_seg macro.tmp matches 9 run title @a[name=$(player),limit=1] actionbar {"text":"$(label) █████████░"}
 $execute if score $pb1_seg macro.tmp matches 10 run title @a[name=$(player),limit=1] actionbar {"text":"$(label) ██████████"}
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"string/progress_bar ","color":"aqua"},{"text":"$(player)","color":"white"},{"text":" → ","color":"dark_gray"},{"text":"$(label)","color":"aqua"}]

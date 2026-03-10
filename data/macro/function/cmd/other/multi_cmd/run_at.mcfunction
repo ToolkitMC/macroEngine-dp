@@ -16,3 +16,4 @@
 # ============================================
 
 $execute positioned $(x) $(y) $(z) run function macro:cmd/other/multi_cmd/run
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/other/multi_cmd/run_at ","color":"aqua"},{"text":"@ ","color":"dark_gray"},{"text":"$(x) $(y) $(z)","color":"aqua"},{"text":" ▶ done","color":"green"}]

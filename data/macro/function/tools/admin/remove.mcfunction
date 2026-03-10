@@ -1,6 +1,3 @@
-execute unless entity @s[tag=macro.admin] run return 0
+execute unless entity @s[tag=macro.admin] run return run tellraw @s ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"✘ ","color":"red"},{"text":"Permission denied.","color":"red"}]
 
-# Admin yetkisini al
 $tag $(NAME) remove macro.admin
-tellraw @s {"text":"Admin permission revoked:","color":"red"}
-$tellraw @s [{"text":"$(NAME)","color":"aqua"}]

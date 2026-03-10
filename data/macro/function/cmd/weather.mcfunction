@@ -3,3 +3,4 @@
 # duration: saniye cinsinden (0 = if present,yilan)
 
 $weather $(type) $(duration)
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/weather ","color":"aqua"},{"text":" → ","color":"dark_gray"},{"text":"$(type)","color":"aqua"}]

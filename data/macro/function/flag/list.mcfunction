@@ -1,13 +1,11 @@
 # ============================================
 # macro:flag/list
 # ============================================
-# Shows all actiand global flags to macro.debug-tagged players.
-#
+# Shows all active global flags to macro.debug-tagged players.
 # INPUT: (yok)
-# OUTPUT: (none — displayed via tellraw)
 # ============================================
 
-tellraw @a[tag=macro.debug] [{"text":"--- Global Flags ---","color":"light_purple"}]
-execute if data storage macro:engine flags run tellraw @a[tag=macro.debug] [{"text":" ","color":"gray"},{"storage":"macro:engine","nbt":"flags","interpret":false,"color":"white"}]
-execute unless data storage macro:engine flags run tellraw @a[tag=macro.debug] {"text":" [!] No actiand flags.","color":"red"}
-tellraw @a[tag=macro.debug] [{"text":"----------------------","color":"light_purple"}]
+tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"━━━ Global Flags ","color":"aqua"},{"text":"━━━━━━━━━━━","color":"dark_gray"}]
+execute if data storage macro:engine flags run tellraw @a[tag=macro.debug] ["",{"text":"  ","color":"dark_gray"},{"storage":"macro:engine","nbt":"flags","interpret":false,"color":"white"}]
+execute unless data storage macro:engine flags run tellraw @a[tag=macro.debug] ["",{"text":"  ","color":"dark_gray"},{"text":"(no active flags)","color":"gray","italic":true}]
+tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"━━━━━━━━━━━━━━━━━━━","color":"dark_gray"}]

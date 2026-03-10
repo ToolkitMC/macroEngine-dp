@@ -25,3 +25,4 @@ $data remove storage macro:engine schedules.$(key)
 # Yeniden schedule et (tam olarak lib/schedule mantigiyla)
 function macro:lib/internal/schedule_reset_do with storage macro:engine _sreset
 data remove storage macro:engine _sreset
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"lib/schedule_reset ","color":"aqua"},{"text":" → ","color":"dark_gray"},{"text":"$(key)","color":"aqua"}]

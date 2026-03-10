@@ -26,3 +26,4 @@
 # ============================================
 
 $fill $(x1) $(y1) $(z1) $(x2) $(y2) $(z2) $(block) keep
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"world/fill_keep ","color":"aqua"},{"text":" → ","color":"dark_gray"},{"text":"$(block)","color":"aqua"}]

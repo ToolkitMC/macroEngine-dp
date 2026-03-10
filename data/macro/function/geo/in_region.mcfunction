@@ -32,3 +32,4 @@
 # ============================================
 
 $execute as @a[name=$(player),limit=1,x=$(x),y=$(y),z=$(z),dx=$(dx),dy=$(dy),dz=$(dz)] run $(invoke)
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"geo/in_region ","color":"aqua"},{"text":"$(player)","color":"white"}]

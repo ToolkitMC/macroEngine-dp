@@ -7,4 +7,4 @@
 # ============================================
 
 $data remove storage macro:engine config.$(key)
-$tellraw @a[tag=macro.debug] [{"text":"[Config] Deleted: ","color":"red"},{"text":"$(key)","color":"white"}]
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"config/delete ","color":"aqua"},{"text":" → ","color":"dark_gray"},{"text":"$(key)","color":"aqua"}]

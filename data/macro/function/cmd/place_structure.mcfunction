@@ -15,3 +15,4 @@
 # ============================================
 
 $place structure $(structure) $(x) $(y) $(z)
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/place_structure ","color":"aqua"},{"text":" → ","color":"dark_gray"},{"text":"$(structure)","color":"aqua"}]

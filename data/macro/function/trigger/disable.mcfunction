@@ -1,14 +1,9 @@
 # ============================================
 # macro:trigger/disable
 # ============================================
-# Disables the macro_action trigger for a specific player.
-# Score is reset and not re-enabled.
-#
+# macro_action trigger'ini devre disi birakir.
 # INPUT: macro:input { player:"<player_adi>" }
-#
-# EXAMPLE:
-# data modify storage macro:input player set value "Steve"
-# function macro:trigger/disable with storage macro:input {}
 # ============================================
 
 $scoreboard players reset $(player) macro_action
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"trigger/disable ","color":"aqua"},{"text":"· ","color":"dark_gray"},{"text":"$(player)","color":"white"},{"text":" — macro_action disabled","color":"dark_gray"}]

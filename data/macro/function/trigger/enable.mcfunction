@@ -1,17 +1,9 @@
 # ============================================
 # macro:trigger/enable
 # ============================================
-# Enables the macro_action trigger for a specific player.
-# Player becomes able to type /trigger macro_action set <N>.
-#
+# /trigger macro_action set <N> komutunu aktif eder.
 # INPUT: macro:input { player:"<player_adi>" }
-#
-# EXAMPLE:
-# data modify storage macro:input player set value "Steve"
-# function macro:trigger/enable with storage macro:input {}
-#
-# To enable for all players:
-# scoreboard players enable @a macro_action
 # ============================================
 
 $scoreboard players enable $(player) macro_action
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"trigger/enable ","color":"aqua"},{"text":"✔ ","color":"green"},{"text":"$(player)","color":"white"},{"text":" — macro_action enabled","color":"dark_gray"}]

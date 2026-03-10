@@ -1,14 +1,14 @@
 # ============================================
-# macro:flag/list_systems — Sistem Flag Durumlarını Listele
+# macro:flag/list_systems
 # ============================================
-# Tüm tick sistemi flag'lerinin durumunu gösterir
-# Kullanım: /function macro:flag/list_systems
+# Tum tick sistemi flag'lerinin durumunu gosterir.
+# Kullanim: /function macro:flag/list_systems
 # ============================================
 
-tellraw @s [{"text":"\n=== MacroEngine Sistem Flag Durumları ===","color":"gold","bold":true}]
-tellraw @s [{"text":"• ","color":"gray"},{"text":"Zaman Sistemleri (#m_time): ","color":"yellow"},{"score":{"name":"#m_time","objective":"macro.Flags"},"color":"green"}]
-tellraw @s [{"text":"• ","color":"gray"},{"text":"Kuyruk Sistemleri (#m_queue): ","color":"yellow"},{"score":{"name":"#m_queue","objective":"macro.Flags"},"color":"green"}]
-tellraw @s [{"text":"• ","color":"gray"},{"text":"Oyuncu Sistemleri (#m_player): ","color":"yellow"},{"score":{"name":"#m_player","objective":"macro.Flags"},"color":"green"}]
-tellraw @s [{"text":"• ","color":"gray"},{"text":"HUD Sistemleri (#m_hud): ","color":"yellow"},{"score":{"name":"#m_hud","objective":"macro.Flags"},"color":"green"}]
-tellraw @s [{"text":"• ","color":"gray"},{"text":"Admin Sistemleri (#m_admin): ","color":"yellow"},{"score":{"name":"#m_admin","objective":"macro.Flags"},"color":"green"}]
-tellraw @s [{"text":"=====================================\n","color":"gold"}]
+tellraw @s ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"━━━ System Flags ","color":"aqua"},{"text":"━━━━━━━━━━━━━━━━","color":"dark_gray"}]
+tellraw @s ["",{"text":"  ","color":"dark_gray"},{"text":"time   ","color":"white"},{"text":"#m_time   ","color":"dark_gray"},{"score":{"name":"#m_time","objective":"macro.Flags"},"color":"green"}]
+tellraw @s ["",{"text":"  ","color":"dark_gray"},{"text":"queue  ","color":"white"},{"text":"#m_queue  ","color":"dark_gray"},{"score":{"name":"#m_queue","objective":"macro.Flags"},"color":"green"}]
+tellraw @s ["",{"text":"  ","color":"dark_gray"},{"text":"player ","color":"white"},{"text":"#m_player ","color":"dark_gray"},{"score":{"name":"#m_player","objective":"macro.Flags"},"color":"green"}]
+tellraw @s ["",{"text":"  ","color":"dark_gray"},{"text":"hud    ","color":"white"},{"text":"#m_hud    ","color":"dark_gray"},{"score":{"name":"#m_hud","objective":"macro.Flags"},"color":"green"}]
+tellraw @s ["",{"text":"  ","color":"dark_gray"},{"text":"admin  ","color":"white"},{"text":"#m_admin  ","color":"dark_gray"},{"score":{"name":"#m_admin","objective":"macro.Flags"},"color":"green"}]
+tellraw @s ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"━━━━━━━━━━━━━━━━━━━━━━━━━","color":"dark_gray"}]

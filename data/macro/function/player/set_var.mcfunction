@@ -1,16 +1,8 @@
 # ============================================
 # macro:player/set_var
 # ============================================
-# USAGE:
-# function macro:player/set_var with storage macro:input {}
-# Required input storage fields:
-# macro:input { player:"<playerName>", key:"<degiskenAdi>", value:<value> }
-#
-# EXAMPLE:
-# data modify storage macro:input player set value "Steve"
-# data modify storage macro:input key set value "coins"
-# data modify storage macro:input value set value 100
-# function macro:player/set_var with storage macro:input {}
+# INPUT: macro:input { player:"<n>", key:"<key>", value:<value> }
 # ============================================
 
 $data modify storage macro:engine players.$(player).$(key) set value $(value)
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"player/set_var ","color":"aqua"},{"text":"$(player)","color":"white"},{"text":" → ","color":"dark_gray"},{"text":"$(key)","color":"aqua"}]

@@ -2,15 +2,8 @@
 # macro:state/set
 # ============================================
 # Assigns a state to a player.
-# Overwrites the previous state for the same player.
-# Ideal for state machines, game phases, and NPC behaviors.
-#
 # INPUT: macro:input { player:"<player_name>", state:"<state>" }
-#
-# EXAMPLE:
-# data modify storage macro:input player set value "Steve"
-# data modify storage macro:input state set value "combat"
-# function macro:state/set with storage macro:input {}
 # ============================================
 
 $data modify storage macro:engine states.$(player) set value "$(state)"
+$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"state/set ","color":"aqua"},{"text":"$(player)","color":"white"},{"text":" → ","color":"dark_gray"},{"text":"$(state)","color":"aqua"}]
