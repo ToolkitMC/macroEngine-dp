@@ -9,7 +9,7 @@
 > Başka sitelerden veya fork'lardan indirilen dosyalar değiştirilmiş olabilir.  
 > Yalnızca [Releases](https://github.com/tickwarden/macroEngine-dp/releases) sayfasından indirin.
 
-**SHA256:** `5da52ecfd5b7efbe00f900f57d21bc7b4fd34091f22b52b28ea69f86500761f7`
+**SHA256:** `sha256:f99aecf13b35ad672525f6ca339a0579cce50913fdbd0022deb75a3634e34061`
 
 ```bash
 # Windows
