@@ -1,0 +1,90 @@
+name: Triage Bug Issues
+
+on:
+  issues:
+    types: [labeled, opened]
+
+permissions:
+  issues: write
+
+jobs:
+  triage-bug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.payload.issue;
+            const labels = issue.labels.map(l => l.name);
+
+            if (!labels.includes('bug')) return;
+            if (issue.state === 'closed') return;
+
+            // Daha önce triage yorumu bırakıldı mı?
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+            });
+
+            const MARKER = '<!-- bug-triage -->';
+            if (comments.some(c => c.body.includes(MARKER))) return;
+
+            const body = issue.body || '';
+            const missingInfo = [];
+
+            // Eksik bilgi kontrolü
+            if (!body.match(/1\.2[0-9]\.[0-9]/)) {
+              missingInfo.push('- [ ] **Minecraft Java Edition sürümü** (örn. `1.21.4`, `1.21.5`)');
+            }
+            if (!body.match(/macroEngine|macro.engine/i)) {
+              missingInfo.push('- [ ] **macroEngine-dp sürümü veya commit hash\'i**');
+            }
+            if (!body.match(/yeniden üret|repro|adım|steps?|how to/i)) {
+              missingInfo.push('- [ ] **Yeniden üretme adımları** (bug\'ı nasıl tetikleyebiliriz?)');
+            }
+
+            let commentBody = [
+              MARKER,
+              "## 🐛 Bug Triaged",
+              "",
+              "Bu bug raporunu aldık! Daha hızlı inceleyebilmemiz için aşağıdaki bilgilerin eksiksiz olduğundan emin olun:",
+              "",
+            ];
+
+            if (missingInfo.length > 0) {
+              commentBody.push("**Eksik görünen bilgiler:**");
+              commentBody.push(...missingInfo);
+              commentBody.push("");
+            }
+
+            commentBody.push(
+              "**Yardımcı olabilecek ek bilgiler:**",
+              "- `/datapack list` komutunun çıktısı",
+              "- Varsa `latest.log` veya konsol hata mesajı",
+              "- Sadece macroEngine-dp aktifken de sorun oluyor mu?",
+              "",
+              "> Bilgiler tamamlandıkça issue incelemeye alınacaktır. Teşekkürler! 🙏"
+            );
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: commentBody.join('\n'),
+            });
+
+            // 'help wanted' değilse öncelik etiketi ekle
+            if (!labels.includes('help wanted')) {
+              try {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  labels: ['help wanted'],
+                });
+              } catch (e) {
+                console.log("'help wanted' etiketi eklenemedi:", e.message);
+              }
+            }
