@@ -23,11 +23,11 @@ jobs:
             // Kendi reponuza göre bu listeyi güncelleyin
             const REVIEWERS_BY_PATH = [
               {
-                pattern: /^data\/macroengine\/functions\//,
+                pattern: /^data\/macro\/function\//,
                 reviewers: ['tickwarden'],
               },
               {
-                pattern: /^data\/macroengine\/tags\//,
+                pattern: /^data\/macro\/tags\//,
                 reviewers: ['tickwarden'],
               },
               {

@@ -13,7 +13,7 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -40,7 +40,7 @@ jobs:
             case "$file" in
               # Overlay-specific changes
               _pre_1_21_4/*)   add_label "overlay" ;;
-              -1_21_4/*|-1_21_4/*) add_label "overlay" ;;
+              -1_21_4/*)        add_label "overlay" ;;
               1_21_6/*)        add_label "overlay" ;;
 
               # Function logic

@@ -20,7 +20,7 @@ jobs:
     name: CRLF Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Detect CRLF line endings in .mcfunction files
         run: |
           FAILED=0
@@ -45,7 +45,7 @@ jobs:
     name: Macro Line Prefix
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Check macro variable lines start with $
         run: |
           FAILED=0
@@ -77,7 +77,7 @@ jobs:
     name: INPUT Comment Coverage
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Check INPUT comment presence where macros are used
         run: |
           WARN=0
@@ -104,7 +104,7 @@ jobs:
     name: "@p Selector Check"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Warn on @p usage
         run: |
           FOUND=0
@@ -135,7 +135,7 @@ jobs:
     name: Trailing Whitespace
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Detect trailing whitespace in .mcfunction files
         run: |
           FOUND=0

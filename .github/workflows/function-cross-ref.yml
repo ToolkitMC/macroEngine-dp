@@ -25,7 +25,7 @@ jobs:
     name: Inline Function Call Integrity
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Extract and validate all function calls
         run: |
@@ -104,7 +104,7 @@ jobs:
     name: Overlay Orphan Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Check overlay files have base equivalents
         run: |
