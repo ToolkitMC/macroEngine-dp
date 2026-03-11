@@ -2,8 +2,12 @@ name: Feature Request
 description: Yeni bir fonksiyon, modül veya iyileştirme önerin
 title: "[FEATURE] "
 labels: [ enhancement ]
+assignees: []
 
 body:
+  # ─────────────────────────────────────────────
+  # 1. KATEGORİ
+  # ─────────────────────────────────────────────
   - type: dropdown
     id: category
     attributes:
@@ -30,34 +34,124 @@ body:
     validations:
       required: true
 
+  # ─────────────────────────────────────────────
+  # 2. AME VERSİYONU
+  # ─────────────────────────────────────────────
+  - type: dropdown
+    id: ame_version
+    attributes:
+      label: A.M.E. Versiyonu
+      description: Hangi versiyonu kullanıyorsun?
+      options:
+        - "v2.0.1 (güncel)"
+        - "v2.0.0"
+        - "v1.x"
+        - "Bilmiyorum"
+    validations:
+      required: true
+
+  # ─────────────────────────────────────────────
+  # 3. MC VERSİYONU
+  # ─────────────────────────────────────────────
+  - type: dropdown
+    id: mc_version
+    attributes:
+      label: Minecraft Versiyonu
+      description: Hangi MC sürümünde çalışıyor olacak?
+      options:
+        - "1.21.6+ (pack_format 80-94)"
+        - "1.21.2 – 1.21.5 (pack_format 48-79)"
+        - "Her ikisi de"
+        - "Belirli bir sürüm gerekmez"
+    validations:
+      required: true
+
+  # ─────────────────────────────────────────────
+  # 4. SORUN / MOTİVASYON
+  # ─────────────────────────────────────────────
   - type: textarea
     id: problem
     attributes:
       label: Sorun / Motivasyon
       description: Bu özellik olmadan ne yapamıyorsun veya ne zorlaşıyor?
+      placeholder: |
+        Örnek: macro:lib/wait ile gecikmiş bir fonksiyon çalıştırabiliyorum,
+        ama hangi tick'te ateşleneceğini önceden bilemiyorum.
     validations:
       required: true
 
+  # ─────────────────────────────────────────────
+  # 5. ÖNERİ
+  # ─────────────────────────────────────────────
   - type: textarea
     id: proposal
     attributes:
       label: Öneri
-      description: Nasıl çalışmasını istiyorsun? Fonksiyon adı ve INPUT formatı varsa yaz.
+      description: >
+        Nasıl çalışmasını istiyorsun?
+        Fonksiyon adı, INPUT/OUTPUT formatı ve örnek kullanım varsa yaz.
       placeholder: |
-        macro:cmd/my_feature
-        INPUT: macro:input { player:"<n>", value:<int> }
+        macro:lib/wait_until
+        INPUT:  macro:input { func:"<namespace:path>", predicate:"<namespace:path>", timeout:<tick> }
+        OUTPUT: macro:output { fired:1b }  ← timeout dolmadan tetiklendiyse
+
+        # Örnek kullanım:
+        data modify storage macro:input func      set value "mypack:reward/give"
+        data modify storage macro:input predicate set value "mypack:pred/is_on_ground"
+        data modify storage macro:input timeout   set value 100
+        function macro:lib/wait_until with storage macro:input {}
     validations:
       required: true
 
+  # ─────────────────────────────────────────────
+  # 6. MEVCUT GEÇİCİ ÇÖZÜM
+  # ─────────────────────────────────────────────
   - type: textarea
     id: alternatives
     attributes:
       label: Mevcut Geçici Çözüm
-      description: Şu an bunu nasıl çözüyorsun?
+      description: Şu an bunu nasıl çözüyorsun? (isteğe bağlı)
+      placeholder: |
+        Şu an macro:lib/schedule + manuel predicate check ile yapıyorum,
+        ama her senaryo için ayrı fonksiyon yazmak zorunda kalıyorum.
 
+  # ─────────────────────────────────────────────
+  # 7. ETKİ / ÖNCELİK
+  # ─────────────────────────────────────────────
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Etki / Öncelik
+      description: Bu özellik seni ne kadar etkiliyor?
+      options:
+        - "🔴 Kritik — Olmadan bir şeyi yapamıyorum"
+        - "🟠 Yüksek — Önemli bir şeyi çok zorlaştırıyor"
+        - "🟡 Orta — Güzel olurdu, ama geçici çözüm var"
+        - "🟢 Düşük — Nice-to-have"
+    validations:
+      required: true
+
+  # ─────────────────────────────────────────────
+  # 8. BREAKING CHANGE
+  # ─────────────────────────────────────────────
   - type: checkboxes
     id: breaking
     attributes:
       label: Breaking Change
+      description: Bu öneriyi uygularken dikkat edilmesi gereken durumlar
       options:
-        - label: Bu öneri mevcut API'yi bozabilir
+        - label: Bu öneri mevcut API'yi bozabilir (input/output formatı değişebilir)
+        - label: Mevcut storage veya scoreboard yapısını etkiliyor
+        - label: Sadece 1.21.6+ için geçerli (overlay gerektirir)
+        - label: Yeni bir scoreboard objective gerektiriyor
+
+  # ─────────────────────────────────────────────
+  # 9. EK BAĞLAM
+  # ─────────────────────────────────────────────
+  - type: textarea
+    id: extra
+    attributes:
+      label: Ek Bağlam / Notlar
+      description: >
+        Referans aldığın başka bir datapack, wiki sayfası veya örnek varsa buraya ekleyebilirsin.
+        Ekran görüntüsü ya da `.mcfunction` snippet'i de kabul edilir.
