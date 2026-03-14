@@ -1,13 +1,13 @@
-# 🔧 Advanced Macro Engine — v2.0.3-pre1
+# 🔧 Advanced Macro Engine
 **Minecraft Java Edition 1.21.x | Multiplayer-Safe | Pure Datapack**
 
 ---
 
-## ✅ Doğrulama
+## ✅ Verification
 
-> ⚠️ **Bu, TEK resmi kaynaktır.**  
-> Başka sitelerden veya fork'lardan indirilen dosyalar değiştirilmiş olabilir.  
-> Yalnızca [Releases](https://github.com/tickwarden/macroEngine-dp/releases) sayfasından indirin.
+> ⚠️ **This is the ONLY official source.**
+> Files downloaded from other sites or forks may have been modified.
+> Only download from the [Releases](https://github.com/tickwarden/macroEngine-dp/releases) page.
 
 **SHA256:** `sha256:f99aecf13b35ad672525f6ca339a0579cce50913fdbd0022deb75a3634e34061`
 
@@ -21,20 +21,20 @@ sha256sum datapack.zip
 
 ---
 
-## 📦 Kurulum
+## 📦 Installation
 
 ```
-1. advanced_macro_engine_v30/ → sunucu/datapacks/ klasörüne koy
+1. Place advanced_macro_engine_v30/ into your server/datapacks/ folder
 2. /reload
-3. Admin olun: /tag @s add macro.admin
+3. Become an admin: /tag @s add macro.admin
 ```
 
 ---
 
-## 🏗️ Storage Mimarisi
+## 🏗️ Storage Architecture
 
 ```
-macro:engine  (kalıcı veri)
+macro:engine  (persistent data)
 ├── global
 │   ├── version: "v2.0.3-pre1"
 │   └── tick: <int>
@@ -43,93 +43,93 @@ macro:engine  (kalıcı veri)
 ├── queue
 │   └── [{func:"mypack:event/end", delay:100}]
 ├── cooldowns
-│   └── Steve { fireball: 2460, dash: 1870 }  ← expiry tick'leri
+│   └── Steve { fireball: 2460, dash: 1870 }  ← expiry ticks
 └── events
     └── on_join: [{func:"mypack:welcome"}, {func:"mypack:xp_bonus"}]
 
-macro:input   (fonksiyona veri gönderme)
-macro:output  (fonksiyondan sonuç alma)
+macro:input   (sending data to a function)
+macro:output  (receiving results from a function)
 ```
 
 ---
 
-## 🔍 Predicate Sistemi — `macro:predicate/*`
+## 🔍 Predicate System — `macro:predicate/*`
 
-`execute if predicate <id>` komutuyla kullanılır.
+Used with `execute if predicate <id>`.
 
-| Predicate ID | Açıklama |
+| Predicate ID | Description |
 |---|---|
-| `macro:is_survival` | Oyuncu survival modda mı? |
-| `macro:is_creative` | Oyuncu creative modda mı? |
-| `macro:has_empty_mainhand` | Ana eldeki eşya boş mu? |
-| `macro:is_full_health` | Oyuncu tam canda mı? (20 HP) |
-| `macro:is_sneaking` | Oyuncu sinsi mi? |
-| `macro:is_sprinting` | Oyuncu koşuyor mu? |
-| `macro:is_burning` | Oyuncu yanıyor mu? |
-| `macro:is_on_ground` | Oyuncu yerde mi? |
-| `macro:is_daytime` | Gündüz mü? (0–12000 tick) |
-| `macro:is_raining` | Yağmur yağıyor mu? |
-| `macro:is_thundering` | Gök gürültülü fırtına mı? |
-| `macro:in_overworld` | Üst dünya mı? |
-| `macro:in_nether` | Nether mi? |
-| `macro:in_end` | End mi? |
+| `macro:is_survival` | Is the player in survival mode? |
+| `macro:is_creative` | Is the player in creative mode? |
+| `macro:has_empty_mainhand` | Is the player's main hand empty? |
+| `macro:is_full_health` | Is the player at full health? (20 HP) |
+| `macro:is_sneaking` | Is the player sneaking? |
+| `macro:is_sprinting` | Is the player sprinting? |
+| `macro:is_burning` | Is the player on fire? |
+| `macro:is_on_ground` | Is the player on the ground? |
+| `macro:is_daytime` | Is it daytime? (0–12000 ticks) |
+| `macro:is_raining` | Is it raining? |
+| `macro:is_thundering` | Is there a thunderstorm? |
+| `macro:in_overworld` | Is the player in the Overworld? |
+| `macro:in_nether` | Is the player in the Nether? |
+| `macro:in_end` | Is the player in the End? |
 
 ---
 
-## 📚 API Referansı & Örnekler
+## 📚 API Reference & Examples
 
-Kodlar ve örnekler modüllere göre ayrı dokümanlarda:
+Code and examples are split into separate documents by module:
 
-| Modül | Döküman |
-|-------|---------|
+| Module | Document |
+|--------|----------|
 | 🕐 Cooldown | [cooldown.md](cooldown.md) |
 | 📡 Event | [event.md](event.md) |
-| 🔢 Matematik | [math.md](math.md) |
-| 👥 Takım & ⚙️ Config | [team-config.md](team-config.md) |
-| 🔁 Lib · 👤 Oyuncu · ⚙️ Komutlar · 💬 Mesajlaşma | [lib-player-cmd-string.md](lib-player-cmd-string.md) |
+| 🔢 Math | [math.md](math.md) |
+| 👥 Team & ⚙️ Config | [team-config.md](team-config.md) |
+| 🔁 Lib · 👤 Player · ⚙️ Commands · 💬 Messaging | [lib-player-cmd-string.md](lib-player-cmd-string.md) |
 
 ---
 
-## 🩹 Değişiklik Geçmişi
+## 🩹 Changelog
 
-### v3.0 — Bug Fix & Yeni Modüller
+### v3.0 — Bug Fixes & New Modules
 
-| Bug | Dosya | Düzeltme |
-|-----|-------|---------|
-| **KRİTİK**: `/reload`'da `$epoch` sıfırlanıyordu | `load.mcfunction` | `unless score $epoch` guard'ı eklendi |
-| `process_queue` stack overflow riski | `lib/process_queue` | `$pq_depth` ile tick başına 256 limit |
-| Version string tutarsızlığı | `load`, `pack.mcmeta` | Tüm referanslar v3.0 olarak güncellendi |
+| Bug | File | Fix |
+|-----|------|-----|
+| **CRITICAL**: `$epoch` was being reset on `/reload` | `load.mcfunction` | Added `unless score $epoch` guard |
+| `process_queue` stack overflow risk | `lib/process_queue` | Added `$pq_depth` limit of 256 per tick |
+| Version string inconsistency | `load`, `pack.mcmeta` | All references updated to v3.0 |
 
-**Yeni modüller:** `math/abs`, `math/clamp`, `team/*`, `config/*`, `lib/input_push`, `lib/input_pop`
+**New modules:** `math/abs`, `math/clamp`, `team/*`, `config/*`, `lib/input_push`, `lib/input_pop`
 
-### v2.4 — Bug Fix
+### v2.4 — Bug Fixes
 
-| Bug | Dosya | Düzeltme |
-|-----|-------|---------|
-| **KRİTİK**: Cooldown'lar hiç dolmuyordu | `cooldown/*` | `$epoch macro.time` (mutlak sayaç) kullanıldı |
-| `progress_bar` ham sayı gösteriyordu | `string/progress_bar` | `█░` lookup tablosu eklendi |
-| `fire_next` NBT predicate yanlıştı | `event/internal/fire_next` | `event_queue[0]` path kontrolü |
-| `ceil_div` prefix çakışması | `math/ceil_div` | `$cd_1` → `$cdv_1` |
+| Bug | File | Fix |
+|-----|------|-----|
+| **CRITICAL**: Cooldowns never expired | `cooldown/*` | Switched to `$epoch macro.time` (absolute counter) |
+| `progress_bar` was displaying raw numbers | `string/progress_bar` | Added `█░` lookup table |
+| `fire_next` NBT predicate was incorrect | `event/internal/fire_next` | Fixed `event_queue[0]` path check |
+| `ceil_div` prefix conflict | `math/ceil_div` | `$cd_1` → `$cdv_1` |
 
-### v2.3 — Yeni Sistemler
+### v2.3 — New Systems
 
-`cooldown/`, `event/`, `lib/`, `math/`, `cmd/`, `string/`, `player/` modülleri eklendi.
+Added `cooldown/`, `event/`, `lib/`, `math/`, `cmd/`, `string/`, `player/` modules.
 
-### v2.2 — Bug Fix
+### v2.2 — Bug Fixes
 
-| Bug | Düzeltme |
-|-----|----------|
-| `data remove storage macro:input {}` geçersiz | `data modify ... set value {}` |
-| subtitle rengi hardcoded `"gray"` | `"color":"$(color)"` dinamik |
+| Bug | Fix |
+|-----|-----|
+| `data remove storage macro:input {}` was invalid | `data modify ... set value {}` |
+| Subtitle color was hardcoded as `"gray"` | Made dynamic with `"color":"$(color)"` |
 
 ---
 
-## 💬 Topluluk & Destek
+## 💬 Community & Support
 
 [![Discussions](https://img.shields.io/github/discussions/tickwarden/macroEngine-dp?style=for-the-badge&logo=github&color=blue)](https://github.com/tickwarden/macroEngine-dp/discussions)
 
-[GitHub Discussions](https://github.com/tickwarden/macroEngine-dp/discussions) — Soru, öneri ve hata bildirimleri için.
+[GitHub Discussions](https://github.com/tickwarden/macroEngine-dp/discussions) — For questions, suggestions, and bug reports.
 
 ---
 
-*Advanced Macro Engine v3.0 | MC Java 1.21.x | Dil: mcfunction*
+*Advanced Macro Engine v3.0 | MC Java 1.21.x | Language: mcfunction*
