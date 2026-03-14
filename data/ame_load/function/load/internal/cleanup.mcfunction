@@ -55,6 +55,7 @@ scoreboard objectives remove ame.pre_version
 
 tag @a remove macro.dialog_opened
 tag @a remove macro.dialog_closed
+advancement revoke @a from macro:hidden/root
 
 scoreboard objectives remove macro.pid
 data remove storage macro:engine player_pids
