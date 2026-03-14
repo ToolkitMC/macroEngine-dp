@@ -70,6 +70,7 @@ data modify storage macro:engine _input_stack[-1].cz set from storage macro:inpu
 data modify storage macro:engine _input_stack[-1].spread set from storage macro:input spread
 data modify storage macro:engine _input_stack[-1].max_range set from storage macro:input max_range
 
+data modify storage macro:engine _input_stack[-1].uuid set from storage macro:input uuid
 data modify storage macro:engine _input_stack[-1].customData set from storage macro:input customData
 data modify storage macro:engine _input_stack[-1].invoke set from storage macro:input invoke
 data modify storage macro:engine _input_stack[-1].slot set from storage macro:input slot

@@ -21,3 +21,6 @@ execute unless data storage macro:engine interaction_binds run data modify stora
 
 execute unless data storage macro:engine player_pids run data modify storage macro:engine player_pids set value {}
 execute unless data storage macro:engine _pid_seq run data modify storage macro:engine _pid_seq set value 0
+
+# UUID modülü başlatma
+function macro:uuid/internal/init

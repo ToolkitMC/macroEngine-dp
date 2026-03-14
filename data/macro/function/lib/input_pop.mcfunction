@@ -68,6 +68,7 @@ data remove storage macro:input cz
 data remove storage macro:input spread
 data remove storage macro:input max_range
 
+data remove storage macro:input uuid
 data remove storage macro:input customData
 data remove storage macro:input invoke
 data remove storage macro:input slot
@@ -161,6 +162,7 @@ data modify storage macro:input cz set from storage macro:engine _input_stack[-1
 data modify storage macro:input spread set from storage macro:engine _input_stack[-1].spread
 data modify storage macro:input max_range set from storage macro:engine _input_stack[-1].max_range
 
+data modify storage macro:input uuid set from storage macro:engine _input_stack[-1].uuid
 data modify storage macro:input customData set from storage macro:engine _input_stack[-1].customData
 data modify storage macro:input invoke set from storage macro:engine _input_stack[-1].invoke
 data modify storage macro:input slot set from storage macro:engine _input_stack[-1].slot

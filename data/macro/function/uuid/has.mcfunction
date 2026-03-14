@@ -1,0 +1,17 @@
+# ============================================================
+# macro:uuid/has
+# Önbellekte belirtilen anahtarın var olup olmadığını kontrol eder
+#
+# KULLANIM:
+#   data modify storage macro:input key set value "benim_anahtarim"
+#   execute if score $result macro.tmp matches 1 ...
+#   function macro:uuid/has
+#
+# GİRİŞ:
+#   macro:input key → kontrol edilecek anahtar adı
+#
+# ÇIKIŞ:
+#   $uuid.has macro.tmp → 1 (var) veya 0 (yok)
+# ============================================================
+scoreboard players set $uuid.has macro.tmp 0
+function macro:uuid/internal/has_check with storage macro:input
