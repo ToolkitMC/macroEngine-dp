@@ -1,10 +1,3 @@
-# ============================================
-# macro:flag/list_systems
-# ============================================
-# Tum tick sistemi flag'lerinin durumunu gosterir.
-# Kullanim: /function macro:flag/list_systems
-# ============================================
-
 tellraw @s ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"━━━ System Flags ","color":"aqua"},{"text":"━━━━━━━━━━━━━━━━","color":"#555555"}]
 tellraw @s ["",{"text":" ","color":"#555555"},{"text":"time ","color":"white"},{"text":"#m_time ","color":"#555555"},{"score":{"name":"#m_time","objective":"macro.Flags"},"color":"green"}]
 tellraw @s ["",{"text":" ","color":"#555555"},{"text":"queue ","color":"white"},{"text":"#m_queue ","color":"#555555"},{"score":{"name":"#m_queue","objective":"macro.Flags"},"color":"green"}]

@@ -1,8 +1,3 @@
-# macro:player/clamp_var — Clamp player variable to min..max range
-# Use after add_to_var or set_var to prevent overflow.
-# INPUT: macro:input { player:"<name>", key:"<variable>", min:<int>, max:<int> }
-# OUTPUT: macro:output { result:<sinirlanmis value> }
-
 $execute store result score $cv macro.tmp run data get storage macro:engine players.$(player).$(key)
 $scoreboard players set $cv_mn macro.tmp $(min)
 $scoreboard players set $cv_mx macro.tmp $(max)

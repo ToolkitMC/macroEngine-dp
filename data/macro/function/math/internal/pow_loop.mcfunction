@@ -1,4 +1,3 @@
-# pow ic dongusu — macro:math/pow is called by
 execute if score $pow_n macro.tmp matches ..0 run return 0
 scoreboard players operation $pow_r macro.tmp *= $pow_a macro.tmp
 scoreboard players remove $pow_n macro.tmp 1

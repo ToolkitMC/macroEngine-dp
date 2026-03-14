@@ -1,14 +1,3 @@
-# ============================================
-# macro:log/error
-# ============================================
-# Adds an ERROR-level log entry (kirmizi).
-#
-# INPUT: macro:input { message:"<text>" }
-# USAGE:
-# data modify storage macro:input message set value "Storage readnamadi"
-# function macro:log/error with storage macro:input {}
-# ============================================
-
 $data modify storage macro:input message set value "$(message)"
 data modify storage macro:input level set value "ERROR"
 data modify storage macro:input color set value "red"

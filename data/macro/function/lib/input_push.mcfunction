@@ -1,18 +1,5 @@
-# ============================================
-# macro:lib/input_push
-# ============================================
-# Saves the current state of macro:input onto a stack.
-# Before calling another function from within a function
-# use this to protect input. Then call input_pop.
-#
-# v3.2 (BUG FIX v1.0.6-pre2: renamed action→invoke for 1.21.1 compat.)
-# v3.1: All cmd fields included — sound, particle, entity,
-# title, effect, bossbar, gamerule, tp etc.
-# ============================================
-
 data modify storage macro:engine _input_stack append value {}
 
-# ─── Core fields ───────────────────────────────────────
 data modify storage macro:engine _input_stack[-1].player set from storage macro:input player
 data modify storage macro:engine _input_stack[-1].key set from storage macro:input key
 data modify storage macro:engine _input_stack[-1].value set from storage macro:input value
@@ -37,7 +24,6 @@ data modify storage macro:engine _input_stack[-1].t set from storage macro:input
 data modify storage macro:engine _input_stack[-1].min set from storage macro:input min
 data modify storage macro:engine _input_stack[-1].max set from storage macro:input max
 data modify storage macro:engine _input_stack[-1].n set from storage macro:input n
-# ─── Coordinate fields (fill/setblock/summon/tp/particle) ─
 data modify storage macro:engine _input_stack[-1].x set from storage macro:input x
 data modify storage macro:engine _input_stack[-1].y set from storage macro:input y
 data modify storage macro:engine _input_stack[-1].z set from storage macro:input z
@@ -47,55 +33,45 @@ data modify storage macro:engine _input_stack[-1].z1 set from storage macro:inpu
 data modify storage macro:engine _input_stack[-1].x2 set from storage macro:input x2
 data modify storage macro:engine _input_stack[-1].y2 set from storage macro:input y2
 data modify storage macro:engine _input_stack[-1].z2 set from storage macro:input z2
-# ─── Particle (particle) ─────────────────────────────────
 data modify storage macro:engine _input_stack[-1].name set from storage macro:input name
 data modify storage macro:engine _input_stack[-1].dx set from storage macro:input dx
 data modify storage macro:engine _input_stack[-1].dy set from storage macro:input dy
 data modify storage macro:engine _input_stack[-1].dz set from storage macro:input dz
 data modify storage macro:engine _input_stack[-1].speed set from storage macro:input speed
-# ─── Sound (sound/stopsound) ───────────────────────────────
 data modify storage macro:engine _input_stack[-1].sound set from storage macro:input sound
 data modify storage macro:engine _input_stack[-1].volume set from storage macro:input volume
 data modify storage macro:engine _input_stack[-1].pitch set from storage macro:input pitch
 data modify storage macro:engine _input_stack[-1].source set from storage macro:input source
 data modify storage macro:engine _input_stack[-1].category set from storage macro:input category
-# ─── Entity/Block (summon/setblock) ───────────────────────
 data modify storage macro:engine _input_stack[-1].entity set from storage macro:input entity
 data modify storage macro:engine _input_stack[-1].nbt set from storage macro:input nbt
 data modify storage macro:engine _input_stack[-1].block set from storage macro:input block
 data modify storage macro:engine _input_stack[-1].mode set from storage macro:input mode
-# ─── UI (title/actionbar/subtitle) ───────────────────────
 data modify storage macro:engine _input_stack[-1].text set from storage macro:input text
 data modify storage macro:engine _input_stack[-1].title set from storage macro:input title
 data modify storage macro:engine _input_stack[-1].subtitle set from storage macro:input subtitle
 data modify storage macro:engine _input_stack[-1].fade_in set from storage macro:input fade_in
 data modify storage macro:engine _input_stack[-1].stay set from storage macro:input stay
 data modify storage macro:engine _input_stack[-1].fade_out set from storage macro:input fade_out
-# ─── Effect/Enchantment/Attribute ────────────────────────────────
 data modify storage macro:engine _input_stack[-1].effect set from storage macro:input effect
 data modify storage macro:engine _input_stack[-1].enchantment set from storage macro:input enchantment
 data modify storage macro:engine _input_stack[-1].level set from storage macro:input level
 data modify storage macro:engine _input_stack[-1].attribute set from storage macro:input attribute
 data modify storage macro:engine _input_stack[-1].amplifier set from storage macro:input amplifier
-# ─── Bossbar ─────────────────────────────────────────────
 data modify storage macro:engine _input_stack[-1].id set from storage macro:input id
-# ─── Other commands ──────────────────────────────────────
 data modify storage macro:engine _input_stack[-1].rule set from storage macro:input rule
 data modify storage macro:engine _input_stack[-1].type set from storage macro:input type
 data modify storage macro:engine _input_stack[-1].structure set from storage macro:input structure
 data modify storage macro:engine _input_stack[-1].loot_table set from storage macro:input loot_table
 data modify storage macro:engine _input_stack[-1].reason set from storage macro:input reason
 data modify storage macro:engine _input_stack[-1].cmd set from storage macro:input cmd
-# ─── Spreadplayers ───────────────────────────────────────
 data modify storage macro:engine _input_stack[-1].cx set from storage macro:input cx
 data modify storage macro:engine _input_stack[-1].cz set from storage macro:input cz
 data modify storage macro:engine _input_stack[-1].spread set from storage macro:input spread
 data modify storage macro:engine _input_stack[-1].max_range set from storage macro:input max_range
 
-# ─── inv/ modulu ─────────────────────────────────────────
 data modify storage macro:engine _input_stack[-1].customData set from storage macro:input customData
 data modify storage macro:engine _input_stack[-1].invoke set from storage macro:input invoke
-# ─── cmd/ eksik alanlar ──────────────────────────────────
 data modify storage macro:engine _input_stack[-1].slot set from storage macro:input slot
 data modify storage macro:engine _input_stack[-1].modifier set from storage macro:input modifier
 data modify storage macro:engine _input_stack[-1].operation set from storage macro:input operation
@@ -105,21 +81,15 @@ data modify storage macro:engine _input_stack[-1].vehicle set from storage macro
 data modify storage macro:engine _input_stack[-1].feature set from storage macro:input feature
 data modify storage macro:engine _input_stack[-1].hide set from storage macro:input hide
 data modify storage macro:engine _input_stack[-1].damage_type set from storage macro:input damage_type
-# ─── tp_facing / title_sub ───────────────────────────────
 data modify storage macro:engine _input_stack[-1].fx set from storage macro:input fx
 data modify storage macro:engine _input_stack[-1].fy set from storage macro:input fy
 data modify storage macro:engine _input_stack[-1].fz set from storage macro:input fz
 data modify storage macro:engine _input_stack[-1].sub_color set from storage macro:input sub_color
-# ─── geo/ modulu ─────────────────────────────────────────
 data modify storage macro:engine _input_stack[-1].distance set from storage macro:input distance
-# ─── entity/ modulu ──────────────────────────────────────
 data modify storage macro:engine _input_stack[-1].filter set from storage macro:input filter
 data modify storage macro:engine _input_stack[-1].new_tag set from storage macro:input new_tag
 data modify storage macro:engine _input_stack[-1].remove_tag set from storage macro:input remove_tag
-# ─── world/ modulu ───────────────────────────────────────
 data modify storage macro:engine _input_stack[-1].expected set from storage macro:input expected
 data modify storage macro:engine _input_stack[-1].new_block set from storage macro:input new_block
 data modify storage macro:engine _input_stack[-1].replace_with set from storage macro:input replace_with
 
-# ─── entity/damage, entity/tp_to ────────────────────────
-# (damage_type and amount are already saved above under cmd/ and core fields respectively)

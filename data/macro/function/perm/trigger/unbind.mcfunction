@@ -1,11 +1,3 @@
-# ============================================
-# macro:perm/trigger/unbind
-# ============================================
-# Removes all binds of the specified value from the named trigger.
-#
-# INPUT: macro:input { name:"<trigger_adi>", value:<int> }
-# ============================================
-
 $execute unless data storage macro:engine perm_triggers.$(name) run return 0
 
 $data modify storage macro:engine _pt_unbind set from storage macro:engine perm_triggers.$(name)

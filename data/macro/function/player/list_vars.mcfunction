@@ -1,10 +1,3 @@
-# ============================================
-# macro:player/list_vars
-# ============================================
-# Shows all player variables and cooldowns as debug output.
-# INPUT: macro:input { player:"<n>" }
-# ============================================
-
 $tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"━━━ Player: ","color":"aqua"},{"text":"$(player)","color":"white","bold":true},{"text":" ━━━━━━━━━━━━━━","color":"#555555"}]
 $execute if data storage macro:engine players.$(player) run tellraw @a[tag=macro.debug] ["",{"text":" vars ","color":"#555555"},{"storage":"macro:engine","nbt":"players.$(player)","interpret":false,"color":"yellow"}]
 $execute unless data storage macro:engine players.$(player) run tellraw @a[tag=macro.debug] ["",{"text":" vars ","color":"#555555"},{"text":"(no data)","color":"gray","italic":true}]

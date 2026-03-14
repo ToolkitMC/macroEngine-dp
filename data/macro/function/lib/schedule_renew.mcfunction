@@ -1,12 +1,3 @@
-# ============================================
-# macro:lib/schedule_renew
-# ============================================
-# Re-queues the active schedule for the next cycle.
-# Call at the end of your scheduled function.
-# Does nothing if the schedule was cancelled.
-# INPUT: macro:input { key:"<schedule_id>" }
-# ============================================
-
 $execute unless data storage macro:engine schedules.$(key) run return 0
 $data modify storage macro:engine _sched_tmp set from storage macro:engine schedules.$(key)
 function macro:lib/internal/schedule_requeue with storage macro:engine _sched_tmp

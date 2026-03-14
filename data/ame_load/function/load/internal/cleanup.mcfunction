@@ -1,29 +1,14 @@
-# ============================================
-# ame_load:load/internal/cleanup
-# ============================================
-# Full state reset — identical to disable/main.
-# Called via /function macro:disable or macro:disable/main.
-# BUG FIX v3.1: queue, events, cooldowns, player vars,
-# schedules, throttle, _input_stack, _event_tmp,
-# _repeat and rng_state are also cleared.
-# ============================================
-
-# ─── Schedule'lari stop ────────────────────────────────
 schedule clear macro:lib/sync_tick
 
-# ─── Forceload'u remove ──────────────────────────────────
 forceload remove 0 0
 
-# ─── Trigger resetma ───────────────────────────────────
 scoreboard players reset @a macro_menu
 scoreboard players reset @a macro_run
 
-# ─── Counterlari reset ───────────────────────────────────
 scoreboard players reset $tick macro.tmp
 scoreboard players reset $pq_depth macro.tmp
 scoreboard players reset $epoch macro.time
 
-# ─── Storage clear (tam) ───────────────────────────────
 data remove storage macro:engine queue
 data remove storage macro:engine events
 data remove storage macro:engine event_context
@@ -54,14 +39,10 @@ data remove storage macro:engine _ia_cur
 data remove storage macro:engine _ia_ubinds
 data remove storage macro:engine _ia_ufilter
 data remove storage macro:engine _ia_ucur
-# BUG FIX v1.0.6-pre2: teams storage was never cleared on disable/reload.
-# team/create writes here; without this line data accumulates across reloads.
 data remove storage macro:engine teams
-# Config is preserved — so it survives reload
 data remove storage macro:engine global
 data remove storage macro:output result
 
-# ─── Scoreboard objectives remove ───────────────────────
 scoreboard objectives remove macro.tmp
 scoreboard objectives remove macro.time
 scoreboard objectives remove macro_menu
@@ -70,16 +51,11 @@ scoreboard objectives remove macro_action
 scoreboard objectives remove macro.tick_guard
 scoreboard objectives remove macro.dialog_load
 scoreboard objectives remove health
-# Version tracking objective — also cleared on disable
 scoreboard objectives remove ame.pre_version
 
-# ─── Dialog tag'leri clear ────────────────────────────
 tag @a remove macro.dialog_opened
 tag @a remove macro.dialog_closed
 
-# ─── PID system clear ─────────────────────────────────
-# macro.pid scores are removed with the objective.
-# player_pids and _pid_seq are cleared so pids are reassigned fresh.
 scoreboard objectives remove macro.pid
 data remove storage macro:engine player_pids
 data remove storage macro:engine _pid_seq

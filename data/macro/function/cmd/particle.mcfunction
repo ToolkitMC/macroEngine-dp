@@ -1,6 +1,2 @@
-# macro:cmd/particle — Belirli konumda parcacik efekti
-# INPUT: macro:input { name:"<particle>", x:<float>, y:<float>, z:<float>,
-# dx:<float>, dy:<float>, dz:<float>, speed:<float>, count:<int> }
-
 $particle $(name) $(x) $(y) $(z) $(dx) $(dy) $(dz) $(speed) $(count)
 tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/particle ","color":"aqua"}]

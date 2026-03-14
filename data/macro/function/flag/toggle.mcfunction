@@ -1,11 +1,3 @@
-# ============================================
-# macro:flag/toggle
-# ============================================
-# Toggles a global flag.
-# INPUT: macro:input { key:"<flag_name>" }
-# OUTPUT: macro:output { result: 1b (newly set) / 0b (newly unset) }
-# ============================================
-
 scoreboard players set $ftgl macro.tmp 0
 $execute if data storage macro:engine flags.$(key) run scoreboard players set $ftgl macro.tmp 1
 

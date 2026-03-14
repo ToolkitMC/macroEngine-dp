@@ -1,18 +1,2 @@
-# ============================================
-# macro:cmd/trigger_set
-# ============================================
-# Bir playernun trigger objective valueini setr.
-# Playerlarin /trigger komutuyla etkilesimi for scoreboard trigger
-# objective'ine value atar.
-#
-# INPUT: macro:input { player:"<player>", objective:"<trigger_adi>", value:<int> }
-#
-# EXAMPLE:
-# data modify storage macro:input player set value "Steve"
-# data modify storage macro:input objective set value "macro_menu"
-# data modify storage macro:input value set value 0
-# function macro:cmd/trigger_set with storage macro:input {}
-# ============================================
-
 $scoreboard players set $(player) $(objective) $(value)
 $tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/trigger_set ","color":"aqua"},{"text":"$(player)","color":"white"},{"text":" → ","color":"#555555"},{"text":"$(value)","color":"aqua"}]

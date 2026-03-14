@@ -1,10 +1,3 @@
-# ============================================
-# ame_load:load/internal/version_warn [-1_21_4 overlay]
-# ============================================
-# Overrides base for pack_format ≤ 61 (≤ 1.21.4).
-# Uses legacy clickEvent/hoverEvent syntax.
-# ============================================
-
 tellraw @a ["",{"text":"❌ ","color":"red"},{"text":"[AME] ","color":"aqua","bold":true},{"text":"Version conflict! ","color":"red","bold":true},{"text":"Expected ","color":"gray"},{"text":"v2.0.3-pre3","color":"yellow","bold":true},{"text":" — stored scores do not match.","color":"gray"}]
 tellraw @a ["",{"text":" ↳ ","color":"#555555"},{"text":"Run ","color":"gray"},{"text":"/reload","color":"white","underlined":true,"clickEvent":{"action":"run_command","value":"/reload"}},{"text":" to reinitialize AME.","color":"gray"}]
 

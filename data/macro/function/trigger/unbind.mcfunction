@@ -1,10 +1,3 @@
-# ============================================
-# macro:trigger/unbind
-# ============================================
-# Removes all binds associated with a specific value.
-# INPUT: macro:input { value:<int> }
-# ============================================
-
 execute unless data storage macro:engine trigger_binds run return 0
 
 data modify storage macro:engine _tc_unbind set from storage macro:engine trigger_binds

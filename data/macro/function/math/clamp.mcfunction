@@ -1,11 +1,3 @@
-# ============================================
-# macro:math/clamp
-# ============================================
-# Value [min, max] clamps to range.
-# INPUT: macro:input { value:<int>, min:<int>, max:<int> }
-# OUTPUT: macro:output { result:<int> }
-# ============================================
-
 $scoreboard players set $clamp_v macro.tmp $(value)
 $scoreboard players set $clamp_lo macro.tmp $(min)
 $scoreboard players set $clamp_hi macro.tmp $(max)

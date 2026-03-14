@@ -1,10 +1,3 @@
-# ============================================
-# macro:cooldown/set
-# ============================================
-# Starts a cooldown. Writes expiry epoch to storage.
-# INPUT: macro:input { player:"<n>", key:"<cooldown>", duration:<tick> }
-# ============================================
-
 $scoreboard players set $cd_dur macro.tmp $(duration)
 execute store result score $cd_now macro.tmp run scoreboard players get $epoch macro.time
 scoreboard players operation $cd_now macro.tmp += $cd_dur macro.tmp

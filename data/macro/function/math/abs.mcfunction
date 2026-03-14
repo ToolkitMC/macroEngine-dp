@@ -1,11 +1,3 @@
-# ============================================
-# macro:math/abs
-# ============================================
-# Absolute value: |value|
-# INPUT: macro:input { value:<int> }
-# OUTPUT: macro:output { result:<int> }
-# ============================================
-
 $scoreboard players set $abs_v macro.tmp $(value)
 scoreboard players set $abs_neg macro.tmp -1
 execute if score $abs_v macro.tmp matches ..-1 run scoreboard players operation $abs_v macro.tmp *= $abs_neg macro.tmp

@@ -1,24 +1,2 @@
-# ============================================
-# macro:geo/as_nearby_player
-# ============================================
-# Belirtilen tag'e sahip entity'nin yakinindaki (distance..limit=1)
-# bir playeryu AS ve AT fonksiyonu calistirir.
-# NPC'lerin, turret'lerin veya tetikleyici objelerinin
-# en yakin playerya tepki vermesi for idealdir.
-#
-# INPUT: macro:input
-# distance : <float> — Arama yaricapi (blok)
-# func : <string> — Run edilecek fonksiyon (namespace:path)
-#
-# Cagiran context:
-# @s = entity (NPC, armor_stand vs.)
-# Ornek: execute as @e[tag=my_npc] run function macro:geo/as_nearby_player
-#
-# EXAMPLE:
-# data modify storage macro:input distance set value 5
-# data modify storage macro:input func set value "mymap:npc/greet"
-# execute as @e[tag=my_npc] run function macro:geo/as_nearby_player with storage macro:input {}
-# ============================================
-
 $execute as @a[distance=..$(distance),limit=1,sort=nearest] at @s run function $(func)
 $tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"geo/as_nearby_player ","color":"aqua"},{"text":" → ","color":"#555555"},{"text":"$(func)","color":"aqua"}]

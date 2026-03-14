@@ -1,10 +1,3 @@
-# ============================================
-# macro:perm/trigger/internal/tick_step_loop
-# ============================================
-# _pt_names_tmp list iterates.
-# Runs tick_dispatch macro for each {name:"..."}.
-# ============================================
-
 execute unless data storage macro:engine _pt_names_tmp[0] run return 0
 
 data modify storage macro:engine _pt_tick_ctx set from storage macro:engine _pt_names_tmp[0]

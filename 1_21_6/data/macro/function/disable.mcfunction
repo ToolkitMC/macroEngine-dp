@@ -1,4 +1,3 @@
-# [1_21_6 overlay — click_event syntax]
 playsound minecraft:block.note_block.pling master @s ~ ~ ~ 4 2
 
 function macro:disable/main

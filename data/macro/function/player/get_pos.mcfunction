@@ -1,18 +1,3 @@
-# ============================================
-# macro:player/get_pos
-# ============================================
-# Returns the player's block coordinates.
-# If player is offline, output fields are not set and found:0b is returned.
-#
-# INPUT: macro:input { player:"<n>" }
-# OUTPUT: macro:output { x:<int>, y:<int>, z:<int>, found:1b/0b }
-#
-# EXAMPLE:
-# data modify storage macro:input player set value "Steve"
-# function macro:player/get_pos with storage macro:input {}
-# # → macro:output { x:128, y:64, z:-32, found:1b }
-# ============================================
-
 data modify storage macro:output found set value 0b
 
 $execute unless entity @a[name=$(player),limit=1] run return 0

@@ -1,7 +1,3 @@
-# ═══════════════════════════════════════
-# macro:debug — AME Debug Inspector
-# ═══════════════════════════════════════
-
 tellraw @s ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"━━━ Debug Inspector ","color":"aqua"},{"text":"━━━━━━━━━━━━━━━","color":"#555555"}]
 
 tellraw @s ["",{"text":" ","color":"#555555"},{"text":"engine.global ","color":"white"},{"storage":"macro:engine","nbt":"global","color":"aqua","italic":false}]

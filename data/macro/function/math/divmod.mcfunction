@@ -1,39 +1,14 @@
-# ============================================
-# macro:math/divmod
-# ============================================
-# Returns division and remainder in a SINGLE pass.
-# Combined version of macro:math/mod + manual division.
-#
-# Minecraft scoreboard /= operator truncates toward zero (C-style);
-# this function returns the remainder always in the [0, divisor) range
-# (floored / safe mod — consistent with macro:math/mod).
-#
-# If divisor <= 0, both fields are set to 0 (safe exit).
-#
-# INPUT: macro:input { value:<int>, divisor:<int> }
-# OUTPUT: macro:output { quotient:<int>, remainder:<int> }
-#
-# EXAMPLES:
-# divmod( 7, 3) → { quotient: 2, remainder: 1 }
-# divmod(-7, 3) → { quotient:-3, remainder: 2 } ← safe mod
-# divmod( 9, 3) → { quotient: 3, remainder: 0 }
-# divmod( 5, 1) → { quotient: 5, remainder: 0 }
-# ============================================
-
 $scoreboard players set $dvm_v macro.tmp $(value)
 $scoreboard players set $dvm_d macro.tmp $(divisor)
 
-# divisor <= 0 → safe exit
 execute if score $dvm_d macro.tmp matches ..0 run data modify storage macro:output quotient set value 0
 execute if score $dvm_d macro.tmp matches ..0 run data modify storage macro:output remainder set value 0
 execute if score $dvm_d macro.tmp matches ..0 run return 0
 
-# quotient = value / divisor (truncated toward zero)
 scoreboard players operation $dvm_q macro.tmp = $dvm_v macro.tmp
 scoreboard players operation $dvm_q macro.tmp /= $dvm_d macro.tmp
 execute store result storage macro:output quotient int 1 run scoreboard players get $dvm_q macro.tmp
 
-# remainder = safe_mod(value, divisor) — [0, divisor) garantili
 scoreboard players operation $dvm_v macro.tmp %= $dvm_d macro.tmp
 execute if score $dvm_v macro.tmp matches ..-1 run scoreboard players operation $dvm_v macro.tmp += $dvm_d macro.tmp
 execute store result storage macro:output remainder int 1 run scoreboard players get $dvm_v macro.tmp

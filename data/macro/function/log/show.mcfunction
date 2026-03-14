@@ -1,9 +1,3 @@
-# ============================================
-# macro:log/show
-# ============================================
-# Shows log entries to @s.
-# ============================================
-
 tellraw @s ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"━━━ Log Buffer ","color":"aqua"},{"text":"━━━━━━━━━━━━━━━━━","color":"#555555"}]
 execute unless data storage macro:engine log_display[0] run tellraw @s ["",{"text":" ","color":"#555555"},{"text":"(empty)","color":"gray","italic":true}]
 execute unless data storage macro:engine log_display[0] run return 0

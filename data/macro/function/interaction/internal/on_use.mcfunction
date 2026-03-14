@@ -1,11 +1,3 @@
-# ============================================
-# macro:interaction/internal/on_use
-# ============================================
-# Called AS the interaction entity.
-# Mirror of on_attack — uses execute on target
-# and clears interaction NBT after.
-# ============================================
-
 tag @s add macro.ia_active
 
 data modify storage macro:engine _ia_iter set from storage macro:engine interaction_binds.use

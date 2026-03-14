@@ -1,11 +1,3 @@
-# ============================================
-# macro:player/reset
-# ============================================
-# Deletes all player data and restores defaults.
-# ⚠️ IRREVERSIBLE — USE WITH CARE!
-# INPUT: macro:input { player:"<n>" }
-# ============================================
-
 $data remove storage macro:engine players.$(player)
 $data remove storage macro:engine cooldowns.$(player)
 function macro:player/init with storage macro:input {}

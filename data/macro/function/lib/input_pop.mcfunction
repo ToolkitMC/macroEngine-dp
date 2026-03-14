@@ -1,13 +1,3 @@
-# ============================================
-# macro:lib/input_pop
-# ============================================
-# Restores the macro:input state backed up by input_push.
-# One pop must be called for each push (LIFO stack).
-# v3.2 (BUG FIX v1.0.6-pre2: renamed action→invoke for 1.21.1 compat.)
-# v3.1: Full parity with input_push achieved.
-# ============================================
-
-# ─── First clear all fields ───────────────────────────
 data remove storage macro:input player
 data remove storage macro:input key
 data remove storage macro:input value
@@ -78,7 +68,6 @@ data remove storage macro:input cz
 data remove storage macro:input spread
 data remove storage macro:input max_range
 
-# ─── Yeni modul alanlari (remove) ────────────────────────
 data remove storage macro:input customData
 data remove storage macro:input invoke
 data remove storage macro:input slot
@@ -101,9 +90,7 @@ data remove storage macro:input remove_tag
 data remove storage macro:input expected
 data remove storage macro:input new_block
 data remove storage macro:input replace_with
-# BUG FIX v1.0.6-pre2: duplicate damage_type and amount remove lines removed
 
-# ─── Restore from last stack element ─────────────────
 data modify storage macro:input player set from storage macro:engine _input_stack[-1].player
 data modify storage macro:input key set from storage macro:engine _input_stack[-1].key
 data modify storage macro:input value set from storage macro:engine _input_stack[-1].value
@@ -174,10 +161,8 @@ data modify storage macro:input cz set from storage macro:engine _input_stack[-1
 data modify storage macro:input spread set from storage macro:engine _input_stack[-1].spread
 data modify storage macro:input max_range set from storage macro:engine _input_stack[-1].max_range
 
-# ─── inv/ modulu ─────────────────────────────────────────
 data modify storage macro:input customData set from storage macro:engine _input_stack[-1].customData
 data modify storage macro:input invoke set from storage macro:engine _input_stack[-1].invoke
-# ─── cmd/ eksik alanlar ──────────────────────────────────
 data modify storage macro:input slot set from storage macro:engine _input_stack[-1].slot
 data modify storage macro:input modifier set from storage macro:engine _input_stack[-1].modifier
 data modify storage macro:input operation set from storage macro:engine _input_stack[-1].operation
@@ -187,23 +172,16 @@ data modify storage macro:input vehicle set from storage macro:engine _input_sta
 data modify storage macro:input feature set from storage macro:engine _input_stack[-1].feature
 data modify storage macro:input hide set from storage macro:engine _input_stack[-1].hide
 data modify storage macro:input damage_type set from storage macro:engine _input_stack[-1].damage_type
-# ─── tp_facing / title_sub ───────────────────────────────
 data modify storage macro:input fx set from storage macro:engine _input_stack[-1].fx
 data modify storage macro:input fy set from storage macro:engine _input_stack[-1].fy
 data modify storage macro:input fz set from storage macro:engine _input_stack[-1].fz
 data modify storage macro:input sub_color set from storage macro:engine _input_stack[-1].sub_color
-# ─── geo/ modulu ─────────────────────────────────────────
 data modify storage macro:input distance set from storage macro:engine _input_stack[-1].distance
-# ─── entity/ modulu ──────────────────────────────────────
 data modify storage macro:input filter set from storage macro:engine _input_stack[-1].filter
 data modify storage macro:input new_tag set from storage macro:engine _input_stack[-1].new_tag
 data modify storage macro:input remove_tag set from storage macro:engine _input_stack[-1].remove_tag
-# ─── world/ modulu ───────────────────────────────────────
 data modify storage macro:input expected set from storage macro:engine _input_stack[-1].expected
 data modify storage macro:input new_block set from storage macro:engine _input_stack[-1].new_block
 data modify storage macro:input replace_with set from storage macro:engine _input_stack[-1].replace_with
-# BUG FIX v1.0.6-pre2: duplicate damage_type and amount restore lines removed
-# (already restored above under cmd/ and core fields respectively)
 
-# ─── Pop last element from stack ─────────────────────────
 data remove storage macro:engine _input_stack[-1]

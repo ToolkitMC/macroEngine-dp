@@ -1,10 +1,3 @@
-# ============================================
-# macro:trigger/bind
-# ============================================
-# macro_action trigger'ine deger-fonksiyon baglantisi ekler.
-# INPUT: macro:input { value:<int>, func:"<namespace:path>" }
-# ============================================
-
 execute unless data storage macro:engine trigger_binds run data modify storage macro:engine trigger_binds set value []
 
 $data modify storage macro:engine trigger_binds append value {value:$(value), func:"$(func)"}

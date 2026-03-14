@@ -1,11 +1,3 @@
-# ============================================
-# macro:perm/trigger/bind_cmd
-# ============================================
-# Named trigger'e dif-command binds (function not).
-#
-# INPUT: macro:input { name:"<trigger_adi>", value:<int>, cmd:"<command>", perm:"<permission>" }
-# ============================================
-
 $scoreboard objectives add $(name) trigger
 
 $execute unless data storage macro:engine perm_triggers.$(name) run data modify storage macro:engine perm_triggers.$(name) set value []

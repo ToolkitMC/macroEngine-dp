@@ -1,11 +1,3 @@
-# ============================================
-# macro:player/transfer_var
-# ============================================
-# Transfer a variable amount from one player to another.
-# INPUT: macro:input { from:"<source>", to:"<target>", key:"<variable>", amount:<int> }
-# OUTPUT: macro:output { result:<hedef_yeni_value> }
-# ============================================
-
 $execute store result score $tr_f macro.tmp run data get storage macro:engine players.$(from).$(key)
 $scoreboard players set $tr_a macro.tmp $(amount)
 scoreboard players operation $tr_f macro.tmp -= $tr_a macro.tmp

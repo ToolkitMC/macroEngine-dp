@@ -1,11 +1,3 @@
-# ============================================
-# macro:cmd/other/multi_cmd/internal/step_func
-# ============================================
-# _mcmd_list iterates — each element is a function
-# namespace:path string'idir.
-# $function $(current_cmd) makrosu ile runs.
-# ============================================
-
 execute unless data storage macro:engine _mcmd_list[0] run return 0
 
 data modify storage macro:engine _mcmd_entry set value {}

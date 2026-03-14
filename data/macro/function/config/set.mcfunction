@@ -1,11 +1,2 @@
-# ============================================
-# macro:config/set
-# ============================================
-# Config'e string value writear.
-# Tam sayilar for macro:config/set_int kullanin.
-# INPUT: macro:input { key:"<key>", value:"<value>" }
-# OUTPUT: —
-# ============================================
-
 $data modify storage macro:engine config.$(key) set value "$(value)"
 $tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"config/set ","color":"aqua"},{"text":" → ","color":"#555555"},{"text":"$(key)","color":"aqua"}]

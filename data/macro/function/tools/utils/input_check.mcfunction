@@ -1,16 +1,12 @@
 data modify storage macro:output inputs set from storage macro:input
 data modify storage macro:output data set from storage macro:engine
 
-# Load Check
 execute unless data storage macro:output data.global{loaded:1b} run return 0
 
-# Version Check
 execute unless data storage macro:output data.global{version:"V1.0.6-pre3"} run return 0
 
-# ───── /op ─────
 execute if data storage macro:output inputs{func:"macro:cmd/op"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/op with storage macro:engine {}"} run return 0
-# REMOVED: truncated/invalid condition (was: execute unless data ... inputs{func:":"} run return 0)
 execute if data storage macro:output inputs{func:"macro:cmd/op with storage macro:engine {op:{}}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/op with storage macro:input {}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/op with storage macro:input {op:{}}"} run return 0
@@ -19,7 +15,6 @@ execute if data storage macro:output inputs{func:"macro:cmd/op with storage macr
 execute if data storage macro:output inputs{func:"macro:cmd/op with storage macro:output {data:{}}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/op with storage macro:output {inputs:{}}"} run return 0
 
-# ───── /ban ─────
 execute if data storage macro:output inputs{func:"macro:cmd/ban"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/ban with storage macro:engine {}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/ban with storage macro:engine {ban:{}}"} run return 0
@@ -30,7 +25,6 @@ execute if data storage macro:output inputs{func:"macro:cmd/ban with storage mac
 execute if data storage macro:output inputs{func:"macro:cmd/ban with storage macro:output {data:{}}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/ban with storage macro:output {inputs:{}}"} run return 0
 
-# ───── /ban-ip ─────
 execute if data storage macro:output inputs{func:"macro:cmd/ban_ip"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/ban_ip with storage macro:engine {}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/ban_ip with storage macro:engine {ban_ip:{}}"} run return 0
@@ -41,7 +35,6 @@ execute if data storage macro:output inputs{func:"macro:cmd/ban_ip with storage 
 execute if data storage macro:output inputs{func:"macro:cmd/ban_ip with storage macro:output {data:{}}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/ban_ip with storage macro:output {inputs:{}}"} run return 0
 
-# ───── /pardon ─────
 execute if data storage macro:output inputs{func:"macro:cmd/pardon"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/pardon with storage macro:engine {}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/pardon with storage macro:engine {pardon:{}}"} run return 0
@@ -52,7 +45,6 @@ execute if data storage macro:output inputs{func:"macro:cmd/pardon with storage 
 execute if data storage macro:output inputs{func:"macro:cmd/pardon with storage macro:output {data:{}}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/pardon with storage macro:output {inputs:{}}"} run return 0
 
-# ───── /pardon-ip ─────
 execute if data storage macro:output inputs{func:"macro:cmd/pardon_ip"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/pardon_ip with storage macro:engine {}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/pardon_ip with storage macro:engine {pardon_ip:{}}"} run return 0
@@ -63,7 +55,6 @@ execute if data storage macro:output inputs{func:"macro:cmd/pardon_ip with stora
 execute if data storage macro:output inputs{func:"macro:cmd/pardon_ip with storage macro:output {data:{}}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/pardon_ip with storage macro:output {inputs:{}}"} run return 0
 
-# ───── /kick ─────
 execute if data storage macro:output inputs{func:"macro:cmd/kick"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/kick with storage macro:engine {}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/kick with storage macro:engine {kick:{}}"} run return 0
@@ -74,7 +65,6 @@ execute if data storage macro:output inputs{func:"macro:cmd/kick with storage ma
 execute if data storage macro:output inputs{func:"macro:cmd/kick with storage macro:output {data:{}}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/kick with storage macro:output {inputs:{}}"} run return 0
 
-# ───── /deop ─────
 execute if data storage macro:output inputs{func:"macro:cmd/deop"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/deop with storage macro:engine {}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/deop with storage macro:engine {deop:{}}"} run return 0
@@ -85,7 +75,6 @@ execute if data storage macro:output inputs{func:"macro:cmd/deop with storage ma
 execute if data storage macro:output inputs{func:"macro:cmd/deop with storage macro:output {data:{}}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/deop with storage macro:output {inputs:{}}"} run return 0
 
-# ───── /stop ─────
 execute if data storage macro:output inputs{func:"macro:cmd/stop"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/stop with storage macro:engine {}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/stop with storage macro:engine {stop:{}}"} run return 0
@@ -96,7 +85,6 @@ execute if data storage macro:output inputs{func:"macro:cmd/stop with storage ma
 execute if data storage macro:output inputs{func:"macro:cmd/stop with storage macro:output {data:{}}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/stop with storage macro:output {inputs:{}}"} run return 0
 
-# ───── /data remove (block) ─────
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_block"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_block with storage macro:engine {}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_block with storage macro:engine {data_remove_block:{}}"} run return 0
@@ -107,7 +95,6 @@ execute if data storage macro:output inputs{func:"macro:cmd/data_remove_block wi
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_block with storage macro:output {data:{}}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_block with storage macro:output {inputs:{}}"} run return 0
 
-# ───── /data remove (entity) ─────
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_entity"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_entity with storage macro:engine {}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_entity with storage macro:engine {data_remove_entity:{}}"} run return 0
@@ -118,7 +105,6 @@ execute if data storage macro:output inputs{func:"macro:cmd/data_remove_entity w
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_entity with storage macro:output {data:{}}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_entity with storage macro:output {inputs:{}}"} run return 0
 
-# ───── /data remove (storage) ─────
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_storage"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_storage with storage macro:engine {}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_storage with storage macro:engine {data_remove_storage:{}}"} run return 0
@@ -129,6 +115,5 @@ execute if data storage macro:output inputs{func:"macro:cmd/data_remove_storage 
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_storage with storage macro:output {data:{}}"} run return 0
 execute if data storage macro:output inputs{func:"macro:cmd/data_remove_storage with storage macro:output {inputs:{}}"} run return 0
 
-# Clear
 data remove storage macro:output data
 data remove storage macro:output inputs

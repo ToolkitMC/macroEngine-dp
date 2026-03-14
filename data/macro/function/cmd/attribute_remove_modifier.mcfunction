@@ -1,16 +1,2 @@
-# ============================================
-# macro:cmd/attribute_remove_modifier
-# ============================================
-# From player attribute modifier removes.
-#
-# INPUT: macro:input { player:"<name>", attribute:"<attribute_id>", id:"<modifier_id>" }
-#
-# EXAMPLE:
-# data modify storage macro:input player set value "Steve"
-# data modify storage macro:input attribute set value "minecraft:generic.movement_speed"
-# data modify storage macro:input id set value "macro:speed_boost"
-# function macro:cmd/attribute_remove_modifier with storage macro:input {}
-# ============================================
-
 $attribute @a[name=$(player),limit=1] $(attribute) modifier remove $(id)
 $tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/attribute_remove_modifier ","color":"aqua"},{"text":"$(player)","color":"white"},{"text":" → ","color":"#555555"},{"text":"$(id)","color":"aqua"}]

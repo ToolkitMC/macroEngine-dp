@@ -1,20 +1,3 @@
-# ============================================
-# macro:interaction/unbind_use
-# ============================================
-# Removes a specific use bind (tag + func pair).
-# Only the exact tag+func combination is removed;
-# other binds for the same tag remain intact.
-#
-# INPUT: macro:input
-#   tag  : <string> — Entity tag of the bind to remove
-#   func : <string> — Function of the bind to remove
-#
-# EXAMPLE:
-#   data modify storage macro:input tag  set value "shop_button"
-#   data modify storage macro:input func set value "mypack:shop/on_use"
-#   function macro:interaction/unbind_use with storage macro:input {}
-# ============================================
-
 execute unless data storage macro:engine interaction_binds.use[0] run return 0
 
 data modify storage macro:engine _ia_ubinds set from storage macro:engine interaction_binds.use

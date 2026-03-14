@@ -1,10 +1,3 @@
-# ============================================
-# macro:state/list
-# ============================================
-# Shows all player states to macro.debug-tagged players.
-# INPUT: (yok)
-# ============================================
-
 tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"━━━ Player States ","color":"aqua"},{"text":"━━━━━━━━━━","color":"#555555"}]
 execute if data storage macro:engine states run tellraw @a[tag=macro.debug] ["",{"text":" ","color":"#555555"},{"storage":"macro:engine","nbt":"states","interpret":false,"color":"white"}]
 execute unless data storage macro:engine states run tellraw @a[tag=macro.debug] ["",{"text":" ","color":"#555555"},{"text":"(no active states)","color":"gray","italic":true}]

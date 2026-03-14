@@ -1,40 +1,22 @@
-# ============================================
-# macro:math/distance2d
-# ============================================
-# XZ duzleminde distance between two points: floor(√(dx² + dz²))
-# INPUT: macro:input { x1:<int>, z1:<int>, x2:<int>, z2:<int> }
-# OUTPUT: macro:output { result:<int> }
-#
-# Example: distance2d(0,0, 3,4) = 5
-# Note: binary search logic from macro:math/sqrt is inlined;
-# macro:input kirlenmez.
-# ============================================
-
 $scoreboard players set $d2d_x1 macro.tmp $(x1)
 $scoreboard players set $d2d_z1 macro.tmp $(z1)
 $scoreboard players set $d2d_x2 macro.tmp $(x2)
 $scoreboard players set $d2d_z2 macro.tmp $(z2)
 
-# dx = x2 - x1
 scoreboard players operation $d2d_dx macro.tmp = $d2d_x2 macro.tmp
 scoreboard players operation $d2d_dx macro.tmp -= $d2d_x1 macro.tmp
 
-# dz = z2 - z1
 scoreboard players operation $d2d_dz macro.tmp = $d2d_z2 macro.tmp
 scoreboard players operation $d2d_dz macro.tmp -= $d2d_z1 macro.tmp
 
-# d² = dx² + dz²
 scoreboard players operation $d2d_dx macro.tmp *= $d2d_dx macro.tmp
 scoreboard players operation $d2d_dz macro.tmp *= $d2d_dz macro.tmp
 scoreboard players operation $d2d_sq macro.tmp = $d2d_dx macro.tmp
 scoreboard players operation $d2d_sq macro.tmp += $d2d_dz macro.tmp
 
-# Zero-distance edge case
 execute if score $d2d_sq macro.tmp matches 0 run data modify storage macro:output result set value 0
 execute if score $d2d_sq macro.tmp matches 0 run return 0
 
-# sqrt(d²) — macro:math/sqrt inline binary search mantigi
-# ($sqrt_n ← $d2d_sq, macro:input degismez)
 scoreboard players operation $sqrt_n macro.tmp = $d2d_sq macro.tmp
 scoreboard players set $sqrt_lo macro.tmp 0
 scoreboard players operation $sqrt_hi macro.tmp = $sqrt_n macro.tmp
