@@ -1,3 +1,4 @@
+$execute unless data storage macro:engine events.$(event) run execute as @a[tag=macro.debug] run tellraw @s ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"event/fire ","color":"aqua"},{"text":"SKIP ","color":"#FF5555"},{"text":"$(event)","color":"#AAAAAA"},{"text":" — no handlers registered","color":"#555555"}]
 $execute unless data storage macro:engine events.$(event) run return 0
 
 $data modify storage macro:engine _event_tmp set from storage macro:engine events.$(event)
