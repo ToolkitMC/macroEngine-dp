@@ -1,7 +1,5 @@
+```yaml
 name: PR Auto-Label
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 on:
   pull_request:
@@ -10,13 +8,19 @@ on:
 jobs:
   label:
     runs-on: ubuntu-latest
+
+    # ✅ Node 24 zorla (warning tamamen gider)
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
     permissions:
       contents: read
       pull-requests: write
       issues: write
 
     steps:
-      - uses: actions/checkout@v4
+      # ✅ Node 24 uyumlu sürüm
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -28,7 +32,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          set -e
+          set -eo pipefail
 
           BASE="${{ github.event.pull_request.base.sha }}"
           HEAD="${{ github.event.pull_request.head.sha }}"
@@ -77,11 +81,9 @@ jobs:
 
           echo "Applying labels: $LABELS"
 
-          # 🔥 Repo label listesi al
-          EXISTING_LABELS=$(gh label list --json name --jq '.[].name')
-
-          # 🔥 PR mevcut label listesi
-          PR_LABELS=$(gh pr view "$PR_NUMBER" --json labels --jq '.labels[].name')
+          # 🔒 Fail-safe GH calls
+          EXISTING_LABELS=$(gh label list --json name --jq '.[].name' || echo "")
+          PR_LABELS=$(gh pr view "$PR_NUMBER" --json labels --jq '.labels[].name' || echo "")
 
           for label in $LABELS; do
             # label yoksa oluştur
@@ -103,14 +105,15 @@ jobs:
               esac
 
               echo "Creating label: $label"
-              gh label create "$label" --color "$color" --description "$desc"
+              gh label create "$label" --color "$color" --description "$desc" || true
             fi
 
             # PR'da yoksa ekle
             if ! echo "$PR_LABELS" | grep -qx "$label"; then
               echo "Adding label to PR: $label"
-              gh pr edit "$PR_NUMBER" --add-label "$label"
+              gh pr edit "$PR_NUMBER" --add-label "$label" || true
             else
               echo "Label already exists on PR: $label"
             fi
           done
+```
