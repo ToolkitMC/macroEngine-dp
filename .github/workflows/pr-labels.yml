@@ -1,4 +1,4 @@
-```yaml
+
 name: PR Auto-Label
 
 on:
@@ -116,4 +116,3 @@ jobs:
               echo "Label already exists on PR: $label"
             fi
           done
-```
