@@ -6,5 +6,6 @@
   },
   "rewards": {
     "function": "macro:hook/on_placed_block"
-  }
+  },
+  "parent": "macro:hidden/root"
 }

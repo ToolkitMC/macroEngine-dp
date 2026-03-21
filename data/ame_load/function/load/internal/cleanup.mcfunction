@@ -73,7 +73,20 @@ scoreboard objectives remove macro.hook_online
 scoreboard objectives remove macro.hook_deaths
 scoreboard objectives remove macro.hook_placed
 scoreboard objectives remove macro.hook_lvl
+scoreboard objectives remove macro.hook_lvl_new
+scoreboard objectives remove macro.hook_sneak
+scoreboard objectives remove macro.hook_sprint
+scoreboard objectives remove macro.hook_elytra
 tag @a remove macro.hook_dead
+tag @a remove macro.hook_sneaking
+tag @a remove macro.hook_sprinting
+tag @a remove macro.hook_gliding
+scoreboard objectives remove macro.hook_tool_used
+scoreboard objectives remove macro.hook_item_used
+scoreboard objectives remove macro.hook_entity_killed
+scoreboard objectives remove macro.hook_using_item
+scoreboard objectives remove macro.hook_killed_by_arrow
+scoreboard objectives remove macro.hook_hero_of_the_village
 data remove storage macro:engine hook_binds
 data remove storage macro:engine _hook_iter
 data remove storage macro:engine _hook_ctx
