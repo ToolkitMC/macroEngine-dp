@@ -72,31 +72,31 @@ on:
         description: '🔵 JSON Validation'
         required: true
         type: boolean
-        default: true
+        default: false
 
       run_validate_pack:
         description: '🔵 pack.mcmeta Validation'
         required: true
         type: boolean
-        default: true
+        default: false
 
       run_validate_functions:
         description: '🔵 Function Reference Integrity'
         required: true
         type: boolean
-        default: true
+        default: false
 
       run_validate_structure:
         description: '🔵 File Structure Check'
         required: true
         type: boolean
-        default: true
+        default: false
 
       run_validate_version:
         description: '🔵 Version Validation'
         required: true
         type: boolean
-        default: true
+        default: false
 
       # ┌─────────────────────────────────────────────────────┐
       # │               VALIDATION DAVRANIŞI                  │
@@ -115,7 +115,7 @@ on:
         description: '🔒 Strict function ref — eksik referans FAIL sayılsın'
         required: true
         type: boolean
-        default: true
+        default: false
 
       strict_version_match:
         description: '🔒 Strict version — versiyon uyuşmazlığı FAIL (default: WARN)'
@@ -159,10 +159,10 @@ on:
           - prerelease
 
       release_generate_notes:
-        description: '📋 Release notlarını otomatik oluştur?'
+        description: '📋 Fallback: CHANGELOG bulunamazsa otomatik notlar üret'
         required: true
         type: boolean
-        default: true
+        default: false
 
       zip_name_pattern:
         description: 'ZIP adı şablonu. {name} = pack adı, {version} = versiyon. Örn: {name}-{version}'
@@ -641,12 +641,25 @@ jobs:
           [ "${{ inputs.release_type }}" == "draft" ]      && DRAFT_FLAG="--draft"
           [ "${{ inputs.release_type }}" == "prerelease" ] && PRERELEASE_FLAG="--prerelease"
 
-          NOTES_FLAG=""
-          [ "${{ inputs.release_generate_notes }}" == "true" ] && NOTES_FLAG="--generate-notes"
+          # Extract release notes from CHANGELOG.md for this version tag
+          TAG="${{ inputs.version }}"
+          NOTES=""
+          if [ -f "docs/CHANGELOG.md" ] && [ -n "$TAG" ]; then
+            # Extract section between this version header and the next ## header
+            NOTES=$(awk "/^## ${TAG}[[:space:]]/"',/^## v/{if(found) exit; found=1; next} found{print}' docs/CHANGELOG.md | head -200)
+          fi
 
-          gh release create "${{ inputs.version }}" \
+          if [ -n "$NOTES" ]; then
+            NOTES_FILE=$(mktemp)
+            printf '%s' "$NOTES" > "$NOTES_FILE"
+            NOTES_ARG="--notes-file $NOTES_FILE"
+          else
+            NOTES_ARG="--generate-notes"
+          fi
+
+          gh release create "$TAG" \
             "${{ steps.build.outputs.zip_name }}" \
-            --title "${{ inputs.pack_name }} ${{ inputs.version }}" \
+            --title "${{ inputs.pack_name }} $TAG" \
             $DRAFT_FLAG \
             $PRERELEASE_FLAG \
-            $NOTES_FLAG
+            $NOTES_ARG
