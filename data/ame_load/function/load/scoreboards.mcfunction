@@ -42,3 +42,11 @@ scoreboard objectives add macro.hook_entity_killed dummy
 scoreboard objectives add macro.hook_using_item dummy
 scoreboard objectives add macro.hook_killed_by_arrow dummy
 scoreboard objectives add macro.hook_hero_of_the_village dummy
+
+# geo/region_watch — enter/leave durum takibi için scoreboard gerekmez (entity tag kullanır)
+
+# hook/dimension_change — changed_dimension advancement tabanlı
+scoreboard objectives add macro.hook_dim_changed dummy
+
+# hook/trade — traded_with_villager advancement tabanlı
+scoreboard objectives add macro.hook_traded dummy

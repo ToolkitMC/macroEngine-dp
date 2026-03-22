@@ -19,3 +19,5 @@ execute as @a[scores={macro.dialog_load=0},tag=!macro.dialog_closed,tag=!macro.d
 
 function macro:wand/internal/tick_scan
 function macro:hook/internal/tick_scan
+
+function macro:geo/region_watch/internal/tick_scan

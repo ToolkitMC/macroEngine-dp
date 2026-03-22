@@ -66,3 +66,10 @@ execute as @a[scores={macro.hook_elytra=..0},predicate=macro:is_gliding] run fun
 execute as @a[scores={macro.hook_elytra=1},predicate=!macro:is_gliding] run function macro:hook/internal/on_elytra_stop
 execute as @a[predicate=macro:is_gliding] run scoreboard players set @s macro.hook_elytra 1
 execute as @a[predicate=!macro:is_gliding] run scoreboard players set @s macro.hook_elytra 0
+
+
+execute as @a[scores={macro.hook_dim_changed=1..}] run function macro:hook/internal/on_dimension_change
+execute as @a[scores={macro.hook_dim_changed=1..}] run scoreboard players set @s macro.hook_dim_changed 0
+
+execute as @a[scores={macro.hook_traded=1..}] run function macro:hook/internal/on_trade
+execute as @a[scores={macro.hook_traded=1..}] run scoreboard players set @s macro.hook_traded 0

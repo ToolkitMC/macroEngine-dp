@@ -33,3 +33,17 @@ execute unless data storage macro:engine wand_binds run data modify storage macr
 
 # Hook modülü başlatma
 execute unless data storage macro:engine hook_binds run data modify storage macro:engine hook_binds set value []
+
+# lib/fiber modülü başlatma
+execute unless data storage macro:engine fibers run data modify storage macro:engine fibers set value {}
+data remove storage macro:engine fibers._pending
+
+# geo/region_watch modülü başlatma
+# Reload'da watches silinir — her load'da yeniden register edilmeli
+data remove storage macro:engine region_watches
+data modify storage macro:engine region_watches set value []
+
+# lib/batch modülü başlatma
+# Yarım batch'ler reload'da temizlenir
+data remove storage macro:engine batches
+data modify storage macro:engine batches set value {}
