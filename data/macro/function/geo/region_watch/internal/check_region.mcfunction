@@ -44,11 +44,11 @@ $execute if score $rw_inside macro.tmp matches 0 run execute unless entity @s[ta
 # --- on_enter: was outside, now inside ---
 $execute if score $rw_inside macro.tmp matches 1 run tag @s add rw.$(id)
 # DOT NOTATION: _rw_cur.on_enter (space-separated subpath is invalid)
-execute if score $rw_inside macro.tmp matches 1 run execute if data storage macro:engine _rw_cur.on_enter run function macro:geo/region_watch/internal/fire_enter with storage macro:engine _rw_cur {}
-execute if score $rw_inside macro.tmp matches 1 run execute if data storage macro:engine _rw_cur.on_enter_cmd run function macro:geo/region_watch/internal/fire_enter_cmd with storage macro:engine _rw_cur {}
+execute if score $rw_inside macro.tmp matches 1 run execute if data storage macro:engine _rw_cur.on_enter run function macro:geo/region_watch/internal/fire_enter with storage macro:engine _rw_cur
+execute if score $rw_inside macro.tmp matches 1 run execute if data storage macro:engine _rw_cur.on_enter_cmd run function macro:geo/region_watch/internal/fire_enter_cmd with storage macro:engine _rw_cur
 execute if score $rw_inside macro.tmp matches 1 run return 0
 
 # --- on_leave: was inside, now outside ---
 $tag @s remove rw.$(id)
-execute if data storage macro:engine _rw_cur.on_leave run function macro:geo/region_watch/internal/fire_leave with storage macro:engine _rw_cur {}
-execute if data storage macro:engine _rw_cur.on_leave_cmd run function macro:geo/region_watch/internal/fire_leave_cmd with storage macro:engine _rw_cur {}
+execute if data storage macro:engine _rw_cur.on_leave run function macro:geo/region_watch/internal/fire_leave with storage macro:engine _rw_cur
+execute if data storage macro:engine _rw_cur.on_leave_cmd run function macro:geo/region_watch/internal/fire_leave_cmd with storage macro:engine _rw_cur
