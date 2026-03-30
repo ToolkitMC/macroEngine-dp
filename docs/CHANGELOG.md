@@ -1,6 +1,47 @@
 # Advanced Macro Engine — Changelog
 
 ---
+
+## v2.2.5 — 2026-03-30
+
+### ♻️ 1.20.x Overlay (1_20_3) Yeniden Yazıldı
+| Özellik | Açıklama |
+|-----|----------|
+| Overlay sistemi | `1_20_3` tamamen sıfırdan yazıldı |
+| Component → NBT | 1.21+ item components kaldırıldı |
+| Legacy uyum | Tüm item işlemleri NBT tabanına geri alındı |
+| İzolasyon | Overlay artık root pack’ten bağımsız |
+
+### 🧩 Compatibility Fixes
+| Sorun | Düzeltme |
+|-----|----------|
+| Predicates "Not a json array" hatası | Array formatına çevrildi |
+| Loot table parse hataları | 1.20.3 formatına uyarlandı |
+| Advancement display hataları | `icon` → `item` düzeltildi |
+| Version mismatch | v2.2.4 kalıntıları temizlendi |
+
+### 📦 Data Pack Structure
+| Sorun | Düzeltme |
+|-----|----------|
+| Yanlış klasör isimleri | 1.20.x çoğul yapı düzeltildi (`functions`, `loot_tables`, vb.) |
+| Modern klasör kalıntıları | Overlay içinden kaldırıldı |
+| pack.mcmeta uyumsuzluğu | 1.20.3 formatına uyarlandı |
+
+### 🐛 Bug Fixes
+| Bug | Düzeltme |
+|-----|----------|
+| `minecraft:test_block` hatası | Kaldırıldı |
+| Bozuk JSON dosyaları | Düzeltildi |
+| Predicate/loot parse crash'leri | Fixlendi |
+
+### ⚙️ Internal
+| Değişiklik | Açıklama |
+|-----|----------|
+| Version sistemi | `v2.2.5` olarak güncellendi |
+| Debug kalıntıları | Temizlendi |
+| Overlay yükleme | Stabil hale getirildi |
+
+---
 ## v2.2.2
 ### ✨ Yeni `cmd/` komutları
  Komut | Parametreler |
