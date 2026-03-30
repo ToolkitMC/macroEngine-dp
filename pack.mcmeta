@@ -45,17 +45,17 @@
         "italic": false
       },
       {
-        "text": " | v2.2.3-fixed",
+        "text": " | v2.2.5",
         "color": "#ffaa00",
         "bold": false,
         "italic": false
       }
     ],
     "supported_formats": {
-      "min_inclusive": 48,
+      "min_inclusive": 26,
       "max_inclusive": 400000
     },
-    "min_format": 48,
+    "min_format": 26,
     "max_format": 400000
   },
   "filter": {
@@ -114,6 +114,15 @@
         },
         "min_format": 101,
         "max_format": 101
+      },
+      {
+        "directory": "1_20_3",
+        "formats": {
+          "min_inclusive": 26,
+          "max_inclusive": 26
+        },
+        "min_format": 26,
+        "max_format": 26
       }
     ]
   }
