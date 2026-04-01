@@ -21,3 +21,4 @@ execute unless score #check macro.tick matches 0 run return 0
 
 # Passed → execute channel function
 function macro:tick/dispatch/exec with storage macro:tick_work channel
+function macro:tick/dispatch/exec2 with storage macro:tick_work channel

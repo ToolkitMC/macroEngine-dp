@@ -1,3 +1,5 @@
 {
-  "values": ["macro:tick"]
+  "values": [
+    "#macro:loop"
+  ]
 }
