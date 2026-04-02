@@ -16,13 +16,13 @@ $execute unless entity @a[name=$(player),limit=1] run return 0
 
 data modify storage macro:output found set value 1b
 
-$execute if entity @a[name=$(player),gamemode=survival,limit=1]  run data modify storage macro:output result set value 0
-$execute if entity @a[name=$(player),gamemode=creative,limit=1]  run data modify storage macro:output result set value 1
+$execute if entity @a[name=$(player),gamemode=survival,limit=1] run data modify storage macro:output result set value 0
+$execute if entity @a[name=$(player),gamemode=creative,limit=1] run data modify storage macro:output result set value 1
 $execute if entity @a[name=$(player),gamemode=adventure,limit=1] run data modify storage macro:output result set value 2
 $execute if entity @a[name=$(player),gamemode=spectator,limit=1] run data modify storage macro:output result set value 3
 
-$execute if entity @a[name=$(player),gamemode=survival,limit=1]  run data modify storage macro:output name set value "survival"
-$execute if entity @a[name=$(player),gamemode=creative,limit=1]  run data modify storage macro:output name set value "creative"
+$execute if entity @a[name=$(player),gamemode=survival,limit=1] run data modify storage macro:output name set value "survival"
+$execute if entity @a[name=$(player),gamemode=creative,limit=1] run data modify storage macro:output name set value "creative"
 $execute if entity @a[name=$(player),gamemode=adventure,limit=1] run data modify storage macro:output name set value "adventure"
 $execute if entity @a[name=$(player),gamemode=spectator,limit=1] run data modify storage macro:output name set value "spectator"
 
