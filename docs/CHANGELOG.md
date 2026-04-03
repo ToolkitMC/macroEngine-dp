@@ -2,6 +2,37 @@
 
 ---
 
+## v2.2.8 — 2026-04-03
+
+### ✨ Yeni Fonksiyonlar
+
+#### `entity/`
+
+| Fonksiyon | Girdi | Çıkış | Açıklama |
+|---|---|---|---|
+| `entity/for_each_in_radius` | `{player, type, radius, func}` | — | Belirtilen `type` entity'lerini `player` etrafındaki `radius` blok içinde iterate eder ve her biri için `func`'ı çalıştırır. `entity/for_each`'in radius filtreli versiyonu. |
+
+#### `player/`
+
+| Fonksiyon | Girdi | Çıkış | Açıklama |
+|---|---|---|---|
+| `player/is_on_ground` | `{player}` | `result` (1b/0b), `found` | `macro:is_on_ground` predicate ile oyuncunun yerde olup olmadığını kontrol eder. |
+| `player/is_burning` | `{player}` | `result` (1b/0b), `found` | `macro:is_burning` predicate ile oyuncunun ateşte olup olmadığını kontrol eder. |
+
+#### `inv/`
+
+| Fonksiyon | Girdi | Çıkış | Açıklama |
+|---|---|---|---|
+| `inv/offhand_item` | `{item, customData, invoke}` | — | Offhand slotunda belirtilen item + custom_data eşleşen tüm oyuncular için `invoke`'u çalıştırır. `inv/selected_item` (mainhand) ile aynı pattern. |
+
+#### `world/`
+
+| Fonksiyon | Girdi | Çıkış | Açıklama |
+|---|---|---|---|
+| `world/get_time` | — | `daytime` (0–23999), `total`, `day` | Mevcut oyun saatini `macro:output`'a yazar. `daytime`: günün kaçıncı tick'i, `total`: toplam dünya yaşı, `day`: gün sayısı. |
+
+---
+
 ## v2.2.7 — 2026-04-02
 
 ### ✨ Yeni Fonksiyonlar
