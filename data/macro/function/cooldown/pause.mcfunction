@@ -18,5 +18,5 @@ execute unless score $cdp_exp macro.tmp matches 1.. run return 0
 # Save remaining ticks to paused storage and clear the live cooldown
 $execute store result storage macro:engine paused_cooldowns.$(player).$(key) int 1 run scoreboard players get $cdp_exp macro.tmp
 $data remove storage macro:engine cooldowns.$(player).$(key)
-$execute store result storage macro:output result int 1 run scoreboard players get $cdp_exp macro.tmp
+execute store result storage macro:output result int 1 run scoreboard players get $cdp_exp macro.tmp
 $tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cooldown/pause ","color":"aqua"},{"text":"⏸ ","color":"yellow"},{"text":"$(player)","color":"white"},{"text":":","color":"#555555"},{"text":"$(key)","color":"aqua"},{"text":" → ","color":"#555555"},{"storage":"macro:output","nbt":"result","color":"green"},{"text":"t remaining","color":"#555555"}]
