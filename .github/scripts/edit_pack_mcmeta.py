@@ -49,18 +49,16 @@ def main() -> None:
     old_smin = supported.get("min_inclusive", "?")
     old_smax = supported.get("max_inclusive", "?")
 
-    # Ana pack_format ve supported_formats güncelle
+    # Ana güncellemeler
     pack["pack_format"] = pf
     pack["supported_formats"] = {
         "min_inclusive": smin,
         "max_inclusive": smax,
     }
 
-    # Eski stil min_format / max_format varsa onları da güncelle (geriye uyumluluk)
-    if "min_format" in pack:
-        pack["min_format"] = smin
-    if "max_format" in pack:
-        pack["max_format"] = smax
+    # supported_formats değiştiğinde min_format ve max_format da HER ZAMAN güncellensin
+    pack["min_format"] = smin
+    pack["max_format"] = smax
 
     print(f"pack_format : {old_pf} → {pf}")
     print(f"supported_formats: [{old_smin}, {old_smax}] → [{smin}, {smax}]")
@@ -95,10 +93,9 @@ def main() -> None:
                         "max_inclusive": o_max,
                     }
 
-                    if "min_format" in entry:
-                        entry["min_format"] = o_min
-                    if "max_format" in entry:
-                        entry["max_format"] = o_max
+                    # Overlay için de min_format ve max_format her zaman güncellensin
+                    entry["min_format"] = o_min
+                    entry["max_format"] = o_max
 
                     print(f"overlay '{directory}': [{old_min}, {old_max}] → [{o_min}, {o_max}]")
                 else:
