@@ -1,28 +1,31 @@
 #!/usr/bin/env python3
 """
 pack.mcmeta düzenleyici.
-Kullanım: edit_pack_mcmeta.py <pack_format> <supported_min> <supported_max> [overlay_file]
-  overlay_file: her satır "<directory>=<min>:<max>" formatında
+Kullanım: edit_pack_mcmeta.py <pack_format> <supported_min> <supported_max>
+overlay_updates: GITHUB_EVENT_PATH üzerinden okunur (workflow_dispatch input).
 """
 
 import json
+import os
 import sys
 
 
 def main():
     if len(sys.argv) < 4:
-        print("Kullanım: edit_pack_mcmeta.py <pack_format> <supported_min> <supported_max> [overlay_file]")
+        print("Kullanım: edit_pack_mcmeta.py <pack_format> <supported_min> <supported_max>")
         sys.exit(1)
 
     pf   = int(sys.argv[1])
     smin = int(sys.argv[2])
     smax = int(sys.argv[3])
-    overlay_file = sys.argv[4] if len(sys.argv) > 4 else None
 
+    # overlay_updates'i GITHUB_EVENT_PATH'ten oku (jq/heredoc sorunlarını önler)
     overlay_raw = ""
-    if overlay_file:
-        with open(overlay_file, "r", encoding="utf-8") as f:
-            overlay_raw = f.read().strip()
+    event_path = os.environ.get("GITHUB_EVENT_PATH", "")
+    if event_path and os.path.exists(event_path):
+        with open(event_path, "r", encoding="utf-8") as f:
+            event = json.load(f)
+        overlay_raw = event.get("inputs", {}).get("overlay_updates", "") or ""
 
     with open("pack.mcmeta", "r", encoding="utf-8") as f:
         meta = json.load(f)
@@ -45,7 +48,7 @@ def main():
     print(f"pack_format      : {old_pf} → {pf}")
     print(f"supported_formats: [{old_smin}, {old_smax}] → [{smin}, {smax}]")
 
-    if overlay_raw:
+    if overlay_raw.strip():
         entries = {e["directory"]: e for e in meta.get("overlays", {}).get("entries", [])}
         for line in overlay_raw.splitlines():
             line = line.strip()
@@ -54,7 +57,8 @@ def main():
             directory, fmt = line.split("=", 1)
             directory = directory.strip()
             o_min, o_max = fmt.strip().split(":", 1)
-            o_min, o_max = int(o_min), int(o_max)
+            o_min = int(o_min.strip())
+            o_max = int(o_max.strip())
 
             if directory in entries:
                 old_fmt = entries[directory].get("formats", {})

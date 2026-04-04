@@ -88,13 +88,13 @@ jobs:
           echo "OK: Girdiler geçerli."
 
       - name: Apply changes to pack.mcmeta
+        env:
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
         run: |
-          jq -r '.inputs.overlay_updates // ""' "$GITHUB_EVENT_PATH" > /tmp/overlay_updates.txt
           python3 .github/scripts/edit_pack_mcmeta.py \
             "${{ inputs.pack_format }}" \
             "${{ inputs.supported_min }}" \
-            "${{ inputs.supported_max }}" \
-            /tmp/overlay_updates.txt
+            "${{ inputs.supported_max }}"
 
       - name: Commit and push
         run: |
