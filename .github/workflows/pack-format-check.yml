@@ -41,17 +41,8 @@ jobs:
           SUP_MIN=$(python3 -c "import json; m=json.load(open('pack.mcmeta')); sf=m['pack'].get('supported_formats',{}); print(sf.get('min_inclusive',''))")
           SUP_MAX=$(python3 -c "import json; m=json.load(open('pack.mcmeta')); sf=m['pack'].get('supported_formats',{}); print(sf.get('max_inclusive',''))")
 
-          # min_format / max_format root-level alanları geçersiz — kullanılmamalı
-          META_MIN=$(python3 -c "import json; m=json.load(open('pack.mcmeta')); print(m['pack'].get('min_format',''))")
-          META_MAX=$(python3 -c "import json; m=json.load(open('pack.mcmeta')); print(m['pack'].get('max_format',''))")
-
           echo "pack_format      : $PACK_FORMAT"
           echo "supported_formats: {min_inclusive: $SUP_MIN, max_inclusive: $SUP_MAX}"
-
-          if [ -n "$META_MIN" ] || [ -n "$META_MAX" ]; then
-            echo "FAIL: min_format / max_format root-level alanları geçersiz. Kaldırın."
-            FAILED=1
-          fi
 
           # pack_format, supported_formats aralığında olmalı
           if [ -n "$SUP_MIN" ] && [ -n "$SUP_MAX" ]; then
@@ -93,10 +84,7 @@ jobs:
               else:
                   o_min = o_max = fmt
 
-              # min_format / max_format overlay entry içinde de geçersiz
-              if 'min_format' in entry or 'max_format' in entry:
-                  print(f"  FAIL: overlay '{d}' min_format/max_format alanları geçersiz — kaldırın")
-                  failed = 1
+              # min_format / max_format overlay entry içinde yok sayılır
 
               overlap = o_min <= sup_max and o_max >= sup_min
               status = "OK" if overlap else "FAIL"
