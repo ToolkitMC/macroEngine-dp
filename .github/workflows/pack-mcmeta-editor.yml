@@ -93,12 +93,10 @@ jobs:
           SMIN: ${{ inputs.supported_min }}
           SMAX: ${{ inputs.supported_max }}
         run: |
-          # Overlay input'u ayrı dosyaya yaz (multiline env var sorunu önlenir)
-          cat << 'OVERLAY_EOF' > /tmp/overlay_updates.txt
-          ${{ inputs.overlay_updates }}
-          OVERLAY_EOF
+          # overlay_updates'i event JSON'undan jq ile güvenli çek
+          jq -r '.inputs.overlay_updates // ""' "$GITHUB_EVENT_PATH" > /tmp/overlay_updates.txt
 
-          python3 << 'PYEOF'
+          python3 - << 'PYEOF'
           import json, os
 
           pf   = int(os.environ['PF'])
