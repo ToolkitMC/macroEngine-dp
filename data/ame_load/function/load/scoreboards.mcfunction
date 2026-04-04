@@ -45,12 +45,6 @@ scoreboard objectives add macro.hook_dim_changed dummy
 # hook/trade — villager_trade advancement-based
 scoreboard objectives add macro.hook_traded dummy
 
-
-# Rate limit module
-scoreboard objectives add macro.rl_count dummy
-scoreboard objectives add macro.rl_cd dummy
-function macro:rate_limit/config
-
 # Tick channel dispatch
 scoreboard objectives add macro.tick dummy
 scoreboard objectives add macro.Flags dummy
