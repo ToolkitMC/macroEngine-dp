@@ -92,15 +92,21 @@ jobs:
           PF: ${{ inputs.pack_format }}
           SMIN: ${{ inputs.supported_min }}
           SMAX: ${{ inputs.supported_max }}
-          OVERLAY_RAW: ${{ inputs.overlay_updates }}
         run: |
+          # Overlay input'u ayrı dosyaya yaz (multiline env var sorunu önlenir)
+          cat << 'OVERLAY_EOF' > /tmp/overlay_updates.txt
+          ${{ inputs.overlay_updates }}
+          OVERLAY_EOF
+
           python3 << 'PYEOF'
-          import json, os, sys
+          import json, os
 
           pf   = int(os.environ['PF'])
           smin = int(os.environ['SMIN'])
           smax = int(os.environ['SMAX'])
-          overlay_raw = os.environ.get('OVERLAY_RAW', '').strip()
+
+          with open('/tmp/overlay_updates.txt', 'r') as f:
+              overlay_raw = f.read().strip()
 
           with open('pack.mcmeta', 'r', encoding='utf-8') as f:
               meta = json.load(f)
