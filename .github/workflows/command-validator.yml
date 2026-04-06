@@ -1,0 +1,215 @@
+name: "Command Syntax Validator"
+
+on:
+  push:
+    branches: [ main, dev, develop ]
+    paths:
+      - '**.mcfunction'
+      - 'data/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**.mcfunction'
+      - 'data/**'
+  workflow_dispatch:
+
+jobs:
+  validate-commands:
+    name: Validate Minecraft Command Syntax
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Create command validation script
+      run: |
+        cat > validate_commands.py << 'PYTHON_SCRIPT'
+        #!/usr/bin/env python3
+        import os
+        import re
+        import sys
+        from pathlib import Path
+        from collections import defaultdict
+
+        # Common Minecraft commands (1.21.x)
+        VALID_COMMANDS = {
+            'advancement', 'attribute', 'ban', 'ban-ip', 'banlist', 'bossbar',
+            'clear', 'clone', 'damage', 'data', 'datapack', 'debug', 'defaultgamemode',
+            'deop', 'difficulty', 'effect', 'enchant', 'execute', 'experience', 'xp',
+            'fill', 'fillbiome', 'forceload', 'function', 'gamemode', 'gamerule',
+            'give', 'help', 'item', 'jfr', 'kick', 'kill', 'list', 'locate', 'loot',
+            'me', 'msg', 'tell', 'w', 'op', 'pardon', 'pardon-ip', 'particle',
+            'perf', 'place', 'playsound', 'publish', 'random', 'recipe', 'reload',
+            'return', 'ride', 'save-all', 'save-off', 'save-on', 'say', 'schedule',
+            'scoreboard', 'seed', 'setblock', 'setidletimeout', 'setworldspawn',
+            'spawnpoint', 'spectate', 'spreadplayers', 'stop', 'stopsound',
+            'summon', 'tag', 'team', 'teleport', 'tp', 'tellraw', 'tick',
+            'time', 'title', 'transfer', 'trigger', 'weather', 'whitelist',
+            'worldborder'
+        }
+
+        # Commands that support execute subcommands
+        EXECUTE_SUBCOMMANDS = {
+            'align', 'anchored', 'as', 'at', 'facing', 'in', 'on',
+            'positioned', 'rotated', 'store', 'if', 'unless', 'run'
+        }
+
+        def parse_mcfunction_file(file_path):
+            """Parse mcfunction file and extract commands."""
+            commands = []
+            
+            with open(file_path, 'r', encoding='utf-8') as f:
+                for line_num, line in enumerate(f, 1):
+                    # Remove comments
+                    line = line.split('#')[0].strip()
+                    
+                    # Skip empty lines
+                    if not line:
+                        continue
+                    
+                    commands.append((line_num, line))
+            
+            return commands
+
+        def validate_command(line_num, command):
+            """Validate a single command."""
+            errors = []
+            warnings = []
+            
+            # Check for leading slash (should not be present in mcfunction)
+            if command.startswith('/'):
+                warnings.append(f"Line {line_num}: Leading slash detected (unnecessary in mcfunction)")
+            
+            # Extract command name
+            cmd_parts = command.lstrip('/').split()
+            if not cmd_parts:
+                return errors, warnings
+            
+            cmd_name = cmd_parts[0]
+            
+            # Special handling for execute command
+            if cmd_name == 'execute':
+                return validate_execute_command(line_num, command)
+            
+            # Check if command is valid
+            if cmd_name not in VALID_COMMANDS:
+                errors.append(f"Line {line_num}: Unknown command '{cmd_name}'")
+            
+            # Check for common mistakes
+            if re.search(r'\$\{[^}]+\}', command):
+                warnings.append(f"Line {line_num}: Bash-style variable detected, use $(var) for macros")
+            
+            # Check for unbalanced brackets
+            if command.count('{') != command.count('}'):
+                errors.append(f"Line {line_num}: Unbalanced curly braces")
+            if command.count('[') != command.count(']'):
+                errors.append(f"Line {line_num}: Unbalanced square brackets")
+            
+            # Check for double spaces (common typo)
+            if '  ' in command:
+                warnings.append(f"Line {line_num}: Multiple consecutive spaces detected")
+            
+            return errors, warnings
+
+        def validate_execute_command(line_num, command):
+            """Validate execute command specifically."""
+            errors = []
+            warnings = []
+            
+            # Check if execute has 'run' at the end
+            if not re.search(r'\s+run\s+\w+', command):
+                warnings.append(f"Line {line_num}: Execute command missing 'run' clause")
+            
+            # Check for common execute mistakes
+            parts = command.split()
+            for i, part in enumerate(parts[1:], 1):  # Skip 'execute'
+                if part in EXECUTE_SUBCOMMANDS:
+                    continue
+                if part in VALID_COMMANDS or part == 'run':
+                    break
+                # Check if it looks like a selector or coordinate
+                if part.startswith('@') or part.startswith('~') or part.replace('.', '').replace('-', '').isdigit():
+                    continue
+                # Unknown token
+                if not any(c in part for c in ['=', ':', '{', '[', ']', '}']):
+                    warnings.append(f"Line {line_num}: Possible unknown execute subcommand or typo: '{part}'")
+            
+            return errors, warnings
+
+        def main():
+            errors_count = 0
+            warnings_count = 0
+            
+            data_dir = Path('data')
+            
+            if not data_dir.exists():
+                print("⚠️  No 'data' directory found, skipping validation")
+                return 0
+            
+            mcfunction_files = list(data_dir.rglob('*.mcfunction'))
+            
+            print(f"🔍 Validating commands in {len(mcfunction_files)} mcfunction files...\n")
+            
+            file_stats = defaultdict(lambda: {'errors': 0, 'warnings': 0})
+            
+            for file_path in mcfunction_files:
+                commands = parse_mcfunction_file(file_path)
+                
+                for line_num, command in commands:
+                    errors, warnings = validate_command(line_num, command)
+                    
+                    if errors or warnings:
+                        rel_path = file_path.relative_to(Path.cwd())
+                        
+                        for error in errors:
+                            print(f"❌ {rel_path}: {error}")
+                            errors_count += 1
+                            file_stats[rel_path]['errors'] += 1
+                        
+                        for warning in warnings:
+                            print(f"⚠️  {rel_path}: {warning}")
+                            warnings_count += 1
+                            file_stats[rel_path]['warnings'] += 1
+            
+            # Print summary
+            print(f"\n{'='*60}")
+            print(f"Summary:")
+            print(f"  Files checked: {len(mcfunction_files)}")
+            print(f"  Errors: {errors_count}")
+            print(f"  Warnings: {warnings_count}")
+            
+            if errors_count > 0:
+                print(f"\n❌ Validation failed with {errors_count} error(s)")
+                return 1
+            elif warnings_count > 0:
+                print(f"\n⚠️  Validation passed with {warnings_count} warning(s)")
+                return 0
+            else:
+                print(f"\n✅ All command syntax checks passed!")
+                return 0
+
+        if __name__ == '__main__':
+            sys.exit(main())
+        PYTHON_SCRIPT
+        
+        chmod +x validate_commands.py
+        
+    - name: Run command validation
+      run: python validate_commands.py
+      
+    - name: Upload validation report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: command-validation-report
+        path: |
+          *.log
+          validation-*.txt
+        retention-days: 7
+        if-no-files-found: ignore
