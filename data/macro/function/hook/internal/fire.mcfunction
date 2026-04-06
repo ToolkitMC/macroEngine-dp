@@ -4,8 +4,8 @@
 # Copies hook_binds list and dispatches it.
 
 $data modify storage macro:engine _hook_fire_event set value "$(event)"
+data modify storage macro:engine _hook_iter set from storage macro:engine hook_binds
 
-# Rate limit check — block event if player is throttled
 execute if data storage macro:engine _hook_iter run function macro:hook/internal/dispatch
 
 data remove storage macro:engine _hook_iter
