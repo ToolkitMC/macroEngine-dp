@@ -1,0 +1,22 @@
+name: Return Logic Bug Detector
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  detect-return:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Run return logic detector
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const script = require('./.github/scripts/detect_return_logic_bug.js');
+            await script({ github, context });
