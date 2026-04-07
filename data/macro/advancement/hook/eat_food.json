@@ -2,13 +2,7 @@
   "criteria": {
     "trigger": {
       "trigger": "minecraft:consume_item",
-      "conditions": {
-        "item": {
-          "predicates": {
-            "minecraft:food_properties": {}
-          }
-        }
-      }
+      "conditions": {}
     }
   },
   "rewards": {
