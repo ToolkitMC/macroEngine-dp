@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "predicates": {
+            "minecraft:food_properties": {}
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "macro:hook/internal/on_eat"
+  }
+}

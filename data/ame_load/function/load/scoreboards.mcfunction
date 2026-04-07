@@ -54,3 +54,8 @@ scoreboard objectives add macro.hook_jump minecraft.custom:minecraft.jump
 scoreboard objectives add macro.hook_open_chest minecraft.custom:minecraft.open_chest
 scoreboard objectives add macro.hook_drop minecraft.custom:minecraft.drop
 scoreboard objectives add macro.hook_target_hit minecraft.custom:minecraft.target_hit
+
+# hook/eat — consume_item advancement-based
+scoreboard objectives add macro.hook_eat dummy
+# hook/fish_caught — fishing_rod_hooked advancement-based
+scoreboard objectives add macro.hook_fish dummy

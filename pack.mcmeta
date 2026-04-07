@@ -1,6 +1,6 @@
 {
   "pack": {
-    "pack_format": 26,
+    "pack_format": 94,
     "description": [
       {
         "text": "A.M.E.",
@@ -45,7 +45,7 @@
         "italic": false
       },
       {
-        "text": " | v3.0.1-pre1",
+        "text": " | v3.0.1-pre2",
         "color": "#ffaa00",
         "bold": false,
         "italic": false

@@ -47,3 +47,6 @@ data modify storage macro:engine region_watches set value []
 # Incomplete batches are cleared on reload
 data remove storage macro:engine batches
 data modify storage macro:engine batches set value {}
+
+# Wand cooldown module — ayrı storage (macro:cooldown çakışmasını önler)
+execute unless data storage macro:engine wand_cooldowns run data modify storage macro:engine wand_cooldowns set value {}

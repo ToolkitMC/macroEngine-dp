@@ -89,3 +89,11 @@ execute as @a[scores={macro.hook_drop=1..}] run scoreboard players reset @s macr
 # target_hit — minecraft.custom:minecraft.target_hit stat
 execute as @a[scores={macro.hook_target_hit=1..}] run function macro:hook/internal/on_target_hit
 execute as @a[scores={macro.hook_target_hit=1..}] run scoreboard players reset @s macro.hook_target_hit
+
+# eat — consume_item advancement-based
+execute as @a[scores={macro.hook_eat=1..}] run function macro:hook/internal/on_eat_fire
+execute as @a[scores={macro.hook_eat=1..}] run scoreboard players set @s macro.hook_eat 0
+
+# fish_caught — fishing_rod_hooked advancement-based
+execute as @a[scores={macro.hook_fish=1..}] run function macro:hook/internal/on_fish_fire
+execute as @a[scores={macro.hook_fish=1..}] run scoreboard players set @s macro.hook_fish 0

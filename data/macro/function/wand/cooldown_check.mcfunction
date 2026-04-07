@@ -1,19 +1,22 @@
 # ─────────────────────────────────────────────────────────────────
 # macro:wand/cooldown_check
-# Wand cooldown aktif mi?
+# Wand cooldown aktif mi kontrol eder.
+# NOT: Wand cooldown'ları macro:engine wand_cooldowns altında saklanır;
+#      bu sayede macro:cooldown modülünün "$(player).$(key)" yoluyla
+#      çakışma riski tamamen ortadan kalkar.
 #
 # INPUT:
 #   $(player) → player name
 #   $(tag)    → wand tag
 # OUTPUT:
-#   macro:output result → 0b=ready, 1b=cooldown active
+#   macro:output result → 0b=hazır (cooldown yok), 1b=cooldown aktif
 # ─────────────────────────────────────────────────────────────────
 
 data modify storage macro:output result set value 0b
 
-$execute unless data storage macro:engine cooldowns.$(player).wand_$(tag) run return 0
+$execute unless data storage macro:engine wand_cooldowns.$(player).$(tag) run return 0
 
-$execute store result score $wcc_exp macro.tmp run data get storage macro:engine cooldowns.$(player).wand_$(tag)
+$execute store result score $wcc_exp macro.tmp run data get storage macro:engine wand_cooldowns.$(player).$(tag)
 execute store result score $wcc_now macro.tmp run scoreboard players get $epoch macro.time
 
 execute if score $wcc_now macro.tmp < $wcc_exp macro.tmp run data modify storage macro:output result set value 1b
