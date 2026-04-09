@@ -3,9 +3,14 @@
 
 ---
 
-> [!CAUTION]
-> **ARCHIVED REPOSITORY**
-> This project is no longer maintained. Feel free to browse the code or fork it for your own implementation.
+# ⚠️ THIS REPOSITORY HAS BEEN ARCHIVED
+
+> [!IMPORTANT]
+> This version of **Macro Engine** is no longer maintained.  
+> Development has moved to a new, active repository for better performance and updates.
+
+### 🚀 **New Active Version:** 
+### **[github.com/tickwarden/macroEngine-datapack](https://github.com/tickwarden/macroEngine-datapack)**
 
 ---
 
