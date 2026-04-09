@@ -1,15 +1,15 @@
-# macro:rate_limit/check — Sliding window check + consume  [MACRO]
+# macro:rate_limit/check — Sliding window check + consume [MACRO]
 #
 # The core API call. Checks whether the key is under its configured limit
 # for the current sliding window, then records this hit.
 #
 # Output → macro:output result
-#   1b  = ALLOWED  (hit was recorded, call may proceed)
-#   0b  = DENIED   (limit reached, hit NOT recorded)
+# 1b = ALLOWED (hit was recorded, call may proceed)
+# 0b = DENIED (limit reached, hit NOT recorded)
 #
 # Usage:
-#   function macro:rate_limit/check {key:"global:my_event"}
-#   execute if data storage macro:output {result:1b} run function my_ns:do_thing
+# function macro:rate_limit/check {key:"global:my_event"}
+# execute if data storage macro:output {result:1b} run function my_ns:do_thing
 #
 # For per-player (build key in caller):
 #   $function macro:rate_limit/check {key:"player:shop:$(player)"}

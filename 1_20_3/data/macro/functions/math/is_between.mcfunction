@@ -1,15 +1,15 @@
 # ─────────────────────────────────────────────────────────────────
-#  macro:math/is_between
-#  Checks if value is in the inclusive range [min, max].
+# macro:math/is_between
+# Checks if value is in the inclusive range [min, max].
 #  Input : $(value), $(min), $(max)
-#  Output: macro:output result → 1b (true) or 0b (false)
+# Output: macro:output result → 1b (true) or 0b (false)
 #
-#  Example:
-#    data modify storage macro:input value set value 15
-#    data modify storage macro:input min   set value 10
-#    data modify storage macro:input max   set value 20
-#    function macro:math/is_between with storage macro:input {}
-#    # macro:output result = 1b
+# Example:
+# data modify storage macro:input value set value 15
+# data modify storage macro:input min set value 10
+# data modify storage macro:input max set value 20
+# function macro:math/is_between with storage macro:input {}
+# # macro:output result = 1b
 # ─────────────────────────────────────────────────────────────────
 
 $scoreboard players set $ib_v macro.tmp $(value)

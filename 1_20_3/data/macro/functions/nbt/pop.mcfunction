@@ -3,8 +3,8 @@
 # Copies the first element of a list to macro:output result and removes it.
 #
 # INPUT (storage macro:input):
-#   storage → storage namespace
-#   path    → list path
+# storage → storage namespace
+# path → list path
 #
 # OUTPUT: macro:output result (popped element)
 # ─────────────────────────────────────────────────────────────────

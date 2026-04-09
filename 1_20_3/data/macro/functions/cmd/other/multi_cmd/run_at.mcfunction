@@ -1,2 +1,9 @@
-$execute positioned $(x) $(y) $(z) run function macro:cmd/other/multi_cmd/run
-$tellraw @a[tag=macro.debug] {"text":"","extra":[{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/other/multi_cmd/run_at ","color":"aqua"},{"text":"@ ","color":"#555555"},{"text":"$(x) $(y) $(z)","color":"aqua"},{"text":" ▶ done","color":"green"}]}
+# ─────────────────────────────────────────────────────────────────
+# macro:cmd/other/multi_cmd/run_at
+# Run queue at a specific location
+#
+# INPUT (storage macro:input):
+# selector → entity selector
+# ─────────────────────────────────────────────────────────────────
+
+function macro:cmd/other/multi_cmd/internal/run_at_exec with storage macro:input

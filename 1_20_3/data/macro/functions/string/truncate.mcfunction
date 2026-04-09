@@ -13,8 +13,8 @@
 # OUTPUT: macro:output text → stored original text
 #
 # EXAMPLE:
-#   function macro:string/truncate {player:"Steve",text:"Hello Wor",suffix:"...",truncated:1b}
-#   → actionbar: "Hello Wor..."
+# function macro:string/truncate {player:"Steve",text:"Hello Wor",suffix:"...",truncated:1b}
+# → actionbar: "Hello Wor..."
 # ─────────────────────────────────────────────────────────────────
 
 $data modify storage macro:output text set value $(text)

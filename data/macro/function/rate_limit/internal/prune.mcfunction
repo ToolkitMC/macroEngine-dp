@@ -1,4 +1,4 @@
-# macro:rate_limit/internal/prune — Remove hits outside the sliding window  [MACRO]
+# macro:rate_limit/internal/prune — Remove hits outside the sliding window [MACRO]
 # Input: $(rule_key), macro:rl_work.prune_before (int, from evaluate)
 #
 # Strategy: iterate hits array from index 0 upward.

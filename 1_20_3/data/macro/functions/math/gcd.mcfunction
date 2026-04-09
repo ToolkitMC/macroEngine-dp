@@ -1,14 +1,14 @@
 # ─────────────────────────────────────────────────────────────────
-#  macro:math/gcd
-#  Computes GCD using the Euclidean algorithm.
+# macro:math/gcd
+# Computes GCD using the Euclidean algorithm.
 #  Input : $(a), $(b)          → integers (may be negative)
-#  Output: macro:output result → GCD(|a|, |b|)
+# Output: macro:output result → GCD(|a|, |b|)
 #
-#  Example:
-#    data modify storage macro:input a set value 48
-#    data modify storage macro:input b set value 18
-#    function macro:math/gcd with storage macro:input {}
-#    # macro:output result = 6
+# Example:
+# data modify storage macro:input a set value 48
+# data modify storage macro:input b set value 18
+# function macro:math/gcd with storage macro:input {}
+# # macro:output result = 6
 # ─────────────────────────────────────────────────────────────────
 
 $scoreboard players set $gcd_a macro.tmp $(a)

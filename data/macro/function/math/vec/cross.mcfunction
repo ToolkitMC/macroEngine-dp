@@ -5,7 +5,7 @@
 # cy = az*bx - ax*bz
 # cz = ax*by - ay*bx
 #
-# INPUT:  ax, ay, az, bx, by, bz
+# INPUT: ax, ay, az, bx, by, bz
 # OUTPUT: macro:output {x, y, z}
 # ─────────────────────────────────────────────────────────────────
 

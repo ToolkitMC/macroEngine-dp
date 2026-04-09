@@ -2,13 +2,13 @@
 # Returns the gamemode of a named player as an integer.
 #
 # INPUT:  $(player) — player name
-# OUTPUT: macro:output result  — 0=survival, 1=creative, 2=adventure, 3=spectator
-#         macro:output name    — "survival" | "creative" | "adventure" | "spectator"
-#         macro:output found   — 1b if player exists, 0b otherwise
+# OUTPUT: macro:output result — 0=survival, 1=creative, 2=adventure, 3=spectator
+# macro:output name — "survival" | "creative" | "adventure" | "spectator"
+# macro:output found — 1b if player exists, 0b otherwise
 #
 # EXAMPLE:
-#   function macro:player/get_gamemode {player:"Steve"}
-#   data get storage macro:output name
+# function macro:player/get_gamemode {player:"Steve"}
+# data get storage macro:output name
 
 data modify storage macro:output found set value 0b
 

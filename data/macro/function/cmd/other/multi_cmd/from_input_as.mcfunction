@@ -1,3 +1,15 @@
-data modify storage macro:engine _mcmd_list set from storage macro:input list
-$execute as @a[name=$(player),limit=1] at @s run function macro:cmd/other/multi_cmd/run
-$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/other/multi_cmd/from_input_as ","color":"aqua"},{"text":"$(player)","color":"white"},{"text":" ▶ list → run","color":"#555555"}]
+# ─────────────────────────────────────────────────────────────────
+# macro:cmd/other/multi_cmd/from_input_as
+# Execute as a specific selector
+#
+# INPUT (storage macro:input):
+# list → komut listesi
+# selector → entity selector (default: @s)
+# ─────────────────────────────────────────────────────────────────
+
+execute unless data storage macro:input selector run data modify storage macro:input selector set value "@s"
+
+data modify storage macro:engine _mcmd_queue set from storage macro:input list
+data modify storage macro:engine _mcmd_options set value {error_mode:"continue",profile:0b,spread:0}
+
+function macro:cmd/other/multi_cmd/internal/run_as_exec with storage macro:input

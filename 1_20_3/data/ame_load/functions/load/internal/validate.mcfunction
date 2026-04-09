@@ -1,5 +1,5 @@
-execute unless data storage macro:engine global run data modify storage macro:engine global set value {version:"v3.0.1-pre2"}
-data modify storage macro:engine global.version set value "v3.0.1-pre2"
+execute unless data storage macro:engine global run data modify storage macro:engine global set value {version:"v3.0.1-pre3"}
+data modify storage macro:engine global.version set value "v3.0.1-pre3"
 
 execute unless data storage macro:engine log_display run data modify storage macro:engine log_display set value []
 execute unless score #ame.log_count macro.tmp matches 0.. run scoreboard players set #ame.log_count macro.tmp 0

@@ -1,13 +1,13 @@
-# macro:rate_limit/internal/evaluate — Sliding window core  [MACRO]
+# macro:rate_limit/internal/evaluate — Sliding window core [MACRO]
 # Input: $(key), $(limit), $(window), $(hits) (array, not used directly here)
 #
 # Algorithm:
-#   1. Get current epoch tick
-#   2. Compute window start = epoch - window + 1
-#   3. Prune hits older than window start → stored as macro:engine rate_limit.rules.<key>.hits
-#   4. Count remaining hits
-#   5. If count < limit → record new hit, return ALLOWED
-#   6. Else → return DENIED (do NOT record hit)
+# 1. Get current epoch tick
+# 2. Compute window start = epoch - window + 1
+# 3. Prune hits older than window start → stored as macro:engine rate_limit.rules.<key>.hits
+# 4. Count remaining hits
+# 5. If count < limit → record new hit, return ALLOWED
+# 6. Else → return DENIED (do NOT record hit)
 
 # Step 1: capture current epoch + compute window boundary
 execute store result score $rl_now macro.tmp run scoreboard players get $epoch macro.time

@@ -3,15 +3,15 @@
 # Uses octant decomposition + lookup table (same scale as sin/cos: ×1000)
 #
 # INPUT:  $(y), $(x)  — integer coordinates (scaled consistently)
-# OUTPUT: macro:output result  — degrees × 1000
+# OUTPUT: macro:output result — degrees × 1000
 #
 # EXAMPLE:
-#   function macro:math/atan2 {y:500, x:500}
-#   → result = 45000  (45.000°)
+# function macro:math/atan2 {y:500, x:500}
+# → result = 45000 (45.000°)
 #
 # NOTES:
-#   - Both x and y zero → result = 0
-#   - Result matches standard math convention (CCW from +X axis)
+# - Both x and y zero → result = 0
+# - Result matches standard math convention (CCW from +X axis)
 
 $scoreboard players set $a2_y macro.tmp $(y)
 $scoreboard players set $a2_x macro.tmp $(x)
@@ -44,13 +44,13 @@ execute if score $a2_ay macro.tmp matches 0 if score $a2_sx macro.tmp matches 1 
 execute if score $a2_ay macro.tmp matches 0 if score $a2_sx macro.tmp matches -1 run data modify storage macro:output result set value 180000
 execute if score $a2_ay macro.tmp matches 0 if score $a2_sx macro.tmp matches -1 run return 0
 
-# Compute ratio = (min/max) × 100  →  0..100 mapped to 0..45°
+# Compute ratio = (min/max) × 100 → 0..100 mapped to 0..45°
 # Swap so we always divide smaller by larger (→ octant 0..45°)
 scoreboard players set $a2_swap macro.tmp 0
 execute if score $a2_ay macro.tmp > $a2_ax macro.tmp run scoreboard players set $a2_swap macro.tmp 1
 execute if score $a2_swap macro.tmp matches 1 run scoreboard players operation $a2_ax macro.tmp >< $a2_ay macro.tmp
 
-# ratio = ay*100 / ax  (ay ≤ ax here)
+# ratio = ay*100 / ax (ay ≤ ax here)
 scoreboard players set $a2_100 macro.tmp 100
 scoreboard players operation $a2_ay macro.tmp *= $a2_100 macro.tmp
 scoreboard players operation $a2_ay macro.tmp /= $a2_ax macro.tmp
@@ -169,7 +169,7 @@ execute if score $a2_sx macro.tmp matches -1 if score $a2_sy macro.tmp matches 1
 execute if score $a2_sx macro.tmp matches -1 if score $a2_sy macro.tmp matches 1 run scoreboard players operation $a2_180 macro.tmp -= $a2_r macro.tmp
 execute if score $a2_sx macro.tmp matches -1 if score $a2_sy macro.tmp matches 1 run scoreboard players operation $a2_r macro.tmp = $a2_180 macro.tmp
 
-# Q3 (x<0, y<0): angle = -(180000 - angle)  →  angle - 180000
+# Q3 (x<0, y<0): angle = -(180000 - angle) → angle - 180000
 execute if score $a2_sx macro.tmp matches -1 if score $a2_sy macro.tmp matches -1 run scoreboard players set $a2_180 macro.tmp 180000
 execute if score $a2_sx macro.tmp matches -1 if score $a2_sy macro.tmp matches -1 run scoreboard players operation $a2_180 macro.tmp -= $a2_r macro.tmp
 execute if score $a2_sx macro.tmp matches -1 if score $a2_sy macro.tmp matches -1 run scoreboard players set $a2_neg macro.tmp 0

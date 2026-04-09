@@ -1,5 +1,5 @@
 # ============================================================
-# macro:uuid/internal/recall_arr_read  [MACRO FUNCTION]
+# macro:uuid/internal/recall_arr_read [MACRO FUNCTION]
 # Reads UUID int array from the cache
 #
 # Call: function macro:uuid/internal/recall_arr_read with storage macro:input

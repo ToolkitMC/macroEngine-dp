@@ -1,4 +1,16 @@
-function macro:cmd/other/multi_cmd/internal/step_func
-data remove storage macro:engine _mcmd_list
-data remove storage macro:engine _mcmd_entry
-tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/other/multi_cmd/run_func ","color":"aqua"},{"text":"✔ func batch done","color":"green"}]
+# ─────────────────────────────────────────────────────────────────
+# macro:cmd/other/multi_cmd/run_func
+# Run function list
+#
+# INPUT (storage macro:input):
+# list → function list ["pack:func1", "pack:func2"]
+# ─────────────────────────────────────────────────────────────────
+
+# Convert strings to {func:"..."} format
+data modify storage macro:engine _mcmd_queue set value []
+function macro:cmd/other/multi_cmd/internal/func_convert_loop
+
+data modify storage macro:engine _mcmd_options set value {error_mode:"continue",profile:0b,spread:0}
+function macro:cmd/other/multi_cmd/run
+
+data remove storage macro:engine _mcmd_func_tmp

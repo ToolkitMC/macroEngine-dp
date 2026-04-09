@@ -9,10 +9,10 @@
 # OUTPUT: macro:output result → rounded value
 #
 # EXAMPLE:
-#   function macro:math/round {value:37, step:10}
-#   → macro:output result = 40
-#   function macro:math/round {value:34, step:10}
-#   → macro:output result = 30
+# function macro:math/round {value:37, step:10}
+# → macro:output result = 40
+# function macro:math/round {value:34, step:10}
+# → macro:output result = 30
 # ─────────────────────────────────────────────────────────────────
 
 $scoreboard players set #rnd_v macro.tmp $(value)

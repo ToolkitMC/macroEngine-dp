@@ -1,6 +1,6 @@
 # ─────────────────────────────────────────────────────────────────
-#  macro:lib/once_per_player_reset
-#  Deletes the once_per_player record — function can run again.
+# macro:lib/once_per_player_reset
+# Deletes the once_per_player record — function can run again.
 #  Girdi : $(player), $(key)
 # ─────────────────────────────────────────────────────────────────
 

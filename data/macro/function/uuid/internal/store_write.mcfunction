@@ -1,5 +1,5 @@
 # ============================================================
-# macro:uuid/internal/store_write  [MACRO FUNCTION]
+# macro:uuid/internal/store_write [MACRO FUNCTION]
 # UUID'yi macro:engine uuid_cache'e yazar (hem string hem array)
 #
 # Call: function macro:uuid/internal/store_write with storage macro:input

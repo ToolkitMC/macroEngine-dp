@@ -7,11 +7,11 @@
 #         $(singular) → singular form (e.g. "item")
 #         $(plural)   → plural form   (e.g. "items")
 # OUTPUT: macro:output result → chosen string
-#         macro:output count  → original count
+# macro:output count → original count
 #
 # EXAMPLE:
-#   function macro:string/pluralize {count:3,singular:"apple",plural:"apples"}
-#   → macro:output result = "apples"
+# function macro:string/pluralize {count:3,singular:"apple",plural:"apples"}
+# → macro:output result = "apples"
 # ─────────────────────────────────────────────────────────────────
 
 $scoreboard players set #plr_c macro.tmp $(count)

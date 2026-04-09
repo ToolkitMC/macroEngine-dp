@@ -1,25 +1,25 @@
 # ─────────────────────────────────────────────────────────────────
-#  macro:string/ordinal
-#  Determines the English ordinal suffix for a positive integer.
-#  Handles the 11th/12th/13th exception correctly.
+# macro:string/ordinal
+# Determines the English ordinal suffix for a positive integer.
+# Handles the 11th/12th/13th exception correctly.
 #
 #  Input : $(n) → positive integer (1-based)
-#  Output: macro:output n      → original value (int)
-#          macro:output suffix → "st" / "nd" / "rd" / "th"
+# Output: macro:output n → original value (int)
+# macro:output suffix → "st" / "nd" / "rd" / "th"
 #
-#  To display "3rd place" in chat:
-#    function macro:string/ordinal {n:3}
-#    tellraw @a ["",
-#      {"storage":"macro:output","nbt":"n"},
-#      {"storage":"macro:output","nbt":"suffix","color":"gold"},
-#      {"text":" place"}]
+# To display "3rd place" in chat:
+# function macro:string/ordinal {n:3}
+# tellraw @a ["",
+# {"storage":"macro:output","nbt":"n"},
+# {"storage":"macro:output","nbt":"suffix","color":"gold"},
+# {"text":" place"}]
 #
-#  Examples:
-#    {n:1}  → suffix="st"    {n:11} → suffix="th"
-#    {n:2}  → suffix="nd"    {n:12} → suffix="th"
-#    {n:3}  → suffix="rd"    {n:13} → suffix="th"
-#    {n:4}  → suffix="th"    {n:21} → suffix="st"
-#    {n:22} → suffix="nd"    {n:103}→ suffix="rd"
+# Examples:
+# {n:1} → suffix="st" {n:11} → suffix="th"
+# {n:2} → suffix="nd" {n:12} → suffix="th"
+# {n:3} → suffix="rd" {n:13} → suffix="th"
+# {n:4} → suffix="th" {n:21} → suffix="st"
+# {n:22} → suffix="nd" {n:103}→ suffix="rd"
 # ─────────────────────────────────────────────────────────────────
 
 $scoreboard players set $ord_n macro.tmp $(n)

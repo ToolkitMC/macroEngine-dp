@@ -3,10 +3,10 @@
 # Converts the current entity's (@s) UUID to a hex string
 #
 # KULLANIM:
-#   execute as <entity> run function macro:uuid/from_entity
+# execute as <entity> run function macro:uuid/from_entity
 #
 # OUTPUT:
-#   macro:input value → "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+# macro:input value → "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 #
 # Output is written to macro:input value (AME standard)
 # Direct NBT read on each call — always up to date

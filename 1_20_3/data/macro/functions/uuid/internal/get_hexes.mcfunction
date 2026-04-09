@@ -1,5 +1,5 @@
 # ============================================================
-# macro:uuid/internal/get_hexes  [MACRO FUNCTION]
+# macro:uuid/internal/get_hexes [MACRO FUNCTION]
 # Converts 16 byte ints in macro:uuid _tmp to 2-character hex strings
 #
 # Call: function macro:uuid/internal/get_hexes with storage macro:uuid _tmp

@@ -1,4 +1,4 @@
-# AME Tick — Channel Loader  [MACRO]
+# AME Tick — Channel Loader [MACRO]
 # Copies channels[i] into work storage, skips if disabled.
 # Input: $(i) — channel index
 

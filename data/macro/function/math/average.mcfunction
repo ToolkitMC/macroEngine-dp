@@ -1,17 +1,17 @@
 # ─────────────────────────────────────────────────────────────────
-#  macro:math/average
-#  Computes the integer average of up to 8 values.
+# macro:math/average
+# Computes the integer average of up to 8 values.
 #  Input : $(v0)..(v7)  → integer values
 #          $(count)     → how many values (1-8)
-#  Output: macro:output result → floor(sum / count)
+# Output: macro:output result → floor(sum / count)
 #
-#  Example:
-#    data modify storage macro:input v0 set value 10
-#    data modify storage macro:input v1 set value 20
-#    data modify storage macro:input v2 set value 30
-#    data modify storage macro:input count set value 3
-#    function macro:math/average with storage macro:input {}
-#    # macro:output result = 20
+# Example:
+# data modify storage macro:input v0 set value 10
+# data modify storage macro:input v1 set value 20
+# data modify storage macro:input v2 set value 30
+# data modify storage macro:input count set value 3
+# function macro:math/average with storage macro:input {}
+# # macro:output result = 20
 # ─────────────────────────────────────────────────────────────────
 
 $scoreboard players set $avg_c macro.tmp $(count)

@@ -8,11 +8,11 @@ execute if score $sin_d macro.tmp matches ..-1 run scoreboard players operation 
 # Sign: 180-359 → negative
 scoreboard players set $sin_nf macro.tmp 1
 execute if score $sin_d macro.tmp matches 180..359 run scoreboard players set $sin_nf macro.tmp -1
-# 180-359 → 0-179'a indir
+# 180-359 → map down to 0-179
 execute if score $sin_d macro.tmp matches 180..359 run scoreboard players remove $sin_d macro.tmp 180
 
-# 91-179 → simetri: sin(deg) = sin(180-deg)
-# tmp2 = 180 - sin_d  (only for range 91-179)
+# 91-179 → symmetry: sin(deg) = sin(180-deg)
+# tmp2 = 180 - sin_d (only for range 91-179)
 scoreboard players set $sin_180 macro.tmp 180
 execute if score $sin_d macro.tmp matches 91..179 run scoreboard players operation $sin_180 macro.tmp -= $sin_d macro.tmp
 execute if score $sin_d macro.tmp matches 91..179 run scoreboard players operation $sin_d macro.tmp = $sin_180 macro.tmp

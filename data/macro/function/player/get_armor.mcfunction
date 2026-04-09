@@ -5,13 +5,13 @@
 # Also returns armor toughness.
 #
 # INPUT : $(player) → player name
-# OUTPUT: macro:output result    → armor points (int)
-#         macro:output toughness → armor toughness (int, scaled ×1000)
-#         macro:output found     → 1b if player exists, 0b otherwise
+# OUTPUT: macro:output result → armor points (int)
+# macro:output toughness → armor toughness (int, scaled ×1000)
+# macro:output found → 1b if player exists, 0b otherwise
 #
 # EXAMPLE:
-#   function macro:player/get_armor {player:"Steve"}
-#   data get storage macro:output result
+# function macro:player/get_armor {player:"Steve"}
+# data get storage macro:output result
 # ─────────────────────────────────────────────────────────────────
 
 data modify storage macro:output found set value 0b

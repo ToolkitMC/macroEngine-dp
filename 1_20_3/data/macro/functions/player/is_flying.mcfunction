@@ -2,7 +2,7 @@
 # Checks whether the named player is currently flying (creative/spectator flight or elytra).
 # Params: player
 # Output: macro:output result = 1b (flying) or 0b (not flying / not found)
-#         macro:output found  = 1b if player exists online, else 0b
+# macro:output found = 1b if player exists online, else 0b
 
 data modify storage macro:output result set value 0b
 data modify storage macro:output found set value 0b

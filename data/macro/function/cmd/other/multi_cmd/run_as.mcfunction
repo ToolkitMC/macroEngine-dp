@@ -1,2 +1,9 @@
-$execute as @a[name=$(player),limit=1] at @s run function macro:cmd/other/multi_cmd/run
-$tellraw @a[tag=macro.debug] ["",{"text":"[AME] ","color":"#00AAAA","bold":true},{"text":"cmd/other/multi_cmd/run_as ","color":"aqua"},{"text":"$(player)","color":"white"},{"text":" ▶ done","color":"green"}]
+# ─────────────────────────────────────────────────────────────────
+# macro:cmd/other/multi_cmd/run_as
+# Run queue as a specific entity
+#
+# INPUT (storage macro:input):
+# selector → entity selector
+# ─────────────────────────────────────────────────────────────────
+
+function macro:cmd/other/multi_cmd/internal/run_as_exec with storage macro:input

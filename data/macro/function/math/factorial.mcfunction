@@ -1,21 +1,21 @@
 # ─────────────────────────────────────────────────────────────────
-#  macro:math/factorial
-#  Computes n! for integer n in range 0–12.
-#  Values outside this range are clamped:
-#    n < 0  → result = 0  (undefined)
-#    n > 12 → result = 0  (would overflow INT32)
+# macro:math/factorial
+# Computes n! for integer n in range 0–12.
+# Values outside this range are clamped:
+# n < 0 → result = 0 (undefined)
+# n > 12 → result = 0 (would overflow INT32)
 #
 #  Input : $(n) → non-negative integer
-#  Output: macro:output result → n!
+# Output: macro:output result → n!
 #
-#  Lookup table approach — avoids recursion overhead and is safe
-#  against scoreboard overflow (12! = 479001600 < 2147483647).
+# Lookup table approach — avoids recursion overhead and is safe
+# against scoreboard overflow (12! = 479001600 < 2147483647).
 #
-#  Example:
-#    function macro:math/factorial {n:5}
-#    # macro:output result = 120
-#    function macro:math/factorial {n:0}
-#    # macro:output result = 1
+# Example:
+# function macro:math/factorial {n:5}
+# # macro:output result = 120
+# function macro:math/factorial {n:0}
+# # macro:output result = 1
 # ─────────────────────────────────────────────────────────────────
 
 $scoreboard players set $fact_n macro.tmp $(n)
@@ -26,7 +26,7 @@ execute if score $fact_n macro.tmp matches ..-1 run return 0
 execute if score $fact_n macro.tmp matches 13.. run data modify storage macro:output result set value 0
 execute if score $fact_n macro.tmp matches 13.. run return 0
 
-# Lookup table  0! – 12!
+# Lookup table 0! – 12!
 execute if score $fact_n macro.tmp matches 0 run data modify storage macro:output result set value 1
 execute if score $fact_n macro.tmp matches 1 run data modify storage macro:output result set value 1
 execute if score $fact_n macro.tmp matches 2 run data modify storage macro:output result set value 2

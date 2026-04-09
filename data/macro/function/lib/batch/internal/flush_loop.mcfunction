@@ -1,6 +1,6 @@
 # macro:lib/batch/internal/flush_loop
 # Consumes _bfl_items. For each item:
-#   delay = floor($bfl_idx * $bfl_spread / $bfl_total)
+# delay = floor($bfl_idx * $bfl_spread / $bfl_total)
 # computed and added to the queue.
 # func or cmd presence is checked with execute if data.
 

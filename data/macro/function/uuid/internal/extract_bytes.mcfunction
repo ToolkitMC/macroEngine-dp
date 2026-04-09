@@ -3,29 +3,29 @@
 # Splits 4 UUID ints into 16 bytes (correct signed integer arithmetic)
 #
 # REQUIREMENT: The following fake-player scores must be set:
-#   $uuid.0  $uuid.1  $uuid.2  $uuid.3  macro.tmp
-#   $uuid.256 macro.tmp = 256  (set by init)
+# $uuid.0 $uuid.1 $uuid.2 $uuid.3 macro.tmp
+# $uuid.256 macro.tmp = 256 (set by init)
 #
 # OUTPUT: storage macro:uuid _tmp
-#   Fields  0..3  → bytes of int 0 (0=LSB, 3=MSB)
-#   Fields  4..7  → bytes of int 1
-#   Fields  8..b  → bytes of int 2
-#   Fields  c..f  → bytes of int 3
-#   Each field is guaranteed to be in range 0–255.
+# Fields 0..3 → bytes of int 0 (0=LSB, 3=MSB)
+# Fields 4..7 → bytes of int 1
+# Fields 8..b → bytes of int 2
+# Fields c..f → bytes of int 3
+# Each field is guaranteed to be in range 0–255.
 #
 # NEDEN GU'DAN FARKLI?
-#   Java's `/` operator truncates toward zero for negative dividends.
-#   Example: -1 / 256 = 0  (floor should be -1).
-#   GU does not handle this; high bytes of negative ints are computed incorrectly.
-#   This function correctly extracts each byte using floor-division:
-#   
-#     b_raw = v % 256          (Java mod, range -255..255)
-#     if b_raw < 0:
-#         v = (v / 256) - 1    (correction for floor division)
-#         b = b_raw + 256      (normalize to 0..255)
-#     else:
-#         v = v / 256
-#         b = b_raw
+# Java's `/` operator truncates toward zero for negative dividends.
+# Example: -1 / 256 = 0 (floor should be -1).
+# GU does not handle this; high bytes of negative ints are computed incorrectly.
+# This function correctly extracts each byte using floor-division:
+# 
+# b_raw = v % 256 (Java mod, range -255..255)
+# if b_raw < 0:
+# v = (v / 256) - 1 (correction for floor division)
+# b = b_raw + 256 (normalize to 0..255)
+# else:
+# v = v / 256
+# b = b_raw
 # ============================================================
 
 # --- INT 0 (first 4 bytes of UUID, fields 0..3) ---

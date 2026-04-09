@@ -7,10 +7,10 @@
 # OUTPUT: macro:output result → 1 or -1
 #
 # EXAMPLE:
-#   function macro:math/sign_nonzero {value:-5}
-#   → macro:output result = -1
-#   function macro:math/sign_nonzero {value:0}
-#   → macro:output result = 1
+# function macro:math/sign_nonzero {value:-5}
+# → macro:output result = -1
+# function macro:math/sign_nonzero {value:0}
+# → macro:output result = 1
 # ─────────────────────────────────────────────────────────────────
 
 $scoreboard players set #snz_v macro.tmp $(value)

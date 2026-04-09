@@ -1,4 +1,4 @@
-# AME Tick — Dispatch Step  [MACRO]
+# AME Tick — Dispatch Step [MACRO]
 # Recursive iterator over tick.channels[].
 # Terminates automatically when index exceeds array length.
 # Input: $(i) — current channel array index

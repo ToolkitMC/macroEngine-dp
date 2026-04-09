@@ -4,13 +4,13 @@
 # If matched, runs macro:input func function
 #
 # KULLANIM:
-#   data modify storage macro:input value set value "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-#   data modify storage macro:input func set value "mynamespace:my_function"
-#   execute as <entity> run function macro:uuid/match
+# data modify storage macro:input value set value "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+# data modify storage macro:input func set value "mynamespace:my_function"
+# execute as <entity> run function macro:uuid/match
 #
 # INPUT:
-#   macro:input value → UUID string to compare (expected)
-#   macro:input func  → function to run if matched
+# macro:input value → UUID string to compare (expected)
+# macro:input func → function to run if matched
 #
 # NOTE: func is run in the same entity context.
 # ============================================================

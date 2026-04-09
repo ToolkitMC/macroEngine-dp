@@ -1,8 +1,8 @@
 # ─────────────────────────────────────────────────────────────────
-#  macro:player/is_online
-#  Checks whether the player is on the server.
+# macro:player/is_online
+# Checks whether the player is on the server.
 #  Girdi : $(player) → player name
-#  Output: macro:output result → 1b (online) / 0b (offline)
+# Output: macro:output result → 1b (online) / 0b (offline)
 # ─────────────────────────────────────────────────────────────────
 
 data modify storage macro:output result set value 0b

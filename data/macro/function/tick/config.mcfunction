@@ -6,29 +6,29 @@
 #
 # Channel fields
 # ──────────────
-#   id        (string)  unique name — used by all API functions
-#   enabled   (1b|0b)   1b = runs each applicable tick, 0b = dormant
-#   rate      (int)     fire every N ticks  [1=every tick, 20=1/s, 200=10/s]
-#   offset    (int)     phase offset 0..(rate-1)
-#                       use different offsets per channel to spread CPU load
-#   fn        (string)  function resource location to call
-#   condition (string)  predicate path; "" means "always fire"
-#                       e.g. "macro:is_daytime" — only runs during daylight
+# id (string) unique name — used by all API functions
+# enabled (1b|0b) 1b = runs each applicable tick, 0b = dormant
+# rate (int) fire every N ticks [1=every tick, 20=1/s, 200=10/s]
+# offset (int) phase offset 0..(rate-1)
+# use different offsets per channel to spread CPU load
+# fn (string) function resource location to call
+# condition (string) predicate path; "" means "always fire"
+# e.g. "macro:is_daytime" — only runs during daylight
 #
 # API (available after load)
 # ──────────────────────────
-#   function macro:tick/channel/enable       {id:"..."}
-#   function macro:tick/channel/disable      {id:"..."}
-#   function macro:tick/channel/set_rate     {id:"...",rate:N}
-#   function macro:tick/channel/set_offset   {id:"...",offset:N}
-#   function macro:tick/channel/set_condition {id:"...",condition:"ns:pred"}
-#   function macro:tick/channel/register     {id:"...",rate:N,offset:N,fn:"ns:path",enabled:1,condition:""}
-#   function macro:tick/channel/unregister   {id:"..."}
-#   function macro:tick/channel/list
-#   function macro:tick/pause
-#   function macro:tick/resume
-#   function macro:tick/status
-#   function macro:tick/reset_channels
+# function macro:tick/channel/enable {id:"..."}
+# function macro:tick/channel/disable {id:"..."}
+# function macro:tick/channel/set_rate {id:"...",rate:N}
+# function macro:tick/channel/set_offset {id:"...",offset:N}
+# function macro:tick/channel/set_condition {id:"...",condition:"ns:pred"}
+# function macro:tick/channel/register {id:"...",rate:N,offset:N,fn:"ns:path",enabled:1,condition:""}
+# function macro:tick/channel/unregister {id:"..."}
+# function macro:tick/channel/list
+# function macro:tick/pause
+# function macro:tick/resume
+# function macro:tick/status
+# function macro:tick/reset_channels
 # ─────────────────────────────────────────────────────────────────────────────
 
 data modify storage macro:engine tick.channels set value []

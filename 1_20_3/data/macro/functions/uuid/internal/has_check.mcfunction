@@ -1,5 +1,5 @@
 # ============================================================
-# macro:uuid/internal/has_check  [MACRO FUNCTION]
+# macro:uuid/internal/has_check [MACRO FUNCTION]
 # Checks key existence in the cache
 #
 # Call: function macro:uuid/internal/has_check with storage macro:input

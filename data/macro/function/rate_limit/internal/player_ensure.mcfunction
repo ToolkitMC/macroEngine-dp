@@ -1,4 +1,4 @@
-# macro:rate_limit/internal/player_ensure — Auto-create player bucket from template  [MACRO]
+# macro:rate_limit/internal/player_ensure — Auto-create player bucket from template [MACRO]
 # Called by check when rule key "player:<key>:<player>" doesn't exist yet.
 # Reads the template registered via rate_limit/player/config and creates the bucket.
 # Input: $(key) = full compound key e.g. "player:shop:Steve"

@@ -1,5 +1,5 @@
 # ============================================================
-# macro:uuid/internal/forget_key  [MACRO FUNCTION]
+# macro:uuid/internal/forget_key [MACRO FUNCTION]
 # Deletes the specified key from uuid_cache
 #
 # Call: function macro:uuid/internal/forget_key with storage macro:input

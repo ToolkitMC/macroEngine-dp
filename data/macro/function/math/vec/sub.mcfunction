@@ -2,7 +2,7 @@
 # macro:math/vec/sub
 # Subtracts vector B from vector A. (A - B)
 #
-# INPUT:  ax, ay, az, bx, by, bz
+# INPUT: ax, ay, az, bx, by, bz
 # OUTPUT: macro:output {x, y, z}
 # ─────────────────────────────────────────────────────────────────
 

@@ -1,15 +1,15 @@
 # ─────────────────────────────────────────────────────────────────
 # macro:cmd/console_me
-# /me komutuyla eylem mesajı gönderir (italic, sarı).
-# Konsola ve oyunculara "* @" prefix'iyle görünür.
-# Hafif debug bildirimleri veya olay loglaması için kullanılır.
+# Sends an action message via /me (italic, yellow).
+# Visible in console and to players with "* @" prefix.
+# Useful for lightweight debug notifications or event logging.
 #
 # INPUT:
-#   $(message) → eylem metni
+#   $(message) → action text
 #
 # EXAMPLE:
-#   function macro:cmd/console_me {message:"AME scheduler tick fired"}
-#   # Oyun içi: * @ AME scheduler tick fired
+# function macro:cmd/console_me {message:"AME scheduler tick fired"}
+# # In-game: * @ AME scheduler tick fired
 # ─────────────────────────────────────────────────────────────────
 
 $me $(message)

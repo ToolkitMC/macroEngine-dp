@@ -1,15 +1,15 @@
 # ─────────────────────────────────────────────────────────────────
-#  macro:math/sum3
-#  Adds three integers with INT_MAX overflow guard.
+# macro:math/sum3
+# Adds three integers with INT_MAX overflow guard.
 #  Input : $(a), $(b), $(c)
-#  Output: macro:output result → a + b + c  (clamped to 2147483647)
+# Output: macro:output result → a + b + c (clamped to 2147483647)
 #
-#  Example:
-#    data modify storage macro:input a set value 100
-#    data modify storage macro:input b set value 200
-#    data modify storage macro:input c set value 300
-#    function macro:math/sum3 with storage macro:input {}
-#    # macro:output result = 600
+# Example:
+# data modify storage macro:input a set value 100
+# data modify storage macro:input b set value 200
+# data modify storage macro:input c set value 300
+# function macro:math/sum3 with storage macro:input {}
+# # macro:output result = 600
 # ─────────────────────────────────────────────────────────────────
 
 $scoreboard players set $s3_a macro.tmp $(a)

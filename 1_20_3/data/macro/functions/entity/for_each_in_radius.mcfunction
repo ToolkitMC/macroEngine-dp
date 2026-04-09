@@ -9,7 +9,7 @@
 #         $(func)   → function to run as each entity (at its position)
 #
 # EXAMPLE:
-#   function macro:entity/for_each_in_radius {player:"Steve",type:"minecraft:zombie",radius:10,func:"mypack:on_zombie"}
+# function macro:entity/for_each_in_radius {player:"Steve",type:"minecraft:zombie",radius:10,func:"mypack:on_zombie"}
 # ─────────────────────────────────────────────────────────────────
 
 $execute as @a[name=$(player),limit=1] at @s run execute as @e[type=$(type),distance=..$(radius)] at @s run function $(func)

@@ -1,15 +1,15 @@
 # ─────────────────────────────────────────────────────────────────
-#  macro:math/lcm
-#  EKOK (LCM) hesaplar: lcm(a,b) = |a*b| / gcd(a,b)
+# macro:math/lcm
+# EKOK (LCM) hesaplar: lcm(a,b) = |a*b| / gcd(a,b)
 #  Input : $(a), $(b)          → integers
-#  Output: macro:output result → LCM(a, b)
-#  NOTE  : Overflow risk — result may exceed INT_MAX for large inputs.
+# Output: macro:output result → LCM(a, b)
+# NOTE : Overflow risk — result may exceed INT_MAX for large inputs.
 #
-#  Example:
-#    data modify storage macro:input a set value 12
-#    data modify storage macro:input b set value 8
-#    function macro:math/lcm with storage macro:input {}
-#    # macro:output result = 24
+# Example:
+# data modify storage macro:input a set value 12
+# data modify storage macro:input b set value 8
+# function macro:math/lcm with storage macro:input {}
+# # macro:output result = 24
 # ─────────────────────────────────────────────────────────────────
 
 $scoreboard players set $lcm_a macro.tmp $(a)
@@ -31,7 +31,7 @@ scoreboard players operation $gcd_a macro.tmp = $lcm_a macro.tmp
 scoreboard players operation $gcd_b macro.tmp = $lcm_b macro.tmp
 function macro:math/internal/gcd_loop
 
-# lcm = (a / gcd) * b  (divide first to prevent overflow)
+# lcm = (a / gcd) * b (divide first to prevent overflow)
 scoreboard players operation $lcm_a macro.tmp /= $gcd_a macro.tmp
 scoreboard players operation $lcm_a macro.tmp *= $lcm_b macro.tmp
 

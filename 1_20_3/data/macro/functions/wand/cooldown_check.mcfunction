@@ -6,7 +6,7 @@
 #   $(player) → player name
 #   $(tag)    → wand tag
 # OUTPUT:
-#   macro:output result → 0b=ready, 1b=cooldown active
+# macro:output result → 0b=ready, 1b=cooldown active
 # ─────────────────────────────────────────────────────────────────
 
 data modify storage macro:output result set value 0b

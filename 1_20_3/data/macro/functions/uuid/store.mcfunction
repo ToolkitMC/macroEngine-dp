@@ -3,15 +3,15 @@
 # Caches @s entity's UUID as both string and int array
 #
 # KULLANIM:
-#   data modify storage macro:input key set value "benim_anahtarim"
-#   execute as <entity> run function macro:uuid/store
+# data modify storage macro:input key set value "benim_anahtarim"
+# execute as <entity> run function macro:uuid/store
 #
 # INPUT:
-#   macro:input key → storage key name (e.g. "spawn_point_owner")
+# macro:input key → storage key name (e.g. "spawn_point_owner")
 #
 # OUTPUT (macro:engine uuid_cache.<key>):
-#   .str → UUID hex string
-#   .arr → UUID int array [I; a, b, c, d]
+# .str → UUID hex string
+# .arr → UUID int array [I; a, b, c, d]
 #
 # Not available in GU — an advanced AME-specific function.
 # ============================================================

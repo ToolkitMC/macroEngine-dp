@@ -1,14 +1,14 @@
 # ─────────────────────────────────────────────────────────────────
 # macro:wand/cooldown_set
-# Wand kullanımına cooldown uygular.
-# NOT: Wand cooldown'ları macro:engine wand_cooldowns altında saklanır;
-#      bu sayede macro:cooldown modülünün "$(player).$(key)" yoluyla
-#      çakışma riski tamamen ortadan kalkar.
+# Applies a cooldown to wand usage.
+# NOTE: Wand cooldowns are stored under macro:engine wand_cooldowns;
+#      this avoids collision with macro:cooldown module's "$(player).$(key)" path
+# so there is zero risk of key collision.
 #
 # INPUT:
 #   $(player)   → player name
 #   $(tag)      → wand tag
-#   $(duration) → cooldown süresi (tick cinsinden)
+#   $(duration) → cooldown duration (in ticks)
 # ─────────────────────────────────────────────────────────────────
 
 $scoreboard players set $wcd_dur macro.tmp $(duration)

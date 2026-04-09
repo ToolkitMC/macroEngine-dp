@@ -1,6 +1,6 @@
 # macro:hook/internal/bind_exec [MACRO]
 # INPUT: $(event) — required
-#        macro:input.func OR macro:input.cmd — one must exist
+# macro:input.func OR macro:input.cmd — one must exist
 
 $data modify storage macro:engine hook_binds append value {event:"$(event)"}
 execute if data storage macro:input func run data modify storage macro:engine hook_binds[-1].func set from storage macro:input func

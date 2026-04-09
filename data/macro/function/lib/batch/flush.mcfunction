@@ -5,7 +5,7 @@
 # Batch record is deleted after flush.
 #
 # INPUT (storage macro:input):
-#   id → batch id
+# id → batch id
 # ─────────────────────────────────────────────────────────────────
 
 function macro:lib/batch/internal/flush_exec with storage macro:input {}

@@ -2,13 +2,13 @@
 # macro:world/get_time
 # Reads the current world time and writes it to macro:output.
 #
-# OUTPUT: macro:output daytime  → ticks within the current day (0–23999)
-#         macro:output total    → total world age in ticks (never resets)
-#         macro:output day      → current in-game day number
+# OUTPUT: macro:output daytime → ticks within the current day (0–23999)
+# macro:output total → total world age in ticks (never resets)
+# macro:output day → current in-game day number
 #
 # EXAMPLE:
-#   function macro:world/get_time
-#   data get storage macro:output daytime
+# function macro:world/get_time
+# data get storage macro:output daytime
 # ─────────────────────────────────────────────────────────────────
 
 execute store result storage macro:output daytime int 1 run time query daytime

@@ -1,16 +1,16 @@
 # ─────────────────────────────────────────────────────────────────
-#  macro:flag/copy
-#  Copies a flag value from one key to another.
-#  If the source flag is set, the destination is set.
-#  If the source flag is absent, the destination is removed.
+# macro:flag/copy
+# Copies a flag value from one key to another.
+# If the source flag is set, the destination is set.
+# If the source flag is absent, the destination is removed.
 #  Input : $(from) → source flag key
 #          $(to)   → destination flag key
-#  Output: macro:output result → 1b if copied (flag was set), 0b if cleared
+# Output: macro:output result → 1b if copied (flag was set), 0b if cleared
 #
-#  Example:
-#    data modify storage macro:input from set value "feature_a"
-#    data modify storage macro:input to   set value "feature_a_backup"
-#    function macro:flag/copy with storage macro:input {}
+# Example:
+# data modify storage macro:input from set value "feature_a"
+# data modify storage macro:input to set value "feature_a_backup"
+# function macro:flag/copy with storage macro:input {}
 # ─────────────────────────────────────────────────────────────────
 
 # Default: clear destination

@@ -5,11 +5,11 @@
 #
 # INPUT : $(player) → player name
 # OUTPUT: macro:output result → 1b if sprinting, 0b otherwise
-#         macro:output found  → 1b if player online, 0b otherwise
+# macro:output found → 1b if player online, 0b otherwise
 #
 # EXAMPLE:
-#   function macro:player/is_sprinting {player:"Steve"}
-#   → macro:output result = 1b
+# function macro:player/is_sprinting {player:"Steve"}
+# → macro:output result = 1b
 # ─────────────────────────────────────────────────────────────────
 
 data modify storage macro:output found set value 0b

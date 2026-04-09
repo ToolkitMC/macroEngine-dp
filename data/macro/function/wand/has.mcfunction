@@ -6,7 +6,7 @@
 #   $(player) → player name
 #   $(tag)    → kontrol edilecek wand tag
 # OUTPUT:
-#   macro:output result → 1b (found) / 0b (not found)
+# macro:output result → 1b (found) / 0b (not found)
 # ─────────────────────────────────────────────────────────────────
 
 data modify storage macro:output result set value 0b

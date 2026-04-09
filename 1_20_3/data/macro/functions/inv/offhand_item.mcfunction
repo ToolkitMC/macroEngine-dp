@@ -9,7 +9,7 @@
 #         $(invoke)     → command to run as the matching player
 #
 # EXAMPLE:
-#   function macro:inv/offhand_item {item:"minecraft:shield",customData:"{my_tag:1b}",invoke:"function mypack:on_shield"}
+# function macro:inv/offhand_item {item:"minecraft:shield",customData:"{my_tag:1b}",invoke:"function mypack:on_shield"}
 # ─────────────────────────────────────────────────────────────────
 
 $execute as @a at @s if items entity @s weapon.offhand $(item)[minecraft:custom_data=$(customData)] run $(invoke)

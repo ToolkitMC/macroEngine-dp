@@ -12,12 +12,12 @@
 #   $(count)  → quantity (default 1)
 #
 # EXAMPLE:
-#   data modify storage macro:input player set value "Steve"
-#   data modify storage macro:input item set value "minecraft:carrot_on_a_stick"
-#   data modify storage macro:input tag set value "ice_wand"
-#   data modify storage macro:input name set value "Ice Wand"
-#   data modify storage macro:input count set value 1
-#   function macro:wand/give_custom with storage macro:input {}
+# data modify storage macro:input player set value "Steve"
+# data modify storage macro:input item set value "minecraft:carrot_on_a_stick"
+# data modify storage macro:input tag set value "ice_wand"
+# data modify storage macro:input name set value "Ice Wand"
+# data modify storage macro:input count set value 1
+# function macro:wand/give_custom with storage macro:input {}
 # ─────────────────────────────────────────────────────────────────
 
 $give @a[name=$(player),limit=1] $(item)[minecraft:custom_data={wand:"$(tag)"},minecraft:item_name={"text":"$(name)"},minecraft:enchantment_glint_override=true] $(count)

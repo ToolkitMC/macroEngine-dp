@@ -2,7 +2,7 @@
 # macro:math/vec/add
 # Adds two 3D vectors.
 #
-# INPUT:  ax, ay, az, bx, by, bz
+# INPUT: ax, ay, az, bx, by, bz
 # OUTPUT: macro:output {x, y, z}
 # ─────────────────────────────────────────────────────────────────
 

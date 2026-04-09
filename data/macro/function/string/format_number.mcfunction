@@ -1,18 +1,18 @@
 # ─────────────────────────────────────────────────────────────────
-#  macro:string/format_number
-#  Converts large numbers to readable abbreviations.
+# macro:string/format_number
+# Converts large numbers to readable abbreviations.
 #  Input : $(value) → integer
-#  Output: macro:output text   → abbreviated text (storage string)
-#           macro:output value  → original value
-#           macro:output suffix → k / M / B / "" suffix
-#           macro:output short  → abbreviated integer part
+# Output: macro:output text → abbreviated text (storage string)
+# macro:output value → original value
+# macro:output suffix → k / M / B / "" suffix
+# macro:output short → abbreviated integer part
 #
-#  Examples:
-#    500        → "500"
-#    1500       → "1.5k"
-#    1000000    → "1M"
-#    2500000    → "2.5M"
-#    1000000000 → "1B"
+# Examples:
+# 500 → "500"
+# 1500 → "1.5k"
+# 1000000 → "1M"
+# 2500000 → "2.5M"
+# 1000000000 → "1B"
 # ─────────────────────────────────────────────────────────────────
 
 $scoreboard players set $fn_v macro.tmp $(value)

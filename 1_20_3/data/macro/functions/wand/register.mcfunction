@@ -11,9 +11,9 @@
 # OUTPUT: record added to macro:engine wand_binds list
 #
 # EXAMPLE:
-#   data modify storage macro:input tag set value "fire_wand"
-#   data modify storage macro:input func set value "mypack:on_fire_wand"
-#   function macro:wand/register with storage macro:input {}
+# data modify storage macro:input tag set value "fire_wand"
+# data modify storage macro:input func set value "mypack:on_fire_wand"
+# function macro:wand/register with storage macro:input {}
 # ─────────────────────────────────────────────────────────────────
 
 execute unless data storage macro:engine wand_binds run data modify storage macro:engine wand_binds set value []

@@ -6,13 +6,13 @@
 #
 # INPUT : $(key_a) → first flag key
 #         $(key_b) → second flag key
-# OUTPUT: macro:output result   → 1b if either flag set, 0b if neither
-#         macro:output result_a → 1b if key_a set, 0b otherwise
-#         macro:output result_b → 1b if key_b set, 0b otherwise
+# OUTPUT: macro:output result → 1b if either flag set, 0b if neither
+# macro:output result_a → 1b if key_a set, 0b otherwise
+# macro:output result_b → 1b if key_b set, 0b otherwise
 #
 # EXAMPLE:
-#   function macro:flag/any {key_a:"pvp_enabled",key_b:"war_active"}
-#   → macro:output result = 1b  (if either is set)
+# function macro:flag/any {key_a:"pvp_enabled",key_b:"war_active"}
+# → macro:output result = 1b (if either is set)
 # ─────────────────────────────────────────────────────────────────
 
 data modify storage macro:output result_a set value 0b

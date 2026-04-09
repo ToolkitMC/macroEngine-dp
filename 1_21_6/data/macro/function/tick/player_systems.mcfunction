@@ -14,9 +14,9 @@ function macro:perm/trigger/internal/tick_start
 
 scoreboard players remove @a[scores={macro.dialog_load=1..}] macro.dialog_load 1
 
-# Countdown actionbar: dialog loading sırasında kalan tick'i göster
-#execute as @a[scores={macro.dialog_load=1..},tag=macro.dialog_opened,tag=!macro.dialog_closed] run title @s actionbar ["",{"text":"Loading  ","color":"aqua","bold":true},{"score":{"name":"@s","objective":"macro.dialog_load"},"color":"yellow","bold":true},{"text":" ticks","color":"gray"}]
-execute as @a[scores={macro.dialog_load=1..}] run title @s actionbar ["",{"text":"Loading  ","color":"aqua","bold":true},{"score":{"name":"@s","objective":"macro.dialog_load"},"color":"yellow","bold":true},{"text":" ticks","color":"gray"}]
+# Countdown actionbar: show remaining ticks while dialog is loading
+#execute as @a[scores={macro.dialog_load=1..},tag=macro.dialog_opened,tag=!macro.dialog_closed] run title @s actionbar ["",{"text":"Loading ","color":"aqua","bold":true},{"score":{"name":"@s","objective":"macro.dialog_load"},"color":"yellow","bold":true},{"text":" ticks","color":"gray"}]
+execute as @a[scores={macro.dialog_load=1..}] run title @s actionbar ["",{"text":"Loading ","color":"aqua","bold":true},{"score":{"name":"@s","objective":"macro.dialog_load"},"color":"yellow","bold":true},{"text":" ticks","color":"gray"}]
 
 execute as @a[scores={macro.dialog_load=0},tag=macro.dialog_closed] at @s run function macro:dialog/open
 execute as @a[scores={macro.dialog_load=0},tag=!macro.dialog_closed,tag=!macro.dialog_opened] at @s run function macro:dialog/open

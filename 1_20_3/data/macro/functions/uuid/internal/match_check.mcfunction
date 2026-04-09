@@ -1,5 +1,5 @@
 # ============================================================
-# macro:uuid/internal/match_check  [MACRO FUNCTION]
+# macro:uuid/internal/match_check [MACRO FUNCTION]
 # Dynamically compares the current UUID string with _match_target
 #
 # Call: function macro:uuid/internal/match_check with storage macro:input

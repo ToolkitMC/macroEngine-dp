@@ -3,14 +3,14 @@
 # Converts int array in macro:input value to UUID string
 #
 # KULLANIM:
-#   data modify storage macro:input value set value [I; a, b, c, d]
-#   function macro:uuid/from_array
+# data modify storage macro:input value set value [I; a, b, c, d]
+# function macro:uuid/from_array
 #
 # INPUT:
-#   macro:input value → [I; int0, int1, int2, int3]
+# macro:input value → [I; int0, int1, int2, int3]
 #
 # OUTPUT:
-#   macro:input value → "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+# macro:input value → "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 #
 # Output is written to macro:input value (AME standard)
 # ============================================================

@@ -11,7 +11,7 @@
 # OUTPUT: macro:output result → 1b if flag was set, 0b if condition not met
 #
 # EXAMPLE:
-#   function macro:flag/set_if {key:"night_mode",score_holder:"$time",objective:"macro.tmp",matches:"..12000"}
+# function macro:flag/set_if {key:"night_mode",score_holder:"$time",objective:"macro.tmp",matches:"..12000"}
 # ─────────────────────────────────────────────────────────────────
 
 data modify storage macro:output result set value 0b

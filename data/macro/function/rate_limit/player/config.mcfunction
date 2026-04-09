@@ -1,11 +1,11 @@
-# macro:rate_limit/player/config — Register per-player rate limit rule  [MACRO]
+# macro:rate_limit/player/config — Register per-player rate limit rule [MACRO]
 #
 # Creates one template rule. The player bucket key is "player:<key>:<player>".
 # This function registers the TEMPLATE rule used for ALL players under this key.
 # Individual player buckets are auto-created on first check.
 #
 # Usage:
-#   function macro:rate_limit/player/config {key:"shop",limit:3,window:600}
+# function macro:rate_limit/player/config {key:"shop",limit:3,window:600}
 #
 # This allows: $function macro:rate_limit/player/check {key:"shop",player:"$(player)"}
 #

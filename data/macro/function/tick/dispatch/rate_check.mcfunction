@@ -1,8 +1,8 @@
-# AME Tick — Rate/Offset Check  [MACRO]
+# AME Tick — Rate/Offset Check [MACRO]
 # Fires when (#tick_ctr - offset) % rate == 0.
 # Input: $(rate), $(offset), $(fn), $(condition)
 #
-# rate:1 = every tick  |  rate:20 = every second  |  rate:200 = every 10s
+# rate:1 = every tick | rate:20 = every second | rate:200 = every 10s
 # offset: phase shift, spreads channels so they don't all run on the same tick
 
 $scoreboard players set #rate macro.tick $(rate)

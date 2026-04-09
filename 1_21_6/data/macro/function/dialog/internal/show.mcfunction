@@ -1,8 +1,8 @@
 # ─────────────────────────────────────────────────────────────────
-#  macro:dialog/show  [1.21.6+ overlay]
-#  Shows the dialog stored at macro:engine dialog.DIALOG as inline JSON.
-#  Called by dialog/open after validation.
-#  Uses show_macro_exec to pipe DIALOG compound as inline dialog.
+# macro:dialog/show [1.21.6+ overlay]
+# Shows the dialog stored at macro:engine dialog.DIALOG as inline JSON.
+# Called by dialog/open after validation.
+# Uses show_macro_exec to pipe DIALOG compound as inline dialog.
 # ─────────────────────────────────────────────────────────────────
 
 execute if entity @s[tag=macro.dialog_opened] at @s run return 0

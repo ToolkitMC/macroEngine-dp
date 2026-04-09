@@ -1,15 +1,15 @@
 # ─────────────────────────────────────────────────────────────────
 # macro:wand/cooldown_check
 # Wand cooldown aktif mi kontrol eder.
-# NOT: Wand cooldown'ları macro:engine wand_cooldowns altında saklanır;
-#      bu sayede macro:cooldown modülünün "$(player).$(key)" yoluyla
-#      çakışma riski tamamen ortadan kalkar.
+# NOTE: Wand cooldowns are stored under macro:engine wand_cooldowns;
+#      this avoids collision with macro:cooldown module's "$(player).$(key)" path
+# so there is zero risk of key collision.
 #
 # INPUT:
 #   $(player) → player name
 #   $(tag)    → wand tag
 # OUTPUT:
-#   macro:output result → 0b=hazır (cooldown yok), 1b=cooldown aktif
+# macro:output result → 0b=ready (no cooldown), 1b=cooldown active
 # ─────────────────────────────────────────────────────────────────
 
 data modify storage macro:output result set value 0b
